@@ -5,189 +5,82 @@
 FC.content = {
   "lessons": [
     {
-      "slug": "01_first-folder",
-      "name": "Lesson 1 — Your First Folder",
+      "slug": "0-0_start-here",
+      "name": "Start Here",
       "section": 1,
       "spine": 1,
       "boundary": false,
-      "hash": "76336cec298c",
-      "hook": "A working folder that changes how Claude responds to you.",
+      "hash": "082cb2840103",
+      "hook": "Foundations gets AI working inside your own files, on your own work.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "Why this course",
           "paras": [
             {
-              "text": "Right now, most people open Claude, type a question, and start over every time. Every conversation begins from zero. You spend half the message explaining who you are, what you are working on, and what you need. Then you hit the token limit, start a new chat, and do it all again.",
+              "text": "Most people use AI like a really smart search bar. They ask it something, copy the answer, paste it somewhere, and then tomorrow they start over with a blank chat. That works. It's also about the smallest thing you can do with it.",
               "pre": false
             },
             {
-              "text": "The folder fixes that.",
+              "text": "Case in point: the Foundations videos themselves. The script, the animation, the little pixel Jake pointing at stuff. All of it came out of one folder on his computer. Later in the course he opens that folder up and shows how it's built, so you can build one around whatever you do, videos or not.",
               "pre": false
             },
             {
-              "text": "You give Claude a small set of files. Those files tell it who you are, what the project is, and what good work looks like. Claude reads them and its responses change. You will notice it in the first message.",
-              "pre": false
-            },
-            {
-              "text": "This is the quick version. We are getting you a win right now. If you want to understand why this works (context windows, tokens, routing, the full architecture), that is all shown and explained in Section 3. You do not need any of that to start. You just need three files.",
+              "text": "You don't need to know how to code. Almost everything you'll see is plain English sitting in text files.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Step 1: Make the Folder",
+          "title": "The map: three layers",
           "paras": [
             {
-              "text": "Open your code editor (VS Code or Cursor from Lesson 1.1). Create a new folder. Name it after whatever you are working on.",
+              "text": "Layer 1, chat: you and a chatbot going back and forth, copying and pasting. That's 1.1.",
               "pre": false
             },
             {
-              "text": "my-first-workspace/",
+              "text": "Layer 2, skills and saved prompts: the stuff you keep retyping, written down once. That's 1.2.",
+              "pre": false
+            },
+            {
+              "text": "Layer 3, folders and one agent: the AI works right inside the files on your computer, and one sentence can reach all of it. That's 1.3.",
+              "pre": false
+            },
+            {
+              "text": "The layers are about how you organize and reuse your work, so there's no ceiling on them. Layer 3 goes as advanced as you want.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Step 2: Create Three Files",
+          "title": "The modules",
           "paras": [
             {
-              "text": "Inside that folder, create three files. Use .md (markdown) if you can. Plain .txt works too.",
+              "text": "Module 1, The Three Layers: one hands-on lesson per layer, plus 1.4 on picking your setup.",
               "pre": false
             },
             {
-              "text": "File 1: CLAUDE.md",
+              "text": "Module 2, Build It Around Your Work: start with the outcome you want, design a folder around it, then give that folder different jobs.",
               "pre": false
             },
             {
-              "text": "This tells Claude who it is working for and how to behave.",
-              "pre": false
-            },
-            {
-              "text": "# Identity",
-              "pre": false
-            },
-            {
-              "text": "You are helping [YOUR NAME] with [WHAT YOU DO].",
-              "pre": false
-            },
-            {
-              "text": "## Rules\n- Write in plain, clear language\n- Ask clarifying questions before making assumptions\n- When you are unsure, say so",
-              "pre": true
-            },
-            {
-              "text": "Replace the brackets with your info. Keep it short.",
-              "pre": false
-            },
-            {
-              "text": "File 2: CONTEXT.md",
-              "pre": false
-            },
-            {
-              "text": "This tells Claude what you are working on right now.",
-              "pre": false
-            },
-            {
-              "text": "# Current Project",
-              "pre": false
-            },
-            {
-              "text": "## What we are building\n[Describe your project in 2-3 sentences]",
-              "pre": true
-            },
-            {
-              "text": "## What good looks like\n[What does a successful output look like?]",
-              "pre": true
-            },
-            {
-              "text": "## What to avoid\n[Common mistakes or things you do not want]",
-              "pre": true
-            }
-          ]
-        },
-        {
-          "title": "File 3: REFERENCES.md",
-          "paras": [
-            {
-              "text": "Background material. Examples, links, notes, anything Claude should know about but does not need to act on directly.",
-              "pre": false
-            },
-            {
-              "text": "# References",
-              "pre": false
-            },
-            {
-              "text": "## Examples of good work\n[Paste an example or describe what you liked about it]",
-              "pre": true
-            },
-            {
-              "text": "## Relevant links\n[URLs, docs, resources for this project]",
-              "pre": true
-            },
-            {
-              "text": "## Notes\n[Anything else Claude should know]",
-              "pre": true
-            },
-            {
-              "text": "That is it. Three files.",
+              "text": "Module 3, Automate It: stages you can step into, code for the steady parts, and keeping the whole thing useful. You still step in wherever your judgment matters.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Step 3: Point Claude At It",
+          "title": "What you need",
           "paras": [
             {
-              "text": "If you are using Claude Code (terminal): Navigate to the folder, type claude. It reads the files automatically.",
+              "text": "A Claude or ChatGPT account. On Claude, the free plan covers 1.1 and 1.2. From 1.3 on you'll want the Claude desktop app on a paid plan, or Codex if you're on the ChatGPT side. You're already in Claude Code, so you've got what 1.3 needs.",
               "pre": false
             },
             {
-              "text": "cd my-first-workspace\nclaude",
-              "pre": true
-            },
-            {
-              "text": "Ask it something about your project. Notice how different the response is.",
+              "text": "Apps change every couple of weeks, so each lesson keeps the current setup details with a date on them. If a button has moved, the official page wins.",
               "pre": false
             },
             {
-              "text": "If you are using Claude in the browser (claude.ai): Two options:",
-              "pre": false
-            },
-            {
-              "text": "Projects: Create a Project, upload your three files as Project Knowledge, and start a conversation inside that Project. Claude references them in every message.",
-              "pre": false
-            },
-            {
-              "text": "Copy and paste: Copy the contents of all three files and paste them at the top of your first message. Less elegant. Works fine.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Step 4: See The Difference",
-          "paras": [
-            {
-              "text": "Ask Claude something related to your project. Compare what you get now versus what you would have gotten cold.",
-              "pre": false
-            },
-            {
-              "text": "The response should feel more specific, more relevant, more like talking to someone who already knows what you are working on. Because now it does.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "What just happened?",
-          "paras": [
-            {
-              "text": "You gave Claude three things it never has in a normal chat: who you are, what the project is, and what good looks like. That is the whole idea. The files carry context so you do not have to re-explain it every time.",
-              "pre": false
-            },
-            {
-              "text": "You can edit these files whenever your project changes. You can add more files when you need Claude to know more. You can create separate folders for separate projects. The system grows with you.",
-              "pre": false
-            },
-            {
-              "text": "This is the starting point. There is a full architecture underneath this (three layers, routing tables, naming conventions, production pipelines) and it is all covered in Section 3 when you are ready for it. But everything in Section 3 builds on what you just did. These three files are the foundation.",
+              "text": "Two extra sections live in the Skool classroom: Live Lessons, longer recordings of Jake working through real stuff with people, and History and Concepts, where he digs into Engelbart, Unix and why any of this works in the first place. Dip into either one whenever you want to go deeper.",
               "pre": false
             }
           ]
@@ -195,273 +88,129 @@ FC.content = {
       ]
     },
     {
-      "slug": "02_prompt-structure",
-      "name": "Lesson 2 — How to Structure Any Prompt",
+      "slug": "1-1_chat",
+      "name": "1.1 Chat",
       "section": 1,
       "spine": 1,
-      "boundary": true,
-      "hash": "4e4f855c79ee",
-      "hook": "A framework for building prompts that get useful results on the first try.",
+      "boundary": false,
+      "hash": "1d913eea1a51",
+      "hook": "A real piece of work out of a chat, corrected until it's actually right, and a list of the corrections worth keeping.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "What a chat can do right now",
           "paras": [
             {
-              "text": "A prompt is an instruction set. The clearer the instruction, the better the result. Most people write prompts the way they send a text message. That works for simple questions. It falls apart the moment you want Claude to do real work.",
+              "text": "People are building real stuff in a chat. Little working apps: a pricing calculator, a dashboard off a spreadsheet, a game for their kid. They drop in a messy spreadsheet and get the chart and the summary back. Slide decks, research write-ups with the sources linked, all from one box.",
               "pre": false
             },
             {
-              "text": "If you went through Section 1.2: Your First Folder, you already know that giving Claude structured context changes the output. The folder handles the big picture: who you are, what the project is, what good looks like. This lesson handles the individual ask. Each time you need Claude to do something specific, how do you phrase it so you get something useful back?",
+              "text": "Jake has been working with these models since the original BERT models, before ChatGPT existed. Back then he'd paste prompts in by hand, in a specific order, wait for the answer, check it, paste the next one. For his psychometrics research he wrote Python scripts that fired prompts at a bunch of models at once, over ten thousand responses. The stuff he built the hard way back then, he can now kick off with one short sentence, because all the complicated parts got written down into skills and folders underneath it.",
               "pre": false
             },
             {
-              "text": "Five parts. You will not use all five every time. But knowing them means you always know which one is missing when the output is not right.",
+              "text": "That's the shape of the whole course. You start simple in a chat, build up the complicated stuff, and it folds back into one simple sentence with all that work behind it.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Part 1: Identity — Who is Claude right now?",
+          "title": "Where to click (checked 6 October 2026)",
           "paras": [
             {
-              "text": "Tell Claude what role to fill. This shapes the vocabulary, the depth, and the assumptions it makes.",
+              "text": "Go to claude.ai or chatgpt.com, or open the app, and sign in. The moves are almost the same in both.",
               "pre": false
             },
             {
-              "text": "You are a senior copywriter who writes for B2B SaaS companies.",
+              "text": "The box in the middle is where everything goes.",
               "pre": false
             },
             {
-              "text": "You are a research assistant helping me prepare a literature review.",
+              "text": "The + on the box is how you hand it stuff: a PDF, a spreadsheet, a screenshot, a photo of your whiteboard. The microphone lets you talk instead of type. Jake uses it half the time.",
               "pre": false
             },
             {
-              "text": "You are a Python developer who writes clean, well-documented code.",
+              "text": "Ask for something bigger (a one-pager, a chart, a small app) and it opens in a panel next to the chat. Claude calls these artifacts, ChatGPT calls its version canvas. Keep shaping it by talking: \"make the header blue\", \"add a column for the date\".",
               "pre": false
             },
             {
-              "text": "If you set up a CLAUDE.md file in 1.2, this part is already handled for your project. The file does this work for you in every conversation. But for one-off tasks or tasks where you need Claude to shift roles, you add identity at the top of your prompt.",
-              "pre": false
-            },
-            {
-              "text": "One note: identity is the part most people skip. They jump straight to \"write me a blog post\" without telling Claude who is writing it. The output is always more generic without it.",
+              "text": "New chat sits at the top of the sidebar. New job, new chat.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Part 2: Task — What needs to get done?",
+          "title": "The model is the brain",
           "paras": [
             {
-              "text": "Be specific. \"Help me write something\" is vague. \"Write a 200-word product description for [X] targeting [Y] audience\" gives Claude something to work with.",
-              "pre": false
-            },
-            {
-              "text": "Good tasks have three things:",
-              "pre": false
-            },
-            {
-              "text": "A clear action — write, review, analyze, compare, build, fix, summarize",
-              "pre": false
-            },
-            {
-              "text": "A defined scope — how long, how many, what format, what section",
+              "text": "The model is the brain, the app is everything around it: what it can open, run and save. The same brain feels smarter in an app that can touch your files. This comes back in 1.3.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Enough detail that someone unfamiliar with your project could attempt it",
+          "title": "The desk",
           "paras": [
             {
-              "text": "If you read your task out loud and a stranger could not start working on it without asking you five follow-up questions, the task is too vague.",
+              "text": "The AI only sees what's on its desk for this conversation. That's what you typed, what you attached, and a little memory. It has no idea who your clients are, how you like your emails, or what you meant by \"the usual.\"",
+              "pre": false
+            },
+            {
+              "text": "If it's not on the desk, it guesses. If you dump everything on the desk, it guesses which one you meant.",
+              "pre": false
+            },
+            {
+              "text": "That's why an old chat drags the last job into the new one. If it has ever randomly brought up something from an hour ago, that's why. New job, new chat.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Part 3: Context — What does Claude need to know?",
+          "title": "Every word in a prompt is a question",
           "paras": [
             {
-              "text": "This is the background. The constraints. The audience. Prior decisions. Relevant data. Anything Claude needs to do the task well that it would not know on its own.",
+              "text": "\"Write a reply\" hides reply how, reply as who, promise what. Formal or casual? Long or short? What do you usually promise people?",
               "pre": false
             },
             {
-              "text": "If you are using the folder structure from 1.2, your CONTEXT.md handles the project-level stuff. But for individual prompts, you can also give context directly:",
-              "pre": false
-            },
-            {
-              "text": "We are a 15-person startup. Our customers are mid-market HR directors. We just launched a feature that automates onboarding checklists. Here is the feature spec: [paste spec]",
-              "pre": false
-            },
-            {
-              "text": "The more relevant context you give, the less Claude has to guess. Guessing is where AI outputs go sideways. If the output feels generic or off-target, the fix is almost always more context, not a better prompt.",
+              "text": "Something has to answer each one: a file you wrote, a connection to your stuff, or you. In a chat, the answer is you, every time.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Part 4: Constraints — What should Claude avoid?",
+          "title": "The worked example",
           "paras": [
             {
-              "text": "This is the part where most people leave value on the table. Telling Claude what you do NOT want is just as useful as telling it what you do want.",
+              "text": "In the video it's a client email asking to move a workshop. Jake pastes it in and types: \"Write a reply. I can't do the 14th but the 21st works. Keep it short.\"",
               "pre": false
             },
             {
-              "text": "Do not use jargon. Write at an 8th grade reading level.",
+              "text": "What comes back is fine, but weirdly formal. It opens with \"I hope this email finds you well,\" which nobody in history has ever meant. And it promises them the room, which isn't booked. So he corrects it in plain words: \"too formal, I'd never say that\", \"don't promise the room yet\", \"just sign it Jake\". Three corrections, and now it's something he'd send.",
               "pre": false
             },
             {
-              "text": "Do not suggest solutions that require a paid API. Everything should use free tools.",
-              "pre": false
-            },
-            {
-              "text": "Keep it under 300 words. No bullet points. Write in paragraphs.",
-              "pre": false
-            },
-            {
-              "text": "Do not start with \"In today's world\" or any variation of it.",
-              "pre": false
-            },
-            {
-              "text": "Constraints save you editing time. Every constraint you give is a mistake Claude will not make. Think about the last three times an AI output annoyed you. Those annoyances are constraints you did not set.",
+              "text": "Every correction was a decision. Too formal is about his voice. The room is about what he actually knows, and that one's a big deal, because a wrong promise costs way more than a stiff sentence. The sign-off is about who he is to this person.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Part 5: Output Format — What should the result look like?",
+          "title": "Where layer one starts to hurt",
           "paras": [
             {
-              "text": "Tell Claude the shape of the answer. A list? A table? Three options to choose from? A code block with comments? A draft with placeholder sections?",
+              "text": "Next week another email comes in, and he's typing \"too formal\" again. \"Don't promise things we haven't booked\" again. \"Sign it Jake\" again.",
               "pre": false
             },
             {
-              "text": "Give me three headline options, each under 10 words, followed by a one-sentence explanation of the angle.",
+              "text": "Both apps can remember a little about you now, which is nice. But the app decides what it keeps, and your way of doing this job still isn't written down step by step anywhere you could hand to somebody else.",
               "pre": false
             },
             {
-              "text": "Return this as a markdown table with columns for Task, Owner, Deadline, and Status.",
+              "text": "People fix that with saved prompts: a big one they paste in every time, or a doc full of favorites. That's the start of layer two. But you're still the one carrying everything from chat to chat. The move is to take the corrections you keep typing and write them down once, somewhere the AI can pick them up on its own. That's a skill, and that's 1.2.",
               "pre": false
             },
             {
-              "text": "Write the first draft with [PLACEHOLDER] wherever I need to fill in company-specific details.",
-              "pre": false
-            },
-            {
-              "text": "Give me the answer as a numbered list, then add a one-paragraph summary at the end.",
-              "pre": false
-            },
-            {
-              "text": "Output format is the difference between getting something you can use immediately and getting something you have to reformat for 20 minutes.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "When to use which parts",
-          "paras": [
-            {
-              "text": "You do not need all five in every prompt. Here is the shortcut:",
-              "pre": false
-            },
-            {
-              "text": "If your task is... You probably need... Simple and quick (rename this, fix this typo) Task only Creative (write this, design this) Identity + Task + Constraints + Output Format Complex (build this system, analyze this data) All five Ongoing (a project over many messages) Identity and Context in your folder files. Task and Constraints in each prompt.",
-              "pre": false
-            },
-            {
-              "text": "Notice the last row. That is where the folder structure from 1.2 and this prompting framework connect. Your files carry the persistent stuff (identity, project context, rules). Your prompts carry the per-task stuff (what to do right now, what to avoid this time, what shape the output should take).",
-              "pre": false
-            },
-            {
-              "text": "The folder is memory. The prompt is direction. They work together.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Chunking: breaking big projects into prompts",
-          "paras": [
-            {
-              "text": "If your project is bigger than a single prompt can handle, break it into steps.",
-              "pre": false
-            },
-            {
-              "text": "The rule: each prompt should ask for one clear thing.",
-              "pre": false
-            },
-            {
-              "text": "Too much at once: \"Write me a full marketing strategy with a content calendar, email sequences, and social posts for the next quarter.\"",
-              "pre": false
-            },
-            {
-              "text": "Claude will try to do all of it. The output will be shallow across the board because it is spreading its effort too thin.",
-              "pre": false
-            },
-            {
-              "text": "Chunked into steps:",
-              "pre": false
-            },
-            {
-              "text": "\"Here is our product and audience. Outline the three main themes for Q2 content.\"",
-              "pre": false
-            },
-            {
-              "text": "[You review. You adjust. You pick a direction.]",
-              "pre": false
-            },
-            {
-              "text": "\"Take theme 1 and draft a 4-week content calendar.\"",
-              "pre": false
-            },
-            {
-              "text": "[You review. You adjust.]",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "\"Write the first email in the nurture sequence for theme 1.\"",
-          "paras": [
-            {
-              "text": "Each step builds on the last. You review and correct between steps. Claude gets cleaner input each time because you narrowed the scope. And if something goes wrong at step 3, you only redo step 3, not the whole thing.",
-              "pre": false
-            },
-            {
-              "text": "This is the same principle behind the folder architecture. You do not dump everything into one giant file. You break it into layers. Prompting works the same way.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "A real example: one prompt, five parts",
-          "paras": [
-            {
-              "text": "Here is what it looks like when you put all five parts together. This is a single prompt:",
-              "pre": false
-            },
-            {
-              "text": "You are a technical writer who explains complex topics to a non-technical audience.\n(Identity)",
-              "pre": true
-            },
-            {
-              "text": "Write a 300-word explanation of how API keys work and why someone would need one.\n(Task)",
-              "pre": true
-            },
-            {
-              "text": "This is for a community of people who are learning to use AI tools. Most of them\nhave never written code. They are encountering API keys for the first time because\nthey are setting up Claude Code.\n(Context)",
-              "pre": true
-            },
-            {
-              "text": "Do not use jargon without explaining it. Do not assume they know what a server is.\nKeep sentences short.\n(Constraints)",
-              "pre": true
-            },
-            {
-              "text": "Start with a one-sentence analogy, then explain the concept, then give them the\nthree steps to get their first API key. End with a one-line reassurance that this\nis easier than it sounds.\n(Output Format)",
-              "pre": true
-            },
-            {
-              "text": "You will not always write prompts this long. But when you are getting vague or unhelpful responses, you can look at this structure and ask: which part am I missing?",
+              "text": "One more word you'll hear a lot: agent. For now, just know that when the AI starts using tools on its own (opening files, running things, checking its own work, going again), that's what people mean. It's way less mysterious than it sounds. That's 1.3.",
               "pre": false
             }
           ]
@@ -469,260 +218,163 @@ FC.content = {
       ]
     },
     {
-      "slug": "03_full-walkthrough",
-      "name": "Lesson 3 — Full Walkthrough",
+      "slug": "1-2_skills",
+      "name": "1.2 Skills (and Projects)",
       "section": 2,
       "spine": 2,
       "boundary": false,
-      "hash": "7fed896f1bd0",
-      "hook": "A working folder system that tells Claude where it is, what to do, and where to put the work.",
+      "hash": "e286a9c826b2",
+      "hook": "Your first skill, made from your own corrections and working in a brand new chat without you retyping a thing, plus a Project set up for your files.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "A process can be written down",
           "paras": [
             {
-              "text": "The problem with how most people use AI",
+              "text": "Back in 1.1 you heard about pasting prompts in by hand, in order, and then writing scripts to fire them off at scale. At some point you realize all of that is a process. And a process can be written down.",
               "pre": false
             },
             {
-              "text": "Right now, most people open Claude or ChatGPT, type something, get a response, and start over. Maybe they save a good prompt somewhere and paste it in again next time. Maybe they hit the token limit and have to start a new conversation. Maybe they spend half the message just re-explaining who they are and what they are working on.",
-              "pre": false
-            },
-            {
-              "text": "That works for quick questions. It falls apart the moment you try to do real, ongoing work. You are burning tokens on stuff that does not matter. You cannot edit what the AI produces at each step. And every conversation starts from zero.",
-              "pre": false
-            },
-            {
-              "text": "The folder structure fixes all of that.",
+              "text": "Somebody goes through all the back and forth, figures out the right instructions in the right order, the stuff that makes the output actually good, and packages it up so the AI can run it. That's a skill.",
               "pre": false
             }
           ]
         },
         {
-          "title": "What tokens are and why this matters",
+          "title": "What a skill is",
           "paras": [
             {
-              "text": "Before we get into the structure, you need to understand one thing: tokens.",
+              "text": "A skill is a process written down so the AI can run it. It's a folder with one file inside called SKILL.md.",
               "pre": false
             },
             {
-              "text": "A token is roughly three quarters of a word. Sometimes a single word. Sometimes a long word like \"hamburger\" is three tokens. The term comes from NLP research in the 1990s. Researchers needed a unit smaller than a word because language does not break the same way across every language. They borrowed \"token\" from linguistics, which borrowed it from old English \"taken,\" meaning a sign or a symbol. A token is just the smallest meaningful chunk of a sentence.",
+              "text": "At the top: a name, and a description of what it's for and when to use it.",
               "pre": false
             },
             {
-              "text": "There are only so many tokens an AI can hold in its context window before it starts failing. When people say \"context window,\" they mean how many tokens the AI can see at once. That window is finite.",
+              "text": "Under that: the steps, in plain English, the way you'd brief a new hire on day one.",
               "pre": false
             },
             {
-              "text": "So if you dump everything into one conversation, an AI writing a blog post is also reading your video production notes. You are wasting tokens on information that has nothing to do with the task. The folder structure solves this by separating your work into areas and only loading what is needed for the task at hand.",
+              "text": "Sometimes: templates or small scripts in the same folder. But the heart of it is that one file.",
               "pre": false
             }
           ]
         },
         {
-          "title": "The workspace blueprint: three workspaces for three kinds of work",
+          "title": "Markdown, and the clean desk",
           "paras": [
             {
-              "text": "Here is the concept. Instead of one giant conversation or one massive file, you break your work into separate workspaces. Each workspace handles a different kind of work.",
+              "text": "The .md means markdown: a text file with a tiny bit of formatting, dashes for bullets and # for headers. John Gruber came up with it in 2004. Your AI already writes in it. All those bold words and bullet points in its answers? That's markdown.",
               "pre": false
             },
             {
-              "text": "For example:",
-              "pre": false
-            },
-            {
-              "text": "Community — content, docs, community management",
-              "pre": false
-            },
-            {
-              "text": "Production — scripts, animations, code, builds",
+              "text": "The AI only sees the names and descriptions of your skills until your request matches one. Then it opens that skill and follows it. That's the desk from 1.1, kept clean. You can have a hundred skills and it only pulls the one this job needs.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Writing Room — blog posts, newsletters, thinking, client work",
+          "title": "Where to click (checked 6 October 2026)",
           "paras": [
             {
-              "text": "These are just examples. Your workspaces will look different depending on what you do. A freelancer might have Client Intake, Delivery, and Admin. A developer might have Frontend, Backend, and Docs. The names change. The structure stays the same.",
+              "text": "See your skills in Claude: Customize in the left sidebar, then Skills. Some are from Anthropic, some from other companies: PowerPoint, PDFs, designs, spreadsheets. And you can make your own.",
+              "pre": false
+            },
+            {
+              "text": "No skills showing: turn on code execution in Settings, under Capabilities. Skills need it.",
+              "pre": false
+            },
+            {
+              "text": "Add a skill someone else made: download it, then Customize, Skills, the + button, and upload.",
+              "pre": false
+            },
+            {
+              "text": "ChatGPT and Codex use skills in nearly the same format, so what you build travels with you.",
+              "pre": false
+            },
+            {
+              "text": "Projects: Projects in the sidebar, then a new project. Project knowledge holds your files, and the instructions apply to every chat in that project.",
               "pre": false
             }
           ]
         },
         {
-          "title": "The three layer routing system",
+          "title": "Make your first skill",
           "paras": [
             {
-              "text": "This is the core of the whole thing. Three layers. Each one has a job.",
+              "text": "Start a new chat and say: \"I want a skill for replying to client emails.\" Paste in your corrections from 1.1.",
               "pre": false
             },
             {
-              "text": "Layer 1: The Map (CLAUDE.md)",
+              "text": "Claude actually interviews you. Answer its questions: what it should do, when it should kick in, a reply you liked. Then it writes the SKILL.md file and hands it to you to save.",
               "pre": false
             },
             {
-              "text": "This is the top-level file. It sits at the root of your project folder. Every time Claude enters this workspace, it reads this file first.",
-              "pre": false
-            },
-            {
-              "text": "Think of it as the floor plan. You walk into any building, the floor plan is on the wall, and you know where to go. The CLAUDE.md file tells the AI:",
-              "pre": false
-            },
-            {
-              "text": "What this project is",
-              "pre": false
-            },
-            {
-              "text": "What the folder structure looks like",
-              "pre": false
-            },
-            {
-              "text": "Naming conventions for files",
+              "text": "Read it. Seriously, read it. Sometimes it writes down a rule you never said, or turns one example into a law for everything. This is your process now, so it should sound like you. Tell it what to fix and it rewrites the file. It's all just English.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Where things go",
+          "title": "Jake's skill, from the video",
           "paras": [
             {
-              "text": "This is the most important pattern in the whole system. Inside it, you put a simple table that tells the AI: for this task, read these files, skip those files, you might need these skills.",
-              "pre": false
+              "text": "---\nname: how-i-reply\ndescription: Use when replying to client emails. Writes a short, casual reply in Jake's voice and never promises a date, room or price that the client's notes don't confirm.\n---\n# How I reply\n1. Match their length. A three-line email gets a three-line reply.\n2. Keep it short and casual. Never open with \"I hope this email finds you well\".\n3. Answer what they asked, first.\n4. Never promise a date, a room or a price unless the client's notes confirm it. If they don't, say we'll confirm it and by when.\n5. Sign it \"Jake\".",
+              "pre": true
             },
             {
-              "text": "Without this, the AI either reads everything and wastes tokens, guesses wrong about what matters, or produces work you cannot edit along the way. This table eliminates all of those problems.",
+              "text": "That's literally the list of corrections from 1.1, written down once, plus a couple of things it picked up when it interviewed him.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Layer 2: The Rooms (Workspace Context Files)",
+          "title": "The test",
           "paras": [
             {
-              "text": "Each workspace has its own context file. When you tell Claude to work in the Writing Room, it reads the Writing Room context file. When you are in Production, it reads the Production context file. It only loads what it needs for where it is.",
+              "text": "New chat, empty desk. Paste in the next email and type \"reply to this\". That's it. No speech about tone, nothing.",
               "pre": false
             },
             {
-              "text": "These context files describe:",
+              "text": "It should say it's using your skill, and the draft comes back short and casual, nothing promised that isn't booked, signed right. None of your corrections need retyping.",
               "pre": false
             },
             {
-              "text": "What this workspace is for",
-              "pre": false
-            },
-            {
-              "text": "What the process looks like (first I do this, then I do that)",
-              "pre": false
-            },
-            {
-              "text": "What files are in here and how they are organized",
+              "text": "It's the same move for anything you do over and over: how you write a proposal, how you check a spreadsheet before it goes to your boss, how you turn a call into meeting notes, how you review code. Jake trained a team at a company in Dubai, people who barely touched AI. In their first four days they mapped 38 of their own workflows, which is this exact move: writing down how they actually do the job. In three weeks they'd turned a three-day pre-sales estimate into six hours.",
               "pre": false
             }
           ]
         },
         {
-          "title": "What skills or tools to use in this workspace",
+          "title": "Skill or project",
           "paras": [
             {
-              "text": "You can write these by hand or have Claude help you write them. They are plain English. Short documents. A few paragraphs.",
+              "text": "A skill is how you do a kind of job. How I reply to anybody.",
               "pre": false
             },
             {
-              "text": "You can see what happens with almost no prompting at all. You say \"go to writing room, let's start making something\" and the AI immediately reads the context file, understands the workspace, loads the right voice and style, and asks what you want to build. One prompt. That is the power of Layer 2.",
+              "text": "A project holds one area of your work. Everything about one client, your newsletter, the course you're building.",
+              "pre": false
+            },
+            {
+              "text": "Keep the client's facts in the project and the skill still works for the next client. Mix them and your skill starts promising every client the 21st. When a project gets big, not every file makes it onto the desk, so mention the one that matters by name.",
+              "pre": false
+            },
+            {
+              "text": "The instructions box in your settings is for things true in every chat, like your name. And if you've got a doc full of saved prompts, that's still layer 2. A skill's just the cleaner version the AI can pick up on its own.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Layer 3: The Tools (Skills, MCP Servers, and Plug-and-Play)",
+          "title": "Worth grabbing, and what's next",
           "paras": [
             {
-              "text": "Layer 3 is where skills and tools live. Skills are processes that someone figured out and packaged into a set of files that tell Claude how to do a specific thing. A PowerPoint skill. A humanizer skill. A doc co-authoring skill.",
+              "text": "humanizer: a skill that strips the AI-sounding stuff out of writing. Jake recommends it to basically everybody. Anthropic's skills on GitHub are worth opening and reading too. They're just folders and English.",
               "pre": false
             },
             {
-              "text": "The key here: you do not load every skill into every workspace. You wire skills into the workspaces where they are needed. Your Production workspace might reference a front-end design skill and a web app testing skill. Your Writing Room might reference a humanizer skill and a doc co-authoring skill.",
-              "pre": false
-            },
-            {
-              "text": "You can reference 15, 20, or 100 skills in a project, but each workspace only loads the ones it needs. That is the plug-and-play idea. And if you need Claude to find a new skill or create one, you can wire that ability in too.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Naming conventions that replace databases",
-          "paras": [
-            {
-              "text": "One more thing that makes this system work without any code or databases. In your CLAUDE.md, you add naming conventions.",
-              "pre": false
-            },
-            {
-              "text": "If a blog draft is created, it gets named like: api-auth-guide_draft.md If it is a newsletter, it gets named like: 2026-03-launch-week.md If it is a demo script version 2, it gets named like: demo_v2.md",
-              "pre": false
-            },
-            {
-              "text": "The AI knows how to find, organize, and move files because the naming tells it everything. You can say \"pull my demo v2 and build a spec from it\" and Claude knows exactly where to look, what to pull, and what to do next. No SQL. No vector database. No Python injection. Just naming conventions.",
-              "pre": false
-            },
-            {
-              "text": "The folder becomes your app. This is your UI. What simpler UI than a folder?",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "How to make this yours",
-          "paras": [
-            {
-              "text": "The template in the video uses a fake project with fake blog posts and demo scripts. That is intentional. You swap the names and rewrite the context files for your own work. The layers stay the same.",
-              "pre": false
-            },
-            {
-              "text": "If you are a content creator:",
-              "pre": false
-            },
-            {
-              "text": "Writing Room → Script Lab",
-              "pre": false
-            },
-            {
-              "text": "Production → Edit Bay",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Community → Distribution Hub",
-          "paras": [
-            {
-              "text": "If you are a freelancer:",
-              "pre": false
-            },
-            {
-              "text": "Swap workspaces for: Client Intake, Delivery, Admin",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Your context files describe your client process instead of content production",
-          "paras": [
-            {
-              "text": "If you are a developer:",
-              "pre": false
-            },
-            {
-              "text": "Swap workspaces for: Frontend, Backend, Docs",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Wire in the skills you actually use (testing, deployment, code review)",
-          "paras": [
-            {
-              "text": "The three-layer routing system (map → rooms → tools) works the same way no matter what you do. You change the labels and the context. The architecture holds.",
+              "text": "You'll notice you're still dragging files in by hand. A client sends a new brief, you upload it again. The AI writes a draft, you copy it out of the chat. And all your actual work lives on your computer. That's layer 3, folders and one agent, and it's where skills get really powerful, because they stop floating around and get wired into the actual work.",
               "pre": false
             }
           ]
@@ -730,259 +382,159 @@ FC.content = {
       ]
     },
     {
-      "slug": "04_customize",
-      "name": "Lesson 4 — Customizing for Your Use Case",
+      "slug": "1-3_folders-one-agent",
+      "name": "1.3 Folders and One Agent",
       "section": 2,
       "spine": 2,
       "boundary": false,
-      "hash": "709ba763296b",
-      "hook": "You will see how the three-layer folder architecture changes shape for three different kinds of work.",
+      "hash": "3630014bed15",
+      "hook": "The AI working right inside your folder, reading your files and saving its work back where you can open it, one short sentence that reaches all of it, and a clear idea of what an agent actually is.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "The agent problem is mostly solved",
           "paras": [
             {
-              "text": "One structure, every use case",
-              "pre": false
-            },
-            {
-              "text": "In Section 3.1 you saw the full architecture: a top-level identity file (CLAUDE.md), workspace-level context files, and skills or tools that plug in where needed. The example in the video used a fake project with a community workspace, a production workspace, and a writing room.",
-              "pre": false
-            },
-            {
-              "text": "That example was intentional. It is close enough to real work that you can see the logic, but generic enough that you have to make it your own. This lesson shows you how.",
-              "pre": false
-            },
-            {
-              "text": "The principle is short: the layers do not change. The labels do. Your CLAUDE.md still sits at the top and routes everything. Each workspace still has its own context file. Skills still plug in where they are needed. But what each workspace is called, what the context files say, and what skills are wired in will look completely different depending on what you actually do.",
-              "pre": false
-            },
-            {
-              "text": "Here are three real examples. Find the one closest to your situation, study it, then build your own.",
+              "text": "For most people, the agent problem is already solved. One good model, a good harness, and a good set of folders. A harness is just what 1.1 called the app: everything around the brain that lets it open files and run stuff.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Example 1: Content Creator",
+          "title": "What an agent is",
           "paras": [
             {
-              "text": "You make videos, write posts, manage a social presence, and probably do it mostly alone or with a very small team. Your work moves through a cycle: come up with ideas, write scripts or outlines, produce the content, publish it.",
+              "text": "The word agent scares a lot of people off for no reason. Simon Willison put it in one line: an LLM agent runs tools in a loop to achieve a goal. LLM just means the language model, the brain.",
               "pre": false
             },
             {
-              "text": "Your workspaces:",
+              "text": "The model reads something, does something, looks at what happened, decides what's next, and keeps going until the job's done. The tools are things like open this file, search this, save that, run this command.",
               "pre": false
             },
             {
-              "text": "my-content-project/\n├── CLAUDE.md\n├── script-lab/\n│   ├── CONTEXT.md\n│   ├── ideas/\n│   ├── drafts/\n│   └── final/\n├── production/\n│   ├── CONTEXT.md\n│   ├── briefs/\n│   ├── specs/\n│   ├── builds/\n│   └── output/\n└── distribution/\n    ├── CONTEXT.md\n    ├── platforms/\n    ├── scheduling/\n    └── analytics/",
-              "pre": true
-            },
-            {
-              "text": "What each workspace does:",
-              "pre": false
-            },
-            {
-              "text": "Script Lab — This is where thinking happens. Ideas go in. Drafts come out. The CONTEXT.md in this folder describes your voice, your audience, the kind of content you make, and the process you follow from idea to finished script. If you have a style guide or a list of topics you keep coming back to, that goes in here. Claude reads this context and writes in your voice from the first line.",
-              "pre": false
-            },
-            {
-              "text": "Production — This is where content gets built. If you are making animations, this is where your briefs, specs, and build files live. If you are making simple videos, this might be where your shot lists, thumbnails, and description templates go. The CONTEXT.md here describes your production process, your tools, your visual standards.",
-              "pre": false
-            },
-            {
-              "text": "Distribution — This is where finished content goes out. Platform-specific formatting (what works on Instagram vs LinkedIn vs YouTube), scheduling, repurposing long content into short clips. The CONTEXT.md describes your platforms, posting cadence, and any rules about how content should be adapted per channel.",
-              "pre": false
-            },
-            {
-              "text": "What the CLAUDE.md looks like:",
-              "pre": false
-            },
-            {
-              "text": "Your top-level file tells Claude what this project is and how to route between the three workspaces. Something like:",
-              "pre": false
-            },
-            {
-              "text": "# My Content Project",
-              "pre": false
-            },
-            {
-              "text": "I create [TYPE OF CONTENT] for [AUDIENCE].",
-              "pre": false
-            },
-            {
-              "text": "## Workspaces\n- /script-lab — Idea development, writing, drafts\n- /production — Building and producing content\n- /distribution — Publishing, scheduling, repurposing",
-              "pre": true
-            },
-            {
-              "text": "## Routing\n| Task | Go to | Read |\n|------|-------|------|\n| Write or brainstorm | /script-lab | CONTEXT.md |\n| Build or produce | /production | CONTEXT.md |\n| Publish or repurpose | /distribution | CONTEXT.md |",
-              "pre": true
-            },
-            {
-              "text": "## Naming conventions\n- Drafts: topic-name_draft.md\n- Final scripts: topic-name_final.md\n- Published: YYYY-MM-platform-topic.md",
-              "pre": true
-            }
-          ]
-        },
-        {
-          "title": "Example 2: Freelancer / Consultant",
-          "paras": [
-            {
-              "text": "You work with multiple clients. Each engagement has a lifecycle: intake, scoping, delivery, follow-up. You need Claude to shift between clients without bleeding context. You also need your own internal workspace for business development, templates, and admin.",
-              "pre": false
-            },
-            {
-              "text": "Your workspaces:",
-              "pre": false
-            },
-            {
-              "text": "my-consulting-practice/\n├── CLAUDE.md\n├── client-alpha/\n│   ├── CONTEXT.md\n│   ├── intake/\n│   ├── deliverables/\n│   └── communications/\n├── client-beta/\n│   ├── CONTEXT.md\n│   ├── intake/\n│   ├── deliverables/\n│   └── communications/\n├── templates/\n│   ├── CONTEXT.md\n│   ├── proposals/\n│   ├── reports/\n│   └── frameworks/\n└── business-dev/\n    ├── CONTEXT.md\n    ├── pipeline/\n    ├── outreach/\n    └── case-studies/",
-              "pre": true
-            },
-            {
-              "text": "What each workspace does:",
-              "pre": false
-            },
-            {
-              "text": "Client workspaces (one per client) — Each client gets their own folder with their own CONTEXT.md. That file describes who the client is, what the engagement is, what phase you are in, what the deliverables are, and any client-specific rules (tone of voice, terminology they use, things to avoid). When you tell Claude \"let's work on Alpha,\" it reads Alpha's context and nothing from Beta. No bleed. No confusion.",
-              "pre": false
-            },
-            {
-              "text": "Templates — Your reusable frameworks. Proposal templates, report structures, analysis frameworks. The CONTEXT.md here describes what each template is for and how to use it. When you start a new engagement, you pull from templates into the client folder and customize.",
-              "pre": false
-            },
-            {
-              "text": "Business Dev — Pipeline tracking, outreach drafts, case studies from past work. The CONTEXT.md describes your ideal client, your services, your positioning. When you need Claude to help draft an outreach email or build a case study, it reads this context.",
-              "pre": false
-            },
-            {
-              "text": "What the CLAUDE.md looks like:",
-              "pre": false
-            },
-            {
-              "text": "# My Consulting Practice",
-              "pre": false
-            },
-            {
-              "text": "I am a [TYPE] consultant working with [TYPES OF CLIENTS].",
-              "pre": false
-            },
-            {
-              "text": "## Active Clients\n- /client-alpha — [One-line description of engagement]\n- /client-beta — [One-line description of engagement]",
-              "pre": true
-            },
-            {
-              "text": "## Internal\n- /templates — Reusable proposals, reports, frameworks\n- /business-dev — Pipeline, outreach, case studies",
-              "pre": true
-            },
-            {
-              "text": "## Routing\n| Task | Go to | Read |\n|------|-------|------|\n| Client work for Alpha | /client-alpha | CONTEXT.md |\n| Client work for Beta | /client-beta | CONTEXT.md |\n| Build a new proposal | /templates | CONTEXT.md, then client folder |\n| Outreach or pipeline | /business-dev | CONTEXT.md |",
-              "pre": true
-            },
-            {
-              "text": "## Rules\n- Never reference one client's information in another client's workspace\n- Proposals always start from /templates and get customized in the client folder\n- Deliverables go in /client-[name]/deliverables, drafts stay in working folders",
-              "pre": true
-            },
-            {
-              "text": "The key for freelancers: the client folders multiply. When you onboard a new client, you copy the structure, write a new CONTEXT.md, and Claude is ready. The CLAUDE.md at the top gets one new line in the routing table. That is it.",
+              "text": "A research agent, a writing agent, an email agent: that's the same model reading different instructions with different tools. Agents are just a naming convention. The value comes from the instructions you write, what it can reach, and the outcome you want.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Example 3: Developer",
+          "title": "Where to click (checked 6 October 2026)",
           "paras": [
             {
-              "text": "You build software. You might work on one project or several. Your work involves planning, writing code, testing, deploying, and documenting. You probably already have opinions about folder structure. The difference here is that Claude reads it.",
+              "text": "Install: follow the desktop quickstart. The Code tab needs a Pro, Max, Team or Enterprise plan.",
               "pre": false
             },
             {
-              "text": "Your workspaces:",
+              "text": "Open your folder: Code, then Local, then select your folder. Its name shows just above the box. Claude Code reads the map file every single time it opens that folder.",
               "pre": false
             },
             {
-              "text": "my-app/\n├── CLAUDE.md\n├── planning/\n│   ├── CONTEXT.md\n│   ├── specs/\n│   ├── architecture/\n│   └── decisions/\n├── src/\n│   ├── CONTEXT.md\n│   ├── components/\n│   ├── services/\n│   ├── utils/\n│   └── tests/\n├── docs/\n│   ├── CONTEXT.md\n│   ├── api/\n│   ├── guides/\n│   └── changelog/\n└── ops/\n    ├── CONTEXT.md\n    ├── deploy/\n    ├── monitoring/\n    └── scripts/",
-              "pre": true
-            },
-            {
-              "text": "What each workspace does:",
+              "text": "Make it ask first: the permission mode sits by the box. Set it to Manual and it asks before it edits files or runs anything, at least until you trust it.",
               "pre": false
             },
             {
-              "text": "Planning — Specs, architecture decisions, design docs. The CONTEXT.md describes the app, the tech stack, the current priorities, and any architectural principles you follow. When you tell Claude to help you spec a new feature, it reads this context and works within your existing architecture.",
+              "text": "Codex: same idea. The map file is called AGENTS.md instead of CLAUDE.md.",
               "pre": false
             },
             {
-              "text": "Src — The actual codebase. The CONTEXT.md here describes the code structure, naming conventions, patterns you use (and patterns you avoid), testing requirements, and any libraries or frameworks that are standard in the project. Claude writes code that fits your codebase because it read the rules first.",
-              "pre": false
-            },
-            {
-              "text": "Docs — API documentation, user guides, changelogs. The CONTEXT.md describes your documentation standards, the audience for each type of doc, and how docs relate to the code.",
-              "pre": false
-            },
-            {
-              "text": "Ops — Deployment, monitoring, operational scripts. The CONTEXT.md describes your infrastructure, deploy process, and any runbook conventions.",
-              "pre": false
-            },
-            {
-              "text": "What the CLAUDE.md looks like:",
-              "pre": false
-            },
-            {
-              "text": "# My App",
-              "pre": false
-            },
-            {
-              "text": "[APP NAME] — [One sentence description]",
-              "pre": false
-            },
-            {
-              "text": "## Tech Stack\n- Frontend: [framework]\n- Backend: [language/framework]\n- Database: [type]\n- Deploy: [platform]",
-              "pre": true
-            },
-            {
-              "text": "## Workspaces\n- /planning — Specs, architecture, decisions\n- /src — Application code\n- /docs — Documentation\n- /ops — Deployment and operations",
-              "pre": true
-            },
-            {
-              "text": "## Routing\n| Task | Go to | Read | Skills |\n|------|-------|------|--------|\n| Spec a feature | /planning | CONTEXT.md | — |\n| Write code | /src | CONTEXT.md | testing-skill |\n| Write docs | /docs | CONTEXT.md | doc-authoring-skill |\n| Deploy or debug | /ops | CONTEXT.md | — |",
-              "pre": true
-            },
-            {
-              "text": "## Naming conventions\n- Specs: feature-name_spec.md\n- Components: PascalCase\n- Tests: feature-name.test.ts\n- Decision records: YYYY-MM-DD-decision-title.md",
-              "pre": true
-            },
-            {
-              "text": "Developers will notice the routing table has a Skills column. This is Layer 3 from 3.1. You can wire testing skills, documentation skills, or code review skills into specific workspaces so they only load when relevant. Your planning workspace does not need the testing skill. Your src workspace does.",
+              "text": "Your real Gmail: Customize, then Connectors.",
               "pre": false
             }
           ]
         },
         {
-          "title": "How to build yours",
+          "title": "The folder from the video",
           "paras": [
             {
-              "text": "You do not need to match any of these exactly. The process is the same regardless of what you do.",
+              "text": "client-email/\n  CLAUDE.md                          the map, read every time\n  about-me.md                        who I am and how I work\n  .claude/skills/how-i-reply/        the skill from 1.2\n  clients/<client>/notes.md          what we've agreed with each client\n  inbox/                             emails waiting for a reply\n  drafts/                            replies for me to read and send myself",
+              "pre": true
+            },
+            {
+              "text": "The reply skill from 1.2 got copied in under .claude/skills, so it travels with the folder. Open any of these files and they're just text. No secret code.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "The map",
+          "paras": [
+            {
+              "text": "The map (CLAUDE.md) is the floor plan on the wall when you walk into a building. Keep the stuff it always needs in there: what this folder is for, where things go, your naming rules, and a routing table that says, for each job, what to read, what to skip, which skill to use and where to save.",
               "pre": false
             },
             {
-              "text": "Step 1: List your workspaces. Think about the 2-4 major areas of your work. What are the modes you shift between? Writing and building are different workspaces. Client A and Client B are different workspaces. Planning and executing might be different workspaces. If you find yourself wishing Claude would \"forget\" what it was just doing and focus on something else, that is a workspace boundary.",
+              "text": "Jake's email row reads like this:",
               "pre": false
             },
             {
-              "text": "Step 2: Write a CONTEXT.md for each one. Describe what happens in this workspace, what the process is, what files live here, and what good work looks like. Keep it under a page. You can always add more later.",
+              "text": "Job: reply to email (\"check my email\")\nRead: about-me.md, the client's notes.md, each email in inbox/\nSkip: other clients' notes\nUse: the how-i-reply skill\nSave to: drafts/, named date-client-number",
+              "pre": true
+            },
+            {
+              "text": "Plus two rules: never send anything, and if the client's notes don't confirm something, say so in the draft. That's the whole trick, and it's all English. You don't have to write it from scratch either. Ask it to look through the folder and write you a CLAUDE.md, then read it and fix it, same as the skill.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Three words",
+          "paras": [
+            {
+              "text": "Jake types three words: \"check my email.\" That's almost terrible prompting. Watch it go anyway. It reads the map, opens the inbox, reads about-me, pulls the reply skill, checks each client's notes so it doesn't promise anything that isn't agreed, and writes the replies into drafts, named with the date and the client. On Manual, it asks before it saves.",
               "pre": false
             },
             {
-              "text": "Step 3: Write your CLAUDE.md. List the workspaces and build the routing table. For each type of task, tell Claude where to go and what to read. Add naming conventions so Claude knows how to organize files.",
+              "text": "Remember from 1.1: every word in a prompt is a question, and something has to answer it. \"Check\" is how, and the skill answers it. \"My\" is who, and about-me answers it. \"Email\" is which mailbox, and right now that's the inbox folder. Connect your actual Gmail under Connectors and it reads the real thing.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Drafts are just files",
+          "paras": [
+            {
+              "text": "Open one in Notepad, change a word, delete the one you don't like, and when one's right, paste it into your email and hit send yourself. Nothing breaks when you edit it. It's just English.",
               "pre": false
             },
             {
-              "text": "Step 4: Start working. Point Claude at the folder and give it a task. See what happens. Adjust the context files based on what Claude gets right and what it gets wrong. The first version will not be perfect. It will be better than no structure at all, and it will get better every time you edit a context file.",
+              "text": "That matters more the more you automate, because you always want a way to get in there and add your judgment, or take something out.",
               "pre": false
             },
             {
-              "text": "The context files are living documents. Edit them as your projects change, as you learn what Claude needs to know, as you figure out what to cut. The people who get the most out of this system are the ones who treat the context files like working notes, not finished documents.",
+              "text": "The map is something it reads. For anything that must never happen, like sending an email, use the settings too. More on that in 3.1.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Why folders work",
+          "paras": [
+            {
+              "text": "It's the desk again. The map and the routing put exactly what this job needs on the desk and leave everything else in the drawers. Even if video scripts were sitting in that folder, they'd stay in the drawer while it answers email.",
+              "pre": false
+            },
+            {
+              "text": "One sneaky trick: put naming rules in the map. Say \"pull last week's draft for Harbor Bakery\" and it just knows where to look. Nine times out of ten, that's all you need. No database, nothing.",
+              "pre": false
+            },
+            {
+              "text": "It works for way more than email. The folder that made the Foundations videos is the same pattern: a map up top, a room for each stage, each video in its own folder. A sales team's folder might hold their data, how they check it, and this week's report. A developer's holds their code and the decisions behind it. This whole pattern is what Jake's paper on Interpretable Context Methodology is about. He calls it ICM. The skill that builds these folders, ICM Architect, comes up in 2.2.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "The bigger idea",
+          "paras": [
+            {
+              "text": "These are just files and folders, the same idea computers have run on since the 70s. So when a better model comes out next month, and it will, all of this keeps working, maybe with a renamed file or two.",
+              "pre": false
+            },
+            {
+              "text": "When Doug Engelbart showed the world the mouse in 1968, one little movement of your hand could drive a whole complicated system. A sentence is starting to work like that now. \"Check my email\" is the click, and everything underneath it is still sitting right there in folders you can open.",
+              "pre": false
+            },
+            {
+              "text": "That's the three layers. You started simple in a chat, built the complicated stuff into a skill and a folder, and it came right back to one simple sentence.",
               "pre": false
             }
           ]
@@ -990,170 +542,150 @@ FC.content = {
       ]
     },
     {
-      "slug": "05_common-mistakes",
-      "name": "Lesson 5 — Common Mistakes",
+      "slug": "1-4_pick-your-setup",
+      "name": "1.4 Pick Your Setup",
       "section": 2,
       "spine": 2,
-      "boundary": true,
-      "hash": "3aa33d8a2ad3",
-      "hook": "The seven mistakes people make most often when setting up the folder architecture, and how to fix each one before it wastes your time.",
+      "boundary": false,
+      "hash": "ae09c750920f",
+      "hook": "The four pieces of any AI setup, what each option really costs you, and one tiny job that proves your setup works.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "A hundred ways to run AI",
           "paras": [
             {
-              "text": "Every one of these comes from real community members. People post their setups, run into walls, and ask for help. The same problems show up over and over. If you read this before you finalize your structure from 3.2, you will skip most of them.",
+              "text": "There are about a hundred ways to run AI right now, and every week somebody online tells you the one you're using is wrong. Most setups are fine, and your folders come with you to most of them. Knowing which piece does what tells you when switching actually buys you something.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 1: Making the CLAUDE.md too long",
+          "title": "The four pieces",
           "paras": [
             {
-              "text": "The CLAUDE.md is a routing file. It tells Claude where things are and where to go. That is its job. It is not a project brief. It is not a style guide. It is not a brain dump of everything you want Claude to know.",
+              "text": "The model: the brain.",
               "pre": false
             },
             {
-              "text": "When the CLAUDE.md gets too long, two things happen. First, Claude burns tokens reading information that is not relevant to the current task. Second, the signal gets buried in noise. The routing instructions (the part that actually matters) get lost in paragraphs of background context.",
+              "text": "The harness: the app around it, what lets it open files and run things.",
               "pre": false
             },
             {
-              "text": "The fix: Your CLAUDE.md should fit on one screen. Identity, folder structure, routing table, naming conventions. That is it. Everything else belongs in a workspace CONTEXT.md where it only gets loaded when Claude is actually working in that area. If your CLAUDE.md is longer than 40-50 lines, you have context files hiding inside it. Pull them out.",
+              "text": "The interface: the window you work in. A chat box, a terminal, an editor.",
+              "pre": false
+            },
+            {
+              "text": "Where it runs: someone's cloud, your own computer, or a bit of both.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 2: Skipping the routing table",
+          "title": "The menu",
           "paras": [
             {
-              "text": "Some people set up the folders, write the context files, and never put a routing table in the CLAUDE.md. They assume Claude will figure it out.",
+              "text": "The Claude app is the easiest start: Chat for talking, and Code when you want it working in your folders, which is what 1.3 used.",
               "pre": false
             },
             {
-              "text": "Sometimes Claude does figure it out. But \"sometimes\" is the problem. Without a routing table, Claude has to guess which files to read and which to skip. It might read everything (wasting tokens) or read the wrong context file (getting confused about what workspace it is in). The output gets inconsistent. Some responses are great, some are off, and you cannot tell why.",
+              "text": "Claude Code also runs in a terminal or right inside an editor like VS Code. Same brain, same harness, a different window with more control.",
               "pre": false
             },
             {
-              "text": "The fix: The routing table does not need to be complicated. Three columns: task, where to go, what to read. One row per type of work. Claude reads the table, matches the task, goes to the right place. Every time.",
-              "pre": false
-            },
-            {
-              "text": "| Task | Go to | Read |\n|------|-------|------|\n| Write content | /script-lab | CONTEXT.md |\n| Build something | /production | CONTEXT.md |\n| Publish or schedule | /distribution | CONTEXT.md |",
-              "pre": true
-            },
-            {
-              "text": "If you added skills (Layer 3), add a fourth column. Otherwise, three is enough.",
+              "text": "On the ChatGPT side, Codex does the same job. Cursor is an editor with AI built right in. And you can even run an open model on your own computer with something like Ollama.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 3: Too many workspaces",
+          "title": "Two choices people mix up",
           "paras": [
             {
-              "text": "Someone sets up eight workspaces for a project that really only has two or three modes of work. They have a workspace for research, a workspace for notes, a workspace for drafts, a workspace for editing, a workspace for final review, a workspace for publishing. Each one has its own CONTEXT.md. The CLAUDE.md has a routing table with twelve rows.",
+              "text": "Working on your files locally, and running the model locally, are two separate choices.",
               "pre": false
             },
             {
-              "text": "Now the overhead of maintaining the system is bigger than the work itself. Context files go stale. Claude spends more time navigating between workspaces than working in them. The whole point of the architecture was to reduce complexity, and instead it multiplied it.",
-              "pre": false
-            },
-            {
-              "text": "The fix: Start with two or three workspaces. You can always add more. The question to ask: \"Do I shift mental modes between these tasks?\" Writing and building are different mental modes. That is two workspaces. Drafting and editing are the same mental mode at different stages. That is one workspace with a process inside it, not two workspaces.",
-              "pre": false
-            },
-            {
-              "text": "If you are not sure whether something deserves its own workspace, it does not. Keep it as a subfolder inside an existing workspace. You can always split it out later if the work grows.",
-              "pre": false
-            },
-            {
-              "text": "Mistake 4: Writing context files that describe what AI should be instead of what the work is",
-              "pre": false
-            },
-            {
-              "text": "This one is subtle. People write context files full of instructions about Claude's personality. \"Be creative. Be concise. Be professional. Think step by step. Use a warm tone.\" They spend 30 lines describing how Claude should behave and two lines describing the actual project.",
-              "pre": false
-            },
-            {
-              "text": "Claude responds to context about the work far more than context about itself. Telling Claude \"you are a senior copywriter\" gives it a role. Telling Claude \"the audience is mid-market HR directors who have tried three other tools and are skeptical of AI claims\" gives it something to actually work with. The second one changes the output more than the first.",
-              "pre": false
-            },
-            {
-              "text": "The fix: Flip the ratio. Spend 80% of your context file describing the work: what the project is, who the audience is, what has already been done, what good output looks like, what to avoid. Spend 20% or less on behavioral instructions. If your context file reads like a personality quiz, rewrite it. If it reads like a project brief that a new team member could pick up and start working from, you are in the right place.",
+              "text": "Everything in 1.3 used files on your computer with the model in the cloud. A local model keeps everything on your machine, which is great for privacy or working offline, and you'll usually trade some quality and need a beefy computer.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 5: Never updating the context files",
+          "title": "Count the whole cost",
           "paras": [
             {
-              "text": "Someone sets up the folder in week one. Writes the context files. Gets great results for two weeks. Then the project evolves. New requirements, new direction, new constraints. But the context files still say what they said on day one. The output starts drifting. Claude is still working from old context. The member thinks Claude \"got worse\" when really Claude is doing exactly what the context tells it to do. The context is just stale.",
+              "text": "The subscription is the part everybody looks at. Then there's the setup time, keeping it running, checking its work, and waiting on it. A cheaper tool that eats your whole Saturday costs you a Saturday.",
               "pre": false
             },
             {
-              "text": "The fix: Treat context files like working notes. When the project changes, edit the context. When you learn something new about what Claude needs to know, add it. When a constraint no longer applies, remove it. This takes 30 seconds per edit. It is the single highest-leverage habit in the whole system.",
-              "pre": false
-            },
-            {
-              "text": "Some people add a \"Last updated\" line at the top of each context file. Simple but effective. When you open a workspace and see \"Last updated: six weeks ago,\" you know to review it before working.",
+              "text": "Jake is pretty loud online about not needing fancy setups, and for most people that's true. He also built his own pipeline for his psychometrics research, so he knows when a custom setup earns it: when you need something none of the apps do, at a scale they can't handle.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 6: Putting everything in one folder and hoping the CLAUDE.md sorts it out",
+          "title": "Pick by need",
           "paras": [
             {
-              "text": "The opposite of too many workspaces. Everything lives in one flat directory. Fifty files. No subfolders. The CLAUDE.md tries to route between them using file names alone. Claude reads the whole directory listing, picks what it thinks is relevant, and often picks wrong.",
+              "text": "New to this: the Claude app.",
               "pre": false
             },
             {
-              "text": "This is the equivalent of dumping every document on one desk and asking someone to find the right one. They can do it. It just takes longer, they make more mistakes, and they get frustrated.",
+              "text": "You live in code: Claude Code or Codex inside your editor.",
               "pre": false
             },
             {
-              "text": "The fix: If you have more than 8-10 files at the same level, you need subfolders. Group by workspace (what kind of work), then by stage or type within the workspace. The folder structure is the architecture. It tells Claude what belongs together. Let it do that job.",
+              "text": "Your company's on Microsoft or Google: check what's already in there before you buy anything.",
+              "pre": false
+            },
+            {
+              "text": "Privacy is the whole point: a local model.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Mistake 7: Building the whole system before using it",
+          "title": "Setup steps (checked 6 October 2026)",
           "paras": [
             {
-              "text": "The most common mistake. Someone reads 3.1 and 3.2, gets inspired, and spends an entire weekend building a perfect folder architecture with six workspaces, detailed context files, naming conventions, skills wired into every workspace, and a routing table with twenty rows. They have not used Claude once during this process. They built the factory without ever making a product.",
+              "text": "These change constantly. If a step here doesn't match your screen, the linked official page wins.",
               "pre": false
             },
             {
-              "text": "Then they start using it and realize half the decisions they made do not match how they actually work. The workspace boundaries are wrong. The context files describe what they thought they would need, not what they actually need. They have to rebuild.",
+              "text": "Claude desktop app: tabs for Chat, Cowork and Code. Code needs Pro, Max, Team or Enterprise. In Code: Local, then select your folder.",
               "pre": false
             },
             {
-              "text": "The fix: Build the minimum. One CLAUDE.md, one or two workspaces, one CONTEXT.md per workspace. Start working. After a few days, you will know what is missing. Add it then. After a week, you will know what is wrong. Fix it then.",
+              "text": "Claude Code in a terminal or editor. macOS: curl -fsSL https://claude.ai/install.sh | bash. Windows (PowerShell): irm https://claude.ai/install.ps1 | iex. No Node needed. Pro plan and up. There's a VS Code extension, which also works in Cursor. It reads CLAUDE.md.",
               "pre": false
             },
             {
-              "text": "The best folder setups in the community were all built incrementally. They started simple and grew based on real work. The ones that stalled were the ones that tried to be complete before day one.",
+              "text": "Codex: in the ChatGPT desktop app (pick Codex from the dropdown), plus a CLI, an editor extension and the web. It reads AGENTS.md, and /init makes one for you.",
               "pre": false
             },
             {
-              "text": "Your first version should take 15 minutes. If it took longer, you over-built.",
+              "text": "Cursor: an editor with AI built in. The Hobby plan is free.",
+              "pre": false
+            },
+            {
+              "text": "Local models: Ollama or LM Studio. 16 GB of RAM or more helps, and a GPU or Apple Silicon. Laptop-sized models still trail hosted ones on agent work.",
               "pre": false
             }
           ]
         },
         {
-          "title": "The pattern across all seven",
+          "title": "The tiny test",
           "paras": [
             {
-              "text": "If you look at these together, they all point in the same direction. Keep the system small. Keep it focused on the work, not on Claude. Update it as you go. Let the structure grow from use, not from planning.",
+              "text": "Point it at a folder with one file in it. On the free plan, attach the file instead.",
               "pre": false
             },
             {
-              "text": "The folder architecture is powerful because it is simple. Folders and text files. The moment it starts feeling heavy or complicated, something went wrong. Go back to the three layers from 3.1: map, rooms, tools. If your CLAUDE.md is the map, your context files are the rooms, and your skills are the tools, and each one is doing only its job, the system stays clean.",
+              "text": "Ask it to read the file, write a one-page summary, and save it next to the original (or hand it back as a file you download).",
+              "pre": false
+            },
+            {
+              "text": "Open that summary yourself, outside the AI. If you can open it, read it and change it, your setup works.",
               "pre": false
             }
           ]
@@ -1161,225 +693,154 @@ FC.content = {
       ]
     },
     {
-      "slug": "06_install-first-use",
-      "name": "Lesson 6 — Install and First Use",
+      "slug": "2-1_start-with-the-outcome",
+      "name": "2.1 Start With the Outcome",
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "c53228031081",
-      "hook": "All three Claude interfaces installed and working on your machine.",
+      "hash": "ef07101ce6ed",
+      "hook": "Who the job is really for, what they need to do next, and how to split the work sixty, thirty, ten before you touch any AI.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "The correction no writing fixes",
           "paras": [
             {
-              "text": "How most people use Claude",
-              "pre": false
-            },
-            {
-              "text": "Most people use Claude like a search engine that writes better sentences. You type a question, you get an answer, you copy and paste it somewhere. That works. But it is like using a car to check the mailbox. The car can take you across the country. You just have not left the driveway yet.",
-              "pre": false
-            },
-            {
-              "text": "Today we leave the driveway.",
+              "text": "Back in 1.1, the most important correction was \"don't promise the room.\" No amount of better writing fixes that one, because the answer lives in a calendar. The AI wrote a perfectly confident reply about a room nobody had.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Three interfaces, one model",
+          "title": "Sixty, thirty, ten",
           "paras": [
             {
-              "text": "This is the thing most people miss. There are three ways to use Claude, and they are not three different AIs. It is one model with three different ways to access it. The difference is what each interface lets that model see and do.",
+              "text": "Jake's rule of thumb for designing anything with AI:",
               "pre": false
             },
             {
-              "text": "Claude Desktop (or claude.ai)",
+              "text": "60: the data, the questions and the thinking. Knowing what's actually booked and what the client really needs.",
               "pre": false
             },
             {
-              "text": "The downloaded app or the website. A conversational tool. Great for planning, thinking through ideas, getting answers, building drafts. But there is a limit to what it can do at scale. It cannot see your files directly. It cannot run code. It cannot edit anything in your project. Everything goes through copy, paste, or uploads.",
+              "text": "30: the tools that already exist. Your calendar, your email, a spreadsheet. Some people solve problems with Excel better than any machine learning model.",
               "pre": false
             },
             {
-              "text": "That is not because the model is limited. The model is extremely powerful. The problem is the interface. It just cannot reach your stuff. If you have ever felt like Claude kind of gets it but not quite, it is probably because you are working from a pasted excerpt instead of your actual project.",
+              "text": "10: the AI. Writing the reply.",
               "pre": false
             },
             {
-              "text": "Claude Code in VS Code",
-              "pre": false
-            },
-            {
-              "text": "This is what I use for almost everything. Your files are on the left. Claude is on the right. It reads your project, edits your files in line, runs commands. You do not copy and paste anything. You describe what you need and it works directly within the files.",
-              "pre": false
-            },
-            {
-              "text": "VS Code (Visual Studio Code) is a coding environment made by Microsoft. If you have never opened it, do not worry. It is simpler than it looks and we will walk through setup. You do not need to know how to code. VS Code just lets you see your folders as a file tree and open documents without clicking through layers of windows.",
-              "pre": false
-            },
-            {
-              "text": "If you are familiar with Cursor, Windsurf, Copilot, or Antigravity, those are all built on top of VS Code. They support different models and different processes. Some use Claude, some do not. This course is specifically for Claude's tools inside the Anthropic environment.",
-              "pre": false
-            },
-            {
-              "text": "Claude Code in the terminal",
-              "pre": false
-            },
-            {
-              "text": "The same engine under the hood, just a different wrapper. The terminal version is better for when your work does not live in a code project. Processing a folder of documents. Managing files. Cleaning up your downloads folder. Anything where you just need Claude to read a bunch of files and do something with them.",
-              "pre": false
-            },
-            {
-              "text": "You do not need the terminal version to get value from this course. But if you are already comfortable in the terminal, it is faster for some jobs.",
+              "text": "Most people start with the ten, then wonder why it keeps promising rooms.",
               "pre": false
             }
           ]
         },
         {
-          "title": "The real difference",
+          "title": "Rough on purpose",
           "paras": [
             {
-              "text": "The desktop is a conversation layer. VS Code is an editor layer. The terminal is a command line layer. Same brain behind all three.",
+              "text": "The numbers are rough on purpose. It's a way to think about the work.",
               "pre": false
             },
             {
-              "text": "Interface Best for Can see your files? Can edit your files? Claude Desktop / claude.ai Thinking, planning, quick questions, drafting Only if you upload them No Claude Code in VS Code Building, editing, working inside a project Yes, automatically Yes Claude Code in terminal File processing, quick tasks, non-code projects Yes, in the current folder Yes",
+              "text": "If you've watched Jake's older videos, he used to split it more technically: code, routing and AI calls. Same instinct. He thinks the deeper fundamental is how he describes it now, because the sixty is where people actually get stuck.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Installing everything",
+          "title": "Start with the question",
           "paras": [
             {
-              "text": "Let's get all three working.",
+              "text": "Before you open a chat: what are you doing for people right now, and what would you do manually? Then four quick ones about your job:",
               "pre": false
             },
             {
-              "text": "Step 1: Claude Desktop",
+              "text": "Who is this actually for?",
               "pre": false
             },
             {
-              "text": "If you do not have it already:",
+              "text": "What do they need to do next? Decide something, send something, fix something.",
               "pre": false
             },
             {
-              "text": "Go to claude.ai/download and download the app for your OS (Mac or Windows). Install it. Sign in with your Claude account.",
+              "text": "Where does the information come from right now?",
               "pre": false
             },
             {
-              "text": "That is it. You now have the conversational interface.",
-              "pre": false
-            },
-            {
-              "text": "Step 2: Node.js",
-              "pre": false
-            },
-            {
-              "text": "You need Node.js before you can install Claude Code. Node.js lets you run JavaScript on your computer and gives you access to the npm command for installing packages.",
-              "pre": false
-            },
-            {
-              "text": "Go to nodejs.org and download the LTS version. Run the installer.",
-              "pre": false
-            },
-            {
-              "text": "To verify it worked, open your terminal and type:",
-              "pre": false
-            },
-            {
-              "text": "node --version",
-              "pre": false
-            },
-            {
-              "text": "If you see a version number, you are good.",
-              "pre": false
-            },
-            {
-              "text": "Step 3: Claude Code (terminal)",
-              "pre": false
-            },
-            {
-              "text": "With Node.js installed, run this command in your terminal:",
-              "pre": false
-            },
-            {
-              "text": "npm install -g @anthropic-ai/claude-code",
-              "pre": false
-            },
-            {
-              "text": "Once it finishes, you can type claude in any folder and Claude Code will launch.",
-              "pre": false
-            },
-            {
-              "text": "Important for Windows users: Before downloading Claude Desktop, check your architecture. Open Settings → System → About → \"System type.\" You need to know whether you are running x64 (standard) or ARM64. Download the matching version. Installing the wrong version causes problems that are hard to diagnose. Check first, then download.",
+              "text": "What breaks, and who feels it when it does?",
               "pre": false
             }
           ]
         },
         {
-          "title": "Step 4: Claude Code in VS Code",
+          "title": "You're helping someone decide",
           "paras": [
             {
-              "text": "First, install VS Code if you do not have it:",
+              "text": "That first question matters more than it looks. Whatever you make, the report, the deck, the reply, you're helping someone make a decision.",
               "pre": false
             },
             {
-              "text": "Go to code.visualstudio.com and download it. Install it. Open it.",
-              "pre": false
-            },
-            {
-              "text": "Then install the Claude Code extension:",
-              "pre": false
-            },
-            {
-              "text": "In VS Code, look for the Extensions icon in the left sidebar (the one with squares, one slightly tilted). Or press Ctrl+Shift+X (Windows/Linux) or Cmd+Shift+X (Mac).",
-              "pre": false
-            },
-            {
-              "text": "Search for \"Claude Code\"",
-              "pre": false
-            },
-            {
-              "text": "Click the blue Install button",
+              "text": "If your boss needs to decide whether to hire someone, what they need is the three numbers that matter, on one page, before Friday. It usually pays off in speed to the decision, cost of the decision, or, the big one now, how people interact with the decision.",
               "pre": false
             }
           ]
         },
         {
-          "title": "You may need to restart VS Code",
+          "title": "Worked example from the video",
           "paras": [
             {
-              "text": "You should now see the Claude Code icon in your sidebar. Click on any file to open a page, then the Claude panel will be available.",
+              "text": "Every Monday you pull a bookings export and turn it into a table for the owner.",
               "pre": false
             },
             {
-              "text": "One thing that trips people up: When you open a brand new folder in VS Code and nothing is there, the Claude panel might not appear. You need to click on a file or have a page open for the extension to activate. Also, VS Code has its own built-in chat that is separate from Claude Code. Make sure you are using the Claude Code extension, not the VS Code native chat.",
+              "text": "For: the owner.",
+              "pre": false
+            },
+            {
+              "text": "Next step: chase the bookings still pending before the week fills up.",
+              "pre": false
+            },
+            {
+              "text": "Information: one export from the booking system.",
+              "pre": false
+            },
+            {
+              "text": "What breaks: pending bookings slip through and nobody notices.",
+              "pre": false
+            },
+            {
+              "text": "The split: the sixty is knowing pending is what matters, the thirty is the export and a spreadsheet, the ten is the AI writing the owner a two-line heads-up. The table part turns into a script in 3.2.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Troubleshooting",
+          "title": "Frame it right",
           "paras": [
             {
-              "text": "\"npm: command not found\" — Node.js did not install correctly. Close your terminal completely, reopen it, and try again. If it still fails, reinstall Node.js.",
+              "text": "How people understand a problem shapes what they build. That's the big idea in Gerald Weinberg's The Psychology of Computer Programming (1971): programming is a human activity, and how people understand the problem shapes what the software turns into. AI's exactly the same.",
               "pre": false
             },
             {
-              "text": "\"Permission denied\" during npm install — On Mac/Linux, try: sudo npm install -g @anthropic-ai/claude-code",
+              "text": "Frame the job as \"write my emails\" and you build an email writer. Frame it as \"my clients need clear answers about dates\" and you might fix your calendar first.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Solve the problem first",
+          "paras": [
+            {
+              "text": "Solve the problem first, then turn it into software after, if you can. Build the smallest thing that gets you close, and check what the app already does before building anything. The chat already reads spreadsheets and makes charts, a Project already holds your files, a skill already remembers your corrections.",
               "pre": false
             },
             {
-              "text": "Claude Code launches but asks for authentication — Follow the link it gives you to sign in. You need a Pro or Max subscription.",
+              "text": "Add the next piece only when you hit a real need: the files keep changing, it's the same steps every week, or somebody else needs to use it.",
               "pre": false
             },
             {
-              "text": "VS Code extension does not show Claude panel — Make sure you clicked Install, restarted VS Code, and have a file open. Check that you are using the Claude Code extension, not VS Code's built-in chat.",
-              "pre": false
-            },
-            {
-              "text": "If you get stuck on any of this, post in the community or Discord with your OS and the error message. Someone has hit the same wall.",
+              "text": "One of Jake's: when he posts videos, the outcome is people finding stuff that actually teaches them something, and maybe joining the community. The sixty is knowing what to post, which hooks actually worked and who it's for, and that comes from his numbers and a lot of questions. The thirty is Metricool, which schedules everything across YouTube, TikTok, Instagram and LinkedIn. The ten is AI helping with scripts and captions. He still picks every title himself.",
               "pre": false
             }
           ]
@@ -1387,94 +848,138 @@ FC.content = {
       ]
     },
     {
-      "slug": "07_in-practice",
-      "name": "Lesson 7 — Claude Code in Practice",
+      "slug": "2-2_design-your-folder",
+      "name": "2.2 Design Your Folder",
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "afb40c29597c",
-      "hook": "You will understand what makes Claude Code different from the chat interface, see the iteration loop in action, and walk away with a real deliverable built from your own files.",
+      "hash": "a5cd6aea78ec",
+      "hook": "A workspace shaped around your own job, a short map that sends each job to what it needs, and one real request that proves it works.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "Three shapes, one way of thinking",
           "paras": [
             {
-              "text": "The real power",
+              "text": "Three folders that all work and look nothing alike:",
               "pre": false
             },
             {
-              "text": "Claude Code is not smarter than Claude Desktop. It is the same model. The difference is what it can reach. Claude Code can see your work, touch your files, and iterate on its own output. That changes everything about how you work with it.",
+              "text": "Stages: Jake's animation folder, one step after another.",
               "pre": false
             },
             {
-              "text": "The loop looks like this: Read → Think → Write → Check → Adjust. Claude reads your files, thinks about the task, writes output, checks its own work, and adjusts. In the chat interface, that loop runs once and stops. In Claude Code, it runs until the job is done.",
+              "text": "Records: the client email folder from module 1, a folder per client.",
+              "pre": false
+            },
+            {
+              "text": "A wiki the AI keeps up: Andrej Karpathy's idea, raw sources in one place and the pages it writes and links in another.",
+              "pre": false
+            },
+            {
+              "text": "Three totally different shapes, because they're three totally different jobs.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Example: meeting notes",
+          "title": "ICM is the method",
           "paras": [
             {
-              "text": "Here is a task that shows the difference clearly.",
-              "pre": false
-            },
-            {
-              "text": "You have 15 meeting notes. You want every decision made this quarter, organized by project.",
-              "pre": false
-            },
-            {
-              "text": "The Desktop approach: Open file 1. Copy the text. Paste it into Claude. Ask for analysis. Repeat 15 times. Then manually combine all 15 responses into one document. About an hour of work.",
-              "pre": false
-            },
-            {
-              "text": "The Claude Code approach: One prompt: \"Read every file in /meeting-notes/ and summarize all decisions, organized by project.\" One prompt. 15 files. 90 seconds.",
-              "pre": false
-            },
-            {
-              "text": "The model gives you the same quality analysis either way. The difference is how much manual work you do around it. Claude Code eliminates the copy-paste layer entirely.",
+              "text": "They all come from the same method: ICM, interpretable context methodology, from the paper in 1.3. People started calling the folders themselves ICMs. When Jake says ICM he means the way of thinking that builds the folder, so your folder comes out shaped like your work, and it won't look like his.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Token math",
+          "title": "List the jobs",
           "paras": [
             {
-              "text": "Claude's context window is roughly 200K tokens. A typical meeting note is about 2,000 tokens. 15 notes is about 30,000 tokens. Well within the window.",
+              "text": "Start from what you wrote in 2.1, and list the jobs that get you to that outcome. The email folder has two: replying to clients and sending them updates. For Jake's videos, it's plan, voice, words, storyboard, scene and render.",
               "pre": false
             },
             {
-              "text": "In Desktop, you paste one file at a time and lose context between chats. Each conversation starts fresh. You are working against the architecture.",
-              "pre": false
-            },
-            {
-              "text": "In Claude Code, it loads what it needs from your file system and keeps full context across the task. You are working with the architecture.",
-              "pre": false
-            },
-            {
-              "text": "This is the same principle from 2.3 (How a 1953 Word Game Explains AI Memory): the context window is working memory. Claude Code lets you fill that working memory from your actual files instead of from your clipboard.",
+              "text": "For each job, write what it reads and what it makes. That list is basically your folder already. The folder becomes your app, honestly, and there's no simpler interface than a folder.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Tips that save hours",
+          "title": "Split by what things are",
           "paras": [
             {
-              "text": "Be specific. \"Analyze this\" is weak. \"Identify the three largest cost items and format as a table\" is strong. The more specific your instruction, the less Claude has to guess. This is the Task part of the prompting framework from 1.3.",
+              "text": "Method: how you do the job (skills and instructions).",
               "pre": false
             },
             {
-              "text": "Tell it where to put the output. \"Save the result as summary.md in this folder.\" Claude Code can write files. Let it. If your output lives in a chat window, you still have to copy it somewhere. If Claude writes it directly to a file, it is already where it needs to be.",
+              "text": "Facts: clients, prices, sources.",
               "pre": false
             },
             {
-              "text": "Output wrong? Do not start over. Say what is wrong. \"The summary missed the budget decisions from the March 14 meeting. Add those.\" Claude iterates. That is the whole point. Starting over throws away all the context Claude has built up about your task.",
+              "text": "Work: in progress.",
               "pre": false
             },
             {
-              "text": "Claude Code is best for tasks that involve reading and writing files. That is where it shines. If your task is \"help me think through a decision,\" Desktop might be better (that is Session 3). If your task is \"read these 15 files and produce a deliverable,\" Claude Code wins every time.",
+              "text": "Outputs: finished.",
+              "pre": false
+            },
+            {
+              "text": "The method carries to the next client and the facts stay with this one. It's the skill and project split from 1.2.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Instructions, state, or both",
+          "paras": [
+            {
+              "text": "Here's a lens from Jake's lectures. A program has three parts: the instructions, something that runs them, and the state it reads and changes. Nothing in that needs a computer. A loom had all three. So did a room full of clerks with a ledger. (And yes, that's a different three from the three layers.)",
+              "pre": false
+            },
+            {
+              "text": "In your folder the model is the thing that runs, and the other two are yours to write. Label each file as instructions, state, or both, like notes it reads and then updates. A file that's neither is the first one to question.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Write the map",
+          "paras": [
+            {
+              "text": "Keep it short. It's a routing file: what's here, where things go, your naming rules, and the routing table from 1.3. That's traditional software routing that's been around for decades, except now it's plain English.",
+              "pre": false
+            },
+            {
+              "text": "The most common mistake Jake sees in the community is a giant map with everything crammed in, which puts the whole drawer back on the desk. The email folder's map fits on one screen, with two rules: never send anything, and if the client's notes don't confirm something, say so. And remember, it's the setting that actually stops a send.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Let ICM Architect draft it",
+          "paras": [
+            {
+              "text": "You don't have to design all of this by hand. Jake made a free skill called ICM Architect, on GitHub. Point it at your messy folder and say \"make this an ICM\". It looks at what's there, asks you about the work, and proposes a structure and a map. It knows six shapes a workspace can take, including the three above.",
+              "pre": false
+            },
+            {
+              "text": "Then read what it proposed, same as the skill in 1.2. It might give you rooms you don't need yet. Start with the smallest version that does today's job, and add a folder when the work actually asks for one.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Test it",
+          "paras": [
+            {
+              "text": "New session, ask for one real job, and watch what it reads. If it opens the right few files and skips the rest, your routing works. If it wanders around reading everything, your map is too vague, so tighten that row and try again.",
+              "pre": false
+            },
+            {
+              "text": "Nothing's built right the first time. And most things built the seventh time aren't great either.",
+              "pre": false
+            },
+            {
+              "text": "This stuff is worth real money. Somebody in the community runs a cafe. They built a five-folder system for a newsletter and sold it to an engineering firm in Australia. Five folders.",
               "pre": false
             }
           ]
@@ -1482,132 +987,105 @@ FC.content = {
       ]
     },
     {
-      "slug": "08_thinking-partner",
-      "name": "Lesson 8 — Claude Desktop as Thinking Partner",
+      "slug": "2-3_one-model-different-jobs",
+      "name": "2.3 One Model, Different Jobs",
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "b6e602e6f2ad",
-      "hook": "You will stop using Claude Desktop like a vending machine and start using it as a thinking partner.",
+      "hash": "8109ecce4fcf",
+      "hook": "How one model plays every role your work needs, where code and connections fit in, and the handful of times a team of separate agents actually earns its keep.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "The role comes from what it reads",
           "paras": [
             {
-              "text": "The mistake",
+              "text": "Back in 1.3, agents were called a naming convention. Here's what that looks like for real.",
               "pre": false
             },
             {
-              "text": "Most people use Claude Desktop like a vending machine. Question in, answer out. \"Write me a marketing plan.\" Claude gives you a document. You paste it somewhere. Done.",
-              "pre": false
-            },
-            {
-              "text": "That works for simple tasks. But it wastes the most powerful thing Claude can do: think with you.",
-              "pre": false
-            },
-            {
-              "text": "There is a difference between prompting for content and prompting for thinking.",
-              "pre": false
-            },
-            {
-              "text": "Prompting for content: \"Write me a marketing plan.\" You get a document. It might be good. It might be generic. You will not know until you read it and by then you have already spent the tokens.",
-              "pre": false
-            },
-            {
-              "text": "Prompting for thinking: \"I am trying to reach [audience] with [constraint]. What am I not seeing?\" You get clarity. You get your own assumptions challenged. You get the blind spots surfaced before you build anything.",
+              "text": "Jake's animation folder's map has a row for each job: make a new video, write a Short, schedule a finished one, fix the animation kit, make a video in the hand-drawn style. Completely different jobs, and it's the same model every time, reading a different row.",
               "pre": false
             }
           ]
         },
         {
-          "title": "What Desktop excels at",
+          "title": "A name on the door",
           "paras": [
             {
-              "text": "Claude Desktop (the conversational interface) is the best tool for:",
+              "text": "So when people say they need a writing agent, a scheduling agent and a research agent, most of the time what they need is the instructions for each job written down and a map that sends each request to the right ones.",
               "pre": false
             },
             {
-              "text": "Challenging your assumptions",
-              "pre": false
-            },
-            {
-              "text": "Finding blind spots in your plan",
-              "pre": false
-            },
-            {
-              "text": "Pressure-testing ideas before you commit",
-              "pre": false
-            },
-            {
-              "text": "Structuring messy thinking into something clear",
+              "text": "A lot of frameworks push you to build a separate agent for every job. Jake would rather have Claude Code become the agent you need, right there in the workspace. The role comes from what it reads. A name on the door adds zero instructions and zero access.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Exploring trade-offs between options",
+          "title": "Try it",
           "paras": [
             {
-              "text": "None of these require Claude to touch your files. They require Claude to think alongside you. The chat interface is built for exactly this.",
+              "text": "Give your folder two different jobs back to back, for example \"reply to this email\" and then \"make me a table of every booking this month\". Watch what it opens for each. Different rows, different files, same model.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Planning, then execution",
+          "title": "Not every job is the model's",
           "paras": [
             {
-              "text": "Here is the workflow that saves the most time.",
+              "text": "In Jake's folder the model lines up what he's picked to post, a connection to Metricool does the scheduling, and rendering is a command that does the exact same thing every time.",
               "pre": false
             },
             {
-              "text": "Without planning: You open Claude Code and start building. Halfway through you realize you are not sure what you actually want. You restart. You try a different approach. You restart again. Three restarts. Two hours.",
-              "pre": false
-            },
-            {
-              "text": "With planning: You open Claude Desktop and spend 15 minutes thinking through the problem. What are you building? Who is it for? What does success look like? What are the trade-offs? You get clear. Then you open Claude Code and build it. One build. 30 minutes.",
-              "pre": false
-            },
-            {
-              "text": "The 15 minutes of thinking saves 90 minutes of building the wrong thing. Desktop for decisions. Code for execution.",
+              "text": "The model's great at reading the situation and choosing. The tools do the doing. 3.2 turns more of your own steps into tools.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Desktop Projects",
+          "title": "When more than one agent earns it",
           "paras": [
             {
-              "text": "Claude Desktop has a feature called Projects. You can give a Project your key documents, preferences, or background material. Every conversation you start inside that Project has that context already loaded.",
+              "text": "Lots of independent work that can run at the same time, like researching ten companies at once.",
               "pre": false
             },
             {
-              "text": "This is the lightest version of \"giving AI context about your work.\" If you did 1.2: Your First Folder, you already understand the concept. Projects are the browser-based version of the same idea: persistent context that stays across conversations.",
+              "text": "One job big enough to bury everything else on the desk.",
               "pre": false
             },
             {
-              "text": "Think of Projects as the seed for what comes next in Session 4. They give Claude background. Session 4 (CLAUDE.md) gives Claude deep project understanding.",
+              "text": "Something live that needs watching the whole time.",
+              "pre": false
+            },
+            {
+              "text": "While Jake was writing this course, he had one helper pulling quotes out of his old talks and another checking the product facts, both at the same time, because neither job needed the other.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Tips",
+          "title": "The simplest version",
           "paras": [
             {
-              "text": "Desktop for decisions. Code for execution. If you are deciding what to build, use Desktop. If you are building it, use Code. If you try to decide and build at the same time, both suffer.",
+              "text": "The simplest version is opening a second session on the same folder, so one writes while the other does something else. Same folder, no framework. You've already been doing a version of this with your tutor and your work session.",
               "pre": false
             },
             {
-              "text": "Start with what you are trying to accomplish, not what you want Claude to produce. \"I need a marketing plan\" is a product request. \"I am trying to get 50 signups for a workshop in two weeks with no ad budget\" is a problem. Claude is a better thinking partner when it knows the problem.",
+              "text": "Claude Code can also hand a chunk of work to a sub-agent and get back just the answer, so its own desk stays clean.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Every extra agent costs you",
+          "paras": [
+            {
+              "text": "More tokens, more waiting, more places for things to go sideways as they hand work to each other.",
               "pre": false
             },
             {
-              "text": "Push back on the first answer. \"What is wrong with this?\" \"What am I missing?\" \"What would someone who disagrees with this say?\" The first answer is often the obvious one. The second and third answers are where the value lives.",
-              "pre": false
-            },
-            {
-              "text": "Conversations are disposable. The thinking is not. Do not treat a Claude conversation like a document to save. Treat it like a whiteboard session. The value is the insight you walk away with, not the transcript.",
+              "text": "Start with one, and split off a helper when you can point at the exact job it takes off the desk. Anthropic's Building effective agents says the same: start with the simplest setup that works, and sometimes that means no agent at all.",
               "pre": false
             }
           ]
@@ -1615,119 +1093,100 @@ FC.content = {
       ]
     },
     {
-      "slug": "09_understand-project",
-      "name": "Lesson 9 — Making Claude Understand Your Project",
+      "slug": "3-1_stages",
+      "name": "3.1 Stages You Can Step Into",
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "6d70f4bdbc71",
-      "hook": "You will write a CLAUDE.md file that makes Claude Code behave like it has been on your project for a month.",
+      "hash": "d6dcadb097a6",
+      "hook": "Work split into stages that each leave a file you can open, the spots where your judgment actually changes the result, and the AI waiting for you when it matters.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "One stage, one file",
           "paras": [
             {
-              "text": "One file changes everything",
+              "text": "In Jake's animation folder each stage leaves one file behind: the voice stage leaves an audio file, the words stage a transcript with every word timed, the storyboard a plain text file, then the scene, then the render.",
               "pre": false
             },
             {
-              "text": "In Session 1 you installed Claude Code. In Session 2 you used it on real tasks. In Session 3 you used Desktop for thinking. All of that worked. But there is a problem you have probably already noticed: Claude Code does not know your project.",
-              "pre": false
-            },
-            {
-              "text": "It does not know your conventions. It does not know your file structure. It does not know which libraries you use, which commands to run, or what you consider good work. Every time you start a new conversation, Claude is a smart stranger. It can do the work, but it guesses at all the things a team member would already know.",
-              "pre": false
-            },
-            {
-              "text": "The fix is one file: CLAUDE.md.",
+              "text": "Nothing moves to the next stage until somebody has looked at the last file, and that rule sits right in the map. The full tour of that folder is Jake's YouTube video How to Make AI Videos That Don't Feel Like AI Slop.",
               "pre": false
             }
           ]
         },
         {
-          "title": "What a CLAUDE.md is",
+          "title": "Why it matters",
           "paras": [
             {
-              "text": "A markdown file that sits in the root of your project folder. Claude Code reads it automatically every time it starts. It tells Claude what this project is, how it works, and what matters. Think of it as an onboarding document for a new hire. Except the new hire reads the entire thing in two seconds and follows every word.",
+              "text": "In this course's own script for 1.1, the first draft said Jake had been doing this for two years, when it's closer to four. Caught in the script, that's one line in a text file and a ten-second fix. Caught after the animation, it's a new voice take, new timings and new frames.",
+              "pre": false
+            },
+            {
+              "text": "When the work sits in files between steps, your judgment lands early, while changes are cheap. One giant run from prompt to finished thing leaves the very end as the only place to fix anything, and the end is the most expensive place there is.",
+              "pre": false
+            },
+            {
+              "text": "Stages stop what Jake calls the narrow funnel: the AI doing too much all at once. And you can still automate the whole process when you want to.",
               "pre": false
             }
           ]
         },
         {
-          "title": "What goes in it",
+          "title": "Set it up",
           "paras": [
             {
-              "text": "Five things. Keep it short. 15 lines is enough. 10 minutes to write.",
+              "text": "Write the job as stages, each with the single file it makes. A weekly client report might be gather, draft, check, send.",
               "pre": false
             },
             {
-              "text": "1. Project overview — Two to three sentences. What is this? What does it do?",
-              "pre": false
-            },
-            {
-              "text": "2. Tech stack — What languages, frameworks, databases, tools.",
-              "pre": false
-            },
-            {
-              "text": "3. How to run things — Dev server, tests, build commands. The commands Claude needs to know.",
-              "pre": false
-            },
-            {
-              "text": "4. Key conventions — Naming patterns, file structure, architectural patterns you follow.",
-              "pre": false
-            },
-            {
-              "text": "5. What to avoid — Things Claude should not do. Libraries you do not use. Patterns you have moved away from.",
+              "text": "Give each stage a short contract: what it reads, what it makes, and who checks it before it moves on. Plain English, in the stage's folder.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Example CLAUDE.md",
+          "title": "Tell it where to stop",
           "paras": [
             {
-              "text": "# My Web App",
+              "text": "There are three strengths:",
               "pre": false
             },
             {
-              "text": "React 18 + Express + PostgreSQL + TypeScript",
+              "text": "In the map: \"Stop after each stage and wait for me.\" It reads that and pretty much always follows it. But that's still something it reads.",
               "pre": false
             },
             {
-              "text": "## Commands\nnpm run dev | npm run api | npm test",
-              "pre": true
+              "text": "In the settings: Manual mode asks before it edits files or runs anything. Plan mode only lays out a plan without touching anything.",
+              "pre": false
             },
             {
-              "text": "## Conventions\nFunctional components only. Routes in src/api/.\nAll database queries go through src/db/queries/.",
-              "pre": true
-            },
-            {
-              "text": "## Avoid\nNo class components. Don't modify db/migrations directly.\nDon't use Moment.js (we use date-fns).",
-              "pre": true
-            },
-            {
-              "text": "That is it. Fifteen lines. Ten minutes. The difference in Claude's behavior is immediate.",
+              "text": "A hook: a hard rule that blocks an action no matter what. Use it for anything that truly can't happen without you, like sending or deleting.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Tips",
+          "title": "Put your eyes where it counts",
           "paras": [
             {
-              "text": "Write it for a smart person who just joined your project. That is literally what Claude is. If a new team member would need to know it on day one, put it in the CLAUDE.md.",
+              "text": "You don't need to watch every step. Jake doesn't watch it transcribe; that's a script doing the same thing every time. He listens to the whole voice take, reads the storyboard, and watches the stills, because that's where his taste changes the result. Put your eyes where your judgment matters and let the rest run.",
               "pre": false
             },
             {
-              "text": "Update it when your project changes. The CLAUDE.md is a living document. When you add a new convention, change a library, or shift your architecture, update the file. This is the same advice from 3.3 (Common Mistakes): stale context files are the most common reason Claude starts \"getting worse.\"",
+              "text": "And stepping in is more than yes or no. Add a line, stretch a beat that's rushing, and the one Jake uses most: delete stuff. A scene that doesn't teach anything, a paragraph where he's clearly just showing off, gone.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "The bigger idea",
+          "paras": [
+            {
+              "text": "Doug Engelbart's 1962 report, Augmenting Human Intellect, was about computers making people more capable with the person right there, steering. That's what these stages are for. The AI does more and more of the work, and you keep a way in.",
               "pre": false
             },
             {
-              "text": "Do not overthink it. A mediocre CLAUDE.md beats no CLAUDE.md every time. You can always improve it later. The first version takes 10 minutes. Each edit takes 30 seconds. Start now.",
-              "pre": false
-            },
-            {
-              "text": "This is not just for code projects. If your project is a folder full of documents, the CLAUDE.md describes what those documents are, how they are organized, and what you are using them for. The same principle applies to any structured folder, whether it contains code, writing, research, or client files.",
+              "text": "Pencils and scissors and glue, then the keyboard and the word processor, then the mouse: each made the work simpler to drive while the stuff underneath got more complicated. A sentence is the next step. Since the model interprets it, the same sentence won't always run the same way, so good setups keep the complicated part right underneath, where you can open it up and check.",
               "pre": false
             }
           ]
@@ -1735,134 +1194,109 @@ FC.content = {
       ]
     },
     {
-      "slug": "10_where-this-goes",
-      "name": "Lesson 10 — Where This Goes",
+      "slug": "3-2_steady-parts-into-code",
+      "name": "3.2 Turn the Steady Parts Into Code",
       "section": 3,
       "spine": 3,
-      "boundary": true,
-      "hash": "2161d25c5297",
-      "hook": "You will see how the CLAUDE.md scales from one project to a full workspace architecture.",
+      "boundary": false,
+      "hash": "10514f6a6e14",
+      "hook": "One step you've done the same way three or four times running as a script, written into your map so the AI uses it, and a clear sense of which steps should stay with the AI.",
       "chunks": [
         {
-          "title": "The Lesson",
+          "title": "Most of it is plain old code",
           "paras": [
             {
-              "text": "What you have built so far",
-              "pre": false
-            },
-            {
-              "text": "Across the first four sessions, you set up three interfaces (Desktop, VS Code, Terminal), ran real tasks on your own files, used Desktop for thinking and Code for building, and wrote a CLAUDE.md that gives Claude project-level context.",
-              "pre": false
-            },
-            {
-              "text": "That is more than most people will ever set up. And it works.",
-              "pre": false
-            },
-            {
-              "text": "But what if...",
-              "pre": false
-            },
-            {
-              "text": "You have 10 projects. Or a complex workflow with different types of tasks. Or a team that needs the same quality from Claude across everyone's work.",
-              "pre": false
-            },
-            {
-              "text": "One CLAUDE.md per project still works. But there is a level above that.",
+              "text": "Something that surprises people about Jake's animation folder: most of the work behind these videos is plain old code. One command turns the voice into timed words, one lines the storyboard up to those words, one renders every frame, and the AI doesn't think for any of it. Each command does one stage and stops.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Task routing",
+          "title": "Code for the same answer every time",
           "paras": [
             {
-              "text": "In my workspace, different tasks load different context. Automatically.",
+              "text": "The reason is consistency, or determinism if you want the fancy word. When the same input should give the same output every time (timing words, rendering frames, totaling a spreadsheet), that's a job for code. A script does it the same way on the hundredth run as the first.",
               "pre": false
             },
             {
-              "text": "\"Write a script\" → loads voice docs only. \"Build an animation\" → loads the design system and component library. \"Build a course module\" → loads the curriculum and guidelines.",
+              "text": "Keep the AI on the parts that need judgment, like writing the script for a lesson, or deciding what goes on screen.",
               "pre": false
             },
             {
-              "text": "Same Claude. Same context window. Different context per task. The routing table in the CLAUDE.md decides what loads based on what you ask for.",
-              "pre": false
-            },
-            {
-              "text": "This is the three-layer architecture from Section 3 in full operation:",
-              "pre": false
-            },
-            {
-              "text": "Layer 1 (CLAUDE.md) — The map. Routes every task to the right workspace.",
-              "pre": false
-            },
-            {
-              "text": "Layer 2 (Workspace context files) — The rooms. Each workspace has its own CONTEXT.md describing what happens there.",
-              "pre": false
-            },
-            {
-              "text": "Layer 3 (Skills and tools) — Plug-and-play. Loaded per workspace, not globally.",
-              "pre": false
-            },
-            {
-              "text": "If you went through Section 3, this is what it looks like when you run it with Claude Code. If you skipped Section 3 and jumped straight to the Claude Code sessions, this is your introduction to the architecture. Go back to Section 3.1 for the full walkthrough.",
+              "text": "In Jake's psychometrics research the models answered the questions, but scoring the answers was arithmetic. Researchers worked out those scoring keys decades ago, so a script did it, the same way, across ten thousand responses. That's the thirty in sixty, thirty, ten.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Why this matters at scale",
+          "title": "Spot one",
           "paras": [
             {
-              "text": "200K tokens sounds huge until you fill it with irrelevant files. If Claude is writing a blog post but also reading your animation specs and your client contracts, you are burning tokens on context that has nothing to do with the task. The output gets noisier. The quality drops.",
+              "text": "Ask yourself: can I do this the same way, consistently? If you've done a step the same way three or four times and the right answer doesn't depend on taste, it's a candidate.",
               "pre": false
             },
             {
-              "text": "Task routing solves this. Each task loads only the context it needs. Clean input, clean output.",
-              "pre": false
-            },
-            {
-              "text": "Three principles that make it work:",
-              "pre": false
-            },
-            {
-              "text": "One fact, one location. Information lives in one place. No duplication across context files. No drift where one file says one thing and another says something different.",
-              "pre": false
-            },
-            {
-              "text": "New sessions start clean. When you start a new conversation in Claude Code, it reads the CLAUDE.md fresh. The routing table sends it to the right workspace. No leftover context from a previous task bleeding into the current one.",
-              "pre": false
-            },
-            {
-              "text": "Hand it to a team and everyone gets the same quality. When the context lives in files, not in someone's head, anyone who opens the folder gets the same Claude experience. This is how you scale from one person to a team without losing consistency.",
+              "text": "Renaming a pile of files, turning an export into the same summary table every week, pulling the numbers out of a report, resizing images. The bookings table from 2.1 is a perfect one.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Try the smallest version",
+          "title": "Build it",
           "paras": [
             {
-              "text": "You do not need the full architecture to start. Here is the lightest way to test workspace routing.",
+              "text": "Ask: \"Write me a script that turns this export into the weekly table, put it in a scripts folder, and add a line to the map saying when to use it.\" It writes the code, runs it and shows you the result. You don't have to write the code yourself, though you'll start reading it after a while, and that's a good thing.",
               "pre": false
             },
             {
-              "text": "If you have two distinct areas in your work, create two separate folders. Give each one its own CLAUDE.md with context specific to that area.",
+              "text": "Test it on something you already did by hand, like last week's export, and compare the two. A wrong script is wrong the same way every time, so check it properly once. Ask it to walk you through anything you don't follow, line by line if you need to.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "The map line",
+          "paras": [
+            {
+              "text": "Jake's: \"For the weekly table, run python scripts/make-table.py on the newest export.\" Next week you just say \"make this week's table\", and it runs your script, the same way, every time.",
               "pre": false
             },
             {
-              "text": "area-a/\n├── CLAUDE.md  (context for Area A)\n└── [your files]",
-              "pre": true
-            },
+              "text": "One clear input and one clear output means you can swap the script later (make it faster, change the format) without touching anything else in the folder. That's the old Unix rule from the 70s: make each program do one thing well.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "Make it run on its own (checked 6 October 2026)",
+          "paras": [
             {
-              "text": "area-b/\n├── CLAUDE.md  (context for Area B)\n└── [your files]",
-              "pre": true
-            },
-            {
-              "text": "Run a task in Area A. Then run a task in Area B. Watch Claude behave differently in each one. That difference is workspace routing at its simplest.",
+              "text": "The desktop app can run a task on a schedule, like every Monday morning. You set when and write what it should do. Tasks that work on files on your computer need the app open and the computer awake. Monday comes around and the table's already sitting there waiting for you.",
               "pre": false
             },
             {
-              "text": "When you are ready to put both under one roof with a single routing table, that is the full architecture from 3.1. You already have the pieces. You just need to combine them.",
+              "text": "In Cowork: Scheduled in the sidebar, then New task.",
+              "pre": false
+            },
+            {
+              "text": "In Code: Routines, then New routine, then Local.",
+              "pre": false
+            }
+          ]
+        },
+        {
+          "title": "What stays with the AI and you",
+          "paras": [
+            {
+              "text": "If a step needs reading between the lines, like replying to a client or deciding what a video should show, keep it with the AI and with you.",
+              "pre": false
+            },
+            {
+              "text": "You don't have to plan this up front. Keep doing the work by hand and automate one piece at a time, and the work will show you the next best automation.",
+              "pre": false
+            },
+            {
+              "text": "Pro tip: whenever you can get at the back end of something, an export or an API, use it, and skip having the AI click around a website.",
               "pre": false
             }
           ]
@@ -1870,174 +1304,105 @@ FC.content = {
       ]
     },
     {
-      "slug": "11_path-from-here",
-      "name": "Lesson 11 — Your Path From Here",
+      "slug": "3-3_keep-it-useful",
+      "name": "3.3 Keep It Useful and Hand It On",
       "section": 4,
       "spine": 4,
       "boundary": false,
-      "hash": "e525f7a0d847",
-      "hook": "A clear picture of where to go next based on what you want to build.",
+      "hash": "2b684642f882",
+      "hook": "A way to check if your workspace has gone stale, what to clear out, one home for every fact, and how to hand the whole thing to someone who can actually pick it up.",
       "chunks": [
         {
-          "title": null,
+          "title": "The swamp",
           "paras": [
             {
-              "text": "You finished The Foundation.",
+              "text": "AI makes it really easy to make a lot of stuff: drafts, versions, notes, summaries of the summaries. The folder that felt amazing in week one can be a swamp by week six, where the AI finds three prices for the same thing and picks the old one.",
               "pre": false
             },
             {
-              "text": "You have tools installed (1.1), a folder system that gives Claude context (1.2), a prompting framework (1.3), six videos explaining the ideas underneath all of it (Section 2), the full folder architecture (Section 3), and Claude Code running on your machine (Section 4).",
-              "pre": false
-            },
-            {
-              "text": "That is a working system. Everything from here builds on it.",
+              "text": "Jake's workspace has a folder called _archive, and the map describes it in five words: retired work, never read it. Old versions, old experiments, stuff that worked once and doesn't anymore, all go there, out of the way, and the AI never wastes a second on it.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Level 2 — Implementation Playbooks",
+          "title": "Check one: the fresh-session test",
           "paras": [
             {
-              "text": "Unlock by engaging in the community. Hands-on courses where you build real projects.",
+              "text": "A cousin of the routing test from 2.2. Open a brand new session and ask: what is this folder, what's in progress, and what's next?",
               "pre": false
             },
             {
-              "text": "Building Animations The full pipeline for creating video animations with Claude Code and Remotion. Script to spec to build to render. Four lessons including a community challenge.",
-              "pre": false
-            },
-            {
-              "text": "The Ultimate Browser (Claude Extension) Claude running inside Chrome. Pull data from any page, teach Claude your workflows, automate inbox and scheduling. Four lessons with real use cases.",
+              "text": "If it gets that wrong, your map is out of date. Better to learn that from a test than from a confused client.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Level 3 — Building Your Stack",
+          "title": "Check two: one home for every fact",
           "paras": [
             {
-              "text": "For members who have built with Level 2 and want to push further.",
+              "text": "Prices in three files will drift. Keep each fact in one place and point everything else to it.",
               "pre": false
             },
             {
-              "text": "Custom UI for Claude (or Other AI) Build your own front-end interface for Claude. The build process, Claude Code in action, scoping your design, and open-source references to study.",
-              "pre": false
-            },
-            {
-              "text": "Remote Access for Claude Want to control your Claude Code on your Desktop from your phone? This course teaches you how.",
+              "text": "Same with skills. When the way you do something changes, fix the skill file, and every job that uses it picks up the change.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Premium — The Vault ($27/month)",
+          "title": "Check three: clear stuff out",
           "paras": [
             {
-              "text": "Every downloadable asset in the community. Two structured courses. Discord access.",
+              "text": "Retired work goes in an archive. Delete the generated stuff nobody will use, and don't be afraid to delete and restart. We get attached to files because of how long they used to take to make, and they just don't take that long anymore.",
               "pre": false
             },
             {
-              "text": "The Library:",
-              "pre": false
-            },
-            {
-              "text": "Workspace Blueprint (full production folder template with routing tables and context files)",
-              "pre": false
-            },
-            {
-              "text": "Production CLAUDE.md examples for different use cases",
-              "pre": false
-            },
-            {
-              "text": "Folder Organization Guide",
-              "pre": false
-            },
-            {
-              "text": "Prompting Framework Guide (one-page reference)",
-              "pre": false
-            },
-            {
-              "text": "Animation spec templates",
-              "pre": false
-            },
-            {
-              "text": "Workflow starter packs (content pipeline, consulting, development)",
-              "pre": false
-            },
-            {
-              "text": "Claude Skills Manual + Resource Index",
+              "text": "Keep your hands off the originals, your sources, and anything that belongs to someone else. On Manual mode it asks before it changes anything.",
               "pre": false
             }
           ]
         },
         {
-          "title": "New resources added weekly",
+          "title": "Hand it on",
           "paras": [
             {
-              "text": "Courses:",
+              "text": "The map that tells the AI where everything is tells a new person the same thing. Somebody joins your team, you hand them the folder, they read CLAUDE.md, and they know what's where and what to do first. Same as the AI did.",
               "pre": false
             },
             {
-              "text": "The 60/30/10 Framework — The business methodology for deciding where AI fits. Real case studies.",
+              "text": "The test Jake gives people: if he turned off the AI tomorrow, could you still find your way around these files and do the work? If yes, that's a good structure.",
               "pre": false
             },
             {
-              "text": "Building Your First Workflow End to End — From folder structure to working multi-step system.",
-              "pre": false
-            },
-            {
-              "text": "Community:",
-              "pre": false
-            },
-            {
-              "text": "Discord access (Premium channels)",
+              "text": "Hand over a copy: zip it or drop it in a shared drive. Great for templates. Or work in one shared place: a synced drive, or Git if you want every change tracked. That's more powerful, and you'll need to agree on who changes what. Who can open it at all is a permissions question. The folder doesn't decide that for you.",
               "pre": false
             }
           ]
         },
         {
-          "title": "Premium discussion threads",
+          "title": "Why Jake bets on folders",
           "paras": [
             {
-              "text": "Free content teaches the ideas. Premium gives you the assets, the templates, and the guided builds to apply them.",
+              "text": "Files and folders have been around since the sixties. Unix made them the backbone of computing in the seventies, and they've made it through every big shift since: the PC, the internet, phones, the cloud.",
+              "pre": false
+            },
+            {
+              "text": "Next week some other company will have the better model. What stays yours is your files, your context, your data. Point the new model at the same folder, maybe rename the map file, maybe tweak a skill, and keep going. It's a bet, and it's one Jake's happy to make, because he wants to teach the stuff that lasts.",
               "pre": false
             }
           ]
         },
         {
-          "title": "VIP — The Drawing Room ($97/month)",
+          "title": "That's Foundations",
           "paras": [
             {
-              "text": "Personal access. Everything in Premium plus three things:",
+              "text": "You started in a chat, saved what worked as a skill, gave it a folder and one agent, designed a workspace around your own outcome, put your judgment where it counts, turned the steady parts into code, and now you can keep it alive and hand it on.",
               "pre": false
             },
             {
-              "text": "Afternoon Tea Live sessions every two weeks. Bring your project, your problem, your build. Small group. We work through it together.",
-              "pre": false
-            },
-            {
-              "text": "Bespoke Builds Fill out the questionnaire. I build a custom folder setup or workflow designed for your specific work. Your context, your use case, your system.",
-              "pre": false
-            },
-            {
-              "text": "Discord: Drawing Room Channels Smaller. More direct. Async access between sessions.",
-              "pre": false
-            },
-            {
-              "text": "The Drawing Room is not a content library. You are paying for proximity and personal attention. You show up, you get help, you build.",
-              "pre": false
-            }
-          ]
-        },
-        {
-          "title": "Not sure which path?",
-          "paras": [
-            {
-              "text": "I want to... Start here Build animations or video content → Level 2: Building Animations Automate browser tasks → Level 2: The Ultimate Browser Build my own AI interface → Level 3: Custom UI Get templates, assets, and structured courses → Premium: The Vault Get live help on my specific project from Jake → VIP: The Drawing Room",
-              "pre": false
-            },
-            {
-              "text": "Keep learning for free → Go back through Sections 1-4 and do every check-in. Engage in the community. Level 2 unlocks with participation.",
+              "text": "Simple, then complex, then simple again, with all your work sitting right underneath.",
               "pre": false
             }
           ]

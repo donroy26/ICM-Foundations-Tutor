@@ -1,118 +1,108 @@
 # Foundation Companion
 
-Foundation Companion walks you through Jake Van Clief's 11 Foundation lessons from his Skool community by having you build each concept in Claude Code as you go. Instead of reading, you do.
+Foundation Companion walks you through Jake Van Clief's Foundations course from his Clief Notes Skool community by having you build each lesson in Claude Code as you go. Instead of reading, you do.
 
-For Clief Notes Skool forum members who've tried the Foundation lessons and want a more hands-on walkthrough.
-
----
-
-## New: play it as a game first (no install)
-
-Prefer to learn by doing before touching a terminal? There's now a browser-based version — a simulated desktop that walks you through the same 11 lessons video-game style. No install, no account, no network: open `v2/index.html` in your browser and press **Start**. When you finish, download your workspace as real files and come back here to run the real thing.
-
-![Foundation Companion: Desktop — the title screen](v2/screenshots/title.png)
-
-A teaching assistant guides every step, and the instructions anchor right next to whatever you should do next — so you're never hunting for what the game means:
-
-![A guided build step — the instruction popup anchors beside the highlighted control](v2/screenshots/guide-anchored.png)
-
-Later lessons add a fully scripted **Claude Code (simulated)** window, so you practice prompting against a realistic workspace before running the real Claude Code:
-
-![The simulated Claude Code window reading a workspace and taking a prompt](v2/screenshots/claude-sim.png)
-
-Everything you build maps 1:1 to real files. Full details in [v2/README.md](v2/README.md).
+For Clief Notes members who've seen the Foundations lessons and want a hands-on walkthrough. Updated for the October 2026 Foundations course (Start Here plus lessons 1.1 to 3.3), which is also free as one video: [How I'd Learn AI From Zero in 2026](https://youtu.be/6AzLk2-kWyY).
 
 ---
 
 ## What you'll walk away with
 
-Two things, in your own words:
+- **The three layers:** chat, skills, and folders with one agent, and when to use each.
+- **Your first skill,** made from your own corrections, if you start at 1.1.
+- **A real workspace** built around one of your own jobs: a short map with a routing table, your skill wired in, work split into stages you can step into, one steady step turned into a script, and an archive that keeps it from turning into a swamp.
+- The habit behind all of it: one short sentence kicks off real work, and every piece of it sits in files you can open.
 
-- The three-layer architecture: what the Map, the Rooms, and the Tools are and why it's structured that way.
-- The five-part prompting framework: Identity, Task, Context, Constraints, and Output Format — what each part does and which one to reach for when your output is off.
+---
+
+## Where it starts
+
+This repo runs inside Claude Code, a coding environment, so **1.3 Folders and One Agent is the natural place to start.** That's where the AI starts working inside your files.
+
+1.3 builds on the first two lessons, a list of corrections from a chat (1.1) and a skill made from them (1.2). If you haven't done those yet, the tutor walks you through them first. They happen in the Claude chat app, and the tutor keeps track of everything here.
+
+---
+
+## How it works: two windows
+
+From 1.3 on you'll have two Claude Code sessions open:
+
+- **The tutor,** opened on this folder. It teaches, gives you one step at a time, and checks your files.
+- **The work session,** opened on your workspace folder (for example `client-email/`). That's the "one agent" from Jake's lessons. You give it the short requests and watch what it reads.
+
+Jake's tests only mean something in a fresh session that knows nothing but your folder, so the tutor never does them for you. It checks what the work session made.
+
+No folder of real work handy? `practice/client-email/` is a made-up client folder shaped like the one in the videos. The tutor copies it out for you, so the original stays clean.
 
 ---
 
 ## What you need first
 
-- A **Claude Pro or Max** account (free tier won't cover Claude Code).
-- **Claude Code** installed on your machine.
-
-If you don't have Claude Code yet, the install steps are below.
+- A **Claude Pro or Max** account. The free plan covers 1.1 and 1.2 in the chat app, but Claude Code needs a paid plan.
+- **Claude Code** installed on your machine. (On the ChatGPT side, Codex works too: this repo ships an `AGENTS.md`.)
 
 ---
 
-## Install steps
+## Install steps (checked 6 October 2026)
 
-### macOS
+These change often. If a step doesn't match your screen, the official [setup page](https://code.claude.com/docs/en/setup) wins.
 
-1. Download Claude Code from [claude.ai/download](https://claude.ai/download). Choose the macOS version.
-2. Open the installer and follow the prompts.
-3. Sign in with your Anthropic account when Claude Code launches.
-4. Verify it worked: open Terminal and type `claude --version`. If you see a version number, you're good.
+**Claude desktop app (easiest):** download it from [claude.ai/download](https://claude.ai/download), sign in, and use the **Code** tab. Code needs a Pro, Max, Team or Enterprise plan.
 
-If `claude` isn't found after install, close Terminal completely and reopen it.
+**Claude Code in a terminal or editor:**
 
-### Windows
+- macOS: `curl -fsSL https://claude.ai/install.sh | bash`
+- Windows (PowerShell): `irm https://claude.ai/install.ps1 | iex`
 
-Before you download anything, check your system architecture.
-
-1. Open Settings → System → About.
-2. Look for "System type." It will say something like "64-bit operating system, x64-based processor" or "ARM-based processor."
-3. Note which one you have — x64 or ARM64. You need the matching installer. Installing the wrong one causes problems that are hard to diagnose.
-
-Then:
-
-4. Download Claude Code from [claude.ai/download](https://claude.ai/download). Choose the version that matches your architecture.
-5. Run the installer and follow the prompts.
-6. Sign in with your Anthropic account when Claude Code launches.
-7. Verify it worked: open PowerShell or Command Prompt and type `claude --version`. If you see a version number, you're good.
-
-> Why the architecture check matters: x64 and ARM64 are different processor types. The wrong installer may appear to work but will fail in subtle ways. Always check before downloading.
+No Node needed. Check it worked with `claude --version`. If `claude` isn't found, close the terminal completely and reopen it. There's also a VS Code extension, which works in Cursor too.
 
 ---
 
-## How to open this repo in Claude Code
+## How to open this repo
 
 First, get the repo. Either clone it with git (`git clone https://github.com/donroy26/Clief-Notes-Foundations-Tutor.git`) or download the ZIP from GitHub and unzip it somewhere you can find it.
 
-Then open it. Pick whichever of these matches how you work:
+Then open it, whichever way you work:
 
-**Claude Desktop app**
-1. Open Claude Desktop.
-2. Click the Tools icon (bottom left of the chat bar) and select Claude Code, or open a new Claude Code session from the sidebar.
-3. Use the folder icon to open the Foundation Companion folder.
-4. Say "hi" or "let's go."
+**Claude desktop app:** Code tab, then Local, then select the Foundation Companion folder. Say "hi" or "let's go."
 
-**VS Code**
-1. Open VS Code.
-2. File → Open Folder, then select the Foundation Companion folder.
-3. Open the Claude Code panel (the sidebar icon or `Ctrl+Shift+P` → Claude Code).
-4. Say "hi" or "let's go."
+**VS Code:** File, then Open Folder, and select the Foundation Companion folder. Open the Claude Code panel. Say "hi" or "let's go."
 
-**Terminal**
-1. `cd` into the Foundation Companion folder.
-2. Type `claude` and press Enter.
-3. Say "hi" or "let's go."
+**Terminal:** `cd` into the Foundation Companion folder, type `claude`, press Enter. Say "hi" or "let's go."
 
-All three work the same way — Claude reads the project files on start and handles everything from there. You don't need to open any other files or do any setup.
+Claude reads the project files on start and handles everything from there. When a lesson needs the work session, the tutor tells you exactly how to open it.
 
 ---
 
 ## Time estimate
 
-11 lessons across 3 sessions, because the curriculum includes session-restart points after certain lessons. Starting fresh is part of the learning — not a bug.
+The tutor asks you to start a fresh session at the end of each section. Starting clean is part of the learning: it's the desk from 1.1.
 
 | Session | Lessons | Rough time |
 |---------|---------|------------|
-| Session 1 | Lessons 1–2 | 45–60 minutes |
-| Session 2 | Lessons 3–5 | 60–90 minutes |
-| Session 3 | Lessons 6–11 | 90–120 minutes |
+| Session 1 | Start Here, 1.1, 1.2 (in the chat app) | 45 to 60 minutes |
+| Session 2 | 1.3, 1.4 | 60 to 75 minutes |
+| Session 3 | 2.1, 2.2, 2.3 | 75 to 90 minutes |
+| Session 4 | 3.1, 3.2, 3.3 | 75 to 90 minutes |
+
+Starting at 1.3? Skip session 1 and do Start Here at the top of session 2.
 
 These are real estimates, not aspirational ones. The build steps take time. That's the point.
 
 ---
 
+## The browser game (v2)
+
+There's also a browser version: a simulated desktop that walks you through the lessons video-game style. No install, no account, no network. Open `v2/index.html` in your browser and press **Start**. Details in [v2/README.md](v2/README.md).
+
+![Foundation Companion: Desktop, the title screen](v2/screenshots/title.png)
+
+---
+
+## Credit
+
+All lesson content is Jake Van Clief's, from the Foundations course in the [Clief Notes](https://www.skool.com/cliefnotes/about?ref=f4482ac988fb4a7b8da3efa95cfc1d00) community. This repo is a hands-on companion to it, not a replacement. The setup steps carry the date they were checked, because the apps change every couple of weeks.
+
 ## License
 
-Free to use under MIT License. See the [LICENSE](LICENSE) file.
+Free to use under the MIT License. See the [LICENSE](LICENSE) file.

@@ -31,7 +31,9 @@ function extractBrief(md) {
   const start = md.indexOf("## Brief");
   if (start < 0) throw new Error("no ## Brief section");
   let body = md.slice(start + "## Brief".length);
-  const end = body.search(/\n---\n|\n## Build/);
+  // End at the Build heading (and the rule above it). A bare "---" alone is not
+  // an end marker: example SKILL.md frontmatter inside a Brief uses it.
+  const end = body.search(/\n---[ \t]*\n+## Build|\n## Build/);
   if (end >= 0) body = body.slice(0, end);
   return body.replace(/<!--[\s\S]*?-->/g, "").trim();
 }
