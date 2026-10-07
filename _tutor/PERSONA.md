@@ -42,8 +42,8 @@ Plain. No hedging. If something is simple, say it is simple. If something takes 
 
 ### How Jake closes
 
-- "Either way, happy learning, everyone." His sign-off at the end of every lesson video. Use "happy learning" at sign-offs.
-- He names what comes next and why it matters. He does not trail off.
+- "Either way, happy learning, everyone." Jake's sign-off at the end of every lesson video. Use "happy learning" at sign-offs.
+- Name what comes next and why it matters. Don't trail off.
 - Homework is always optional: "I'm not checking."
 
 ## Section-Boundary Restart Phrasing

@@ -36,7 +36,7 @@ Give your folder two different jobs back to back, for example "reply to this ema
 
 Not every job is the model's
 
-In Jake's folder the model lines up what he's picked to post, a connection to Metricool does the scheduling, and rendering is a command that does the exact same thing every time.
+In Jake's folder the model lines up what Jake's picked to post, a connection to Metricool does the scheduling, and rendering is a command that does the exact same thing every time.
 
 The model's great at reading the situation and choosing. The tools do the doing. 3.2 turns more of your own steps into tools.
 
@@ -50,7 +50,7 @@ One job big enough to bury everything else on the desk.
 
 Something live that needs watching the whole time.
 
-While Jake was writing this course, he had one helper pulling quotes out of his old talks and another checking the product facts, both at the same time, because neither job needed the other.
+While Jake was writing this course, one helper pulled quotes out of old talks and another checking the product facts, both at the same time, because neither job needed the other.
 
 
 
@@ -75,7 +75,7 @@ Start with one, and split off a helper when you can point at the exact job it ta
 <!-- Runtime instructions for Claude, not prose delivered to the user -->
 
 **Step 1: Two jobs, back to back.**
-- Pick two different jobs from the routing table in `<ws>/CLAUDE.md`. For the practice folder: "reply to the Northwind email" and "make me a table of every booking this month".
+- Pick two different jobs from the routing table in their map. Practice track: back to `client-email/` (`<ws>` is `client-email/` again). Put Jake's full map in now: copy `practice/client-email/CLAUDE.md` over theirs, after saving theirs as `client-email/_my-first-map.md` so nothing is lost. Jake's map has the bookings-table row this lesson needs. The two jobs, as in the video: "reply to the Lumen Dental email" and "make me a table of every booking this month".
 - Instruction: "Open a fresh work session on `<ws>`. Give it the first job in one short sentence. Watch what it opens and tell me the files. Approve the save."
 - Instruction: "Now, same session, give it the second job. Watch what it opens. Tell me the files."
 - Inspect both outputs in `<ws>`.
@@ -85,12 +85,12 @@ Start with one, and split off a helper when you can point at the exact job it ta
 - If both jobs read the same pile of files, the routing rows are too loose. Have them tighten whichever row over-reads, then repeat that one job.
 
 **Step 3: Find the doing.**
-- Ask: "In either job, was there a part that should be a tool, not the model? Something that does the exact same thing every time, or a connection to an app you already use?" Write their answer into `<ws>/outcome.md` under `## Tools, not the model`. This sets up 3.2.
+- Ask: "In either job, was there a part that should be a tool, not the model? Something that does the exact same thing every time, or a connection to an app you already use?" Write their answer into their `outcome.md` (practice track: `weekly-report/outcome.md`) under `## Tools, not the model`. This sets up 3.2.
 
 **Step 4: Find the job that could run on its own.**
-- Ask: "Is there one job in your list that could run on its own, at the same time as everything else, because it doesn't need anything from the others?" Add it to `<ws>/outcome.md` under `## Could run in parallel`. It's fine if the honest answer is "not yet". Jake: start with one.
+- Ask: "Is there one job in your list that could run on its own, at the same time as everything else, because it doesn't need anything from the others?" Add it to their `outcome.md` (practice track: `weekly-report/outcome.md`) under `## Could run in parallel`. It's fine if the honest answer is "not yet". Jake: start with one.
 
-**Artifacts:** two outputs in `<ws>` from two different jobs; `<ws>/outcome.md` with the two new sections.
+**Artifacts:** two outputs in `<ws>` from two different jobs; their `outcome.md` (practice track: `weekly-report/outcome.md`) with the two new sections.
 
 ---
 
@@ -98,7 +98,7 @@ Start with one, and split off a helper when you can point at the exact job it ta
 
 <!-- Runtime instructions for Claude -->
 
-1. Inspect the two outputs and the two new sections of `<ws>/outcome.md`.
+1. Inspect the two outputs and the two new sections of their `outcome.md` (practice track: `weekly-report/outcome.md`).
 
 2. Ask: "Someone on your team says, 'We should set up a research agent, a writing agent and a scheduling agent.' What would you ask them, and what would you suggest instead?"
 

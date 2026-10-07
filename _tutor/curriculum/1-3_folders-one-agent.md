@@ -94,9 +94,9 @@ Why folders work
 
 It's the desk again. The map and the routing put exactly what this job needs on the desk and leave everything else in the drawers. Even if video scripts were sitting in that folder, they'd stay in the drawer while it answers email.
 
-One sneaky trick: put naming rules in the map. Say "pull last week's draft for Harbor Bakery" and it just knows where to look. Nine times out of ten, that's all you need. No database, nothing.
+One sneaky trick: put naming rules in the map. Say "pull last week's draft for Maple Street" and it just knows where to look. Nine times out of ten, that's all you need. No database, nothing.
 
-It works for way more than email. The folder that made the Foundations videos is the same pattern: a map up top, a room for each stage, each video in its own folder. A sales team's folder might hold their data, how they check it, and this week's report. A developer's holds their code and the decisions behind it. This whole pattern is what Jake's paper on Interpretable Context Methodology is about. He calls it ICM. The skill that builds these folders, ICM Architect, comes up in 2.2.
+It works for way more than email. The folder that made the Foundations videos is the same pattern: a map up top, a room for each stage, each video in its own folder. A sales team's folder might hold their data, how they check it, and this week's report. A developer's holds their code and the decisions behind it. This whole pattern is what Jake's paper on Interpretable Context Methodology is about. Jake calls it ICM. The skill that builds these folders, ICM Architect, comes up in 2.2.
 
 
 
@@ -117,13 +117,14 @@ That's the three layers. You started simple in a chat, built the complicated stu
 This is the first lesson with two windows. Before Step 1, explain the setup in two or three sentences, using "The two windows" in INSTRUCTIONS.md: this session is the tutor, the work session is the one agent, and Jake's tests only mean something in a fresh session that knows only the folder.
 
 **Step 1: Pick the folder.**
-- Ask: "Do you want to use a copy of a folder of your own real work, or the practice folder? The practice folder is a made-up client-email folder, just like the one in the video."
-- **Practice folder:** copy `practice/client-email/` to `client-email/` at the root of this repo yourself. Tell them: "Done. `client-email/` is your workspace now. The one in `practice/` stays clean in case you want to start over."
-- **Their own folder:** "Make a copy of it, and put the copy here, at the root of the Foundation Companion folder (next to `_tutor/`). Use your file explorer: copy, then paste it here. Tell me its name when it's in." Then list its contents to confirm. If it's huge (thousands of files), suggest copying one corner of it instead.
-- Record the folder name in progress.md as `workspace`. From here on, `<ws>` means that folder.
+- Ask: "Do you want to use a copy of a folder of your own real work, or Jake's practice folder? The practice folder is the exact client-email folder from the video: made-up clients, an inbox, and Jake's reply skill."
+- **Practice folder** (`track: "practice"`): copy `practice/client-email/` to `client-email/` at the root of this repo yourself, but **leave out its `CLAUDE.md`**. That's Jake's finished map; writing one is the lesson, and you'll compare against Jake's at the end. Tell them: "Done. `client-email/` is your copy. I held back Jake's map so you can make your own first. The original in `practice/` stays clean in case you want to start over."
+- **Their own folder** (`track: "own"`): "Make a copy of it, and put the copy here, at the root of the Foundation Companion folder (next to `_tutor/`). Use your file explorer: copy, then paste it here. Tell me its name when it's in." Then list its contents to confirm. If it's huge (thousands of files), suggest copying one corner of it instead.
+- Record the track and folder name in progress.md (`track`, `workspace`). From here on in this lesson, `<ws>` means that folder.
 
 **Step 2: Bring the skill along.**
-- If `my-skills/<name>/SKILL.md` exists: copy that skill folder to `<ws>/.claude/skills/<name>/`. Say: "Your skill from 1.2 is now inside the workspace, under `.claude/skills/`, so it travels with the folder. Same move Jake makes in the video."
+- If `my-skills/<name>/SKILL.md` exists: copy that skill folder to `<ws>/.claude/skills/<name>/`. Say: "Your skill from 1.2 is now inside the workspace, under `.claude/skills/`, so it travels with the folder. Same move Jake makes in the video." On the practice track, the folder already has Jake's `how-i-reply`. If theirs has a different name, keep both; if it's also called `how-i-reply`, ask which one they want to use and keep that one.
+- **Practice track with no skill of their own:** Jake's `how-i-reply` is already in `client-email/.claude/skills/`. Open it with them and read it: "This is the skill from 1.2, written from Jake's corrections. It travels with the folder." Skip the next bullet.
 - **If the user started here and has no skill:** ask: "What's one job you do in this folder over and over, and two or three corrections you always end up making when AI does it?" Then have them make it in the work session in Step 4 instead, by asking: "Make me a skill for [job] at .claude/skills/[name]/SKILL.md, from these corrections: [their list]." Inspect the file after. If they brought a skill or saved prompt from elsewhere, have them save it as `<ws>/.claude/skills/<name>/SKILL.md` with a name and description at the top.
 
 **Step 3: Open the work session.**
@@ -146,17 +147,24 @@ This is the first lesson with two windows. Before Step 1, explain the setup in t
 
 **Step 6: Add one routing row.**
 - Instruction: "Now add one routing row for one job you do. Five lines: Job, Read, Skip, Use, Save to. Jake's is on the screen in the lesson: reply to email. Ask the work session to add it, or type it in yourself. Tell me when it's in."
-- For the practice folder, the job is replying to email. Also suggest the two rules: never send anything, and if the client's notes don't confirm something, say so in the draft.
+- On the practice track, the job is replying to email. Also suggest the two rules: never send anything, and if the client's notes don't confirm something, say so in the draft.
 - Inspect: the row exists in `<ws>/CLAUDE.md`, names real files and folders that exist, names the skill, and says where to save and how to name.
 
 **Step 7: One short request.**
 - Instruction: "Start a fresh work session (close it and reopen it on the same folder, so the desk is clean). Give it one short request for that job. Jake's is three words: `check my email`. Watch what it opens. Tell me which files it read, and approve the save when it asks."
 - Ask: "Did it read what your row told it to? Did it skip what it should skip? Did it say it was using your skill?"
-- Inspect the saved output in `<ws>/` (for the practice folder, new files in `client-email/drafts/`). For the practice folder, check specifically: the Harbor Bakery reply does NOT promise the studio room (it's not booked) and doesn't invent a new date; the Northwind reply doesn't confirm parking terms it can't know. If a draft broke a rule, that's a great teaching moment: the fix goes in the skill or the map, not in a longer prompt.
+- Inspect the saved output in `<ws>/` (on the practice track, new files in `client-email/drafts/`). On the practice track there are three emails, and each one is a trap the notes answer. Check:
+  - **01 Maple Street** (move to the 14th, same room?): says the 14th is taken, offers the 21st, and does NOT promise a room for the 21st (the notes say none is booked).
+  - **02 Lumen Dental** (add five more?): does NOT just say yes. The staff room seats 12 and more people means a new quote, so the reply says that and leaves it open.
+  - **03 Maple Street** (laptops or phone?): the notes don't say, so the reply says Jake will confirm, or the draft flags it. It shouldn't invent an answer.
+  - If a draft broke a rule, that's a great teaching moment: the fix goes in the skill or the map, not in a longer prompt.
 
 **Step 8: Open what it saved.**
 - Instruction: "Open one of the files it saved, in Notepad or any editor, outside Claude. Change a word and save it. Tell me when you've done it."
 - Then: "That's the point. The work is just files. You can always get in there."
+
+**Step 9 (practice track only): Compare with Jake's map.**
+- Show them `practice/client-email/CLAUDE.md`, Jake's finished map. Ask: "What did Jake put in that yours doesn't have, and what did you put in that Jake didn't?" Things to notice: Jake's routing is a table with three jobs (reply to email, client update, bookings table); the naming rule ties each draft to its inbox number. Theirs doesn't need to match. It needs to work.
 
 **Artifacts:** `<ws>/CLAUDE.md` with at least one routing row, `<ws>/.claude/skills/<name>/SKILL.md`, at least one output file the work session saved.
 

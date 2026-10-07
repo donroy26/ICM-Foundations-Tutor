@@ -38,7 +38,7 @@ Why this course
 
 Most people use AI like a really smart search bar. They ask it something, copy the answer, paste it somewhere, and then tomorrow they start over with a blank chat. That works. It's also about the smallest thing you can do with it.
 
-Case in point: the Foundations videos themselves. The script, the animation, the little pixel Jake pointing at stuff. All of it came out of one folder on his computer. Later in the course he opens that folder up and shows how it's built, so you can build one around whatever you do, videos or not.
+Case in point: the Foundations videos themselves. The script, the animation, the little pixel Jake pointing at stuff. All of it came out of one folder on Jake's computer. Later in the course Jake opens that folder up and shows how it's built, so you can build one around whatever you do, videos or not.
 
 You don't need to know how to code. Almost everything you'll see is plain English sitting in text files.
 
@@ -72,7 +72,7 @@ A Claude or ChatGPT account. On Claude, the free plan covers 1.1 and 1.2. From 1
 
 Apps change every couple of weeks, so each lesson keeps the current setup details with a date on them. If a button has moved, the official page wins.
 
-Two extra sections live in the Skool classroom: Live Lessons, longer recordings of Jake working through real stuff with people, and History and Concepts, where he digs into Engelbart, Unix and why any of this works in the first place. Dip into either one whenever you want to go deeper.
+Two extra sections live in the Skool classroom: Live Lessons, longer recordings of Jake working through real stuff with people, and History and Concepts, which digs into Engelbart, Unix and why any of this works in the first place. Dip into either one whenever you want to go deeper.
 
 ---
 

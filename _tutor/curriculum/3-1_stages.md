@@ -52,9 +52,9 @@ A hook: a hard rule that blocks an action no matter what. Use it for anything th
 
 Put your eyes where it counts
 
-You don't need to watch every step. Jake doesn't watch it transcribe; that's a script doing the same thing every time. He listens to the whole voice take, reads the storyboard, and watches the stills, because that's where his taste changes the result. Put your eyes where your judgment matters and let the rest run.
+You don't need to watch every step. Jake doesn't watch it transcribe; that's a script doing the same thing every time. Jake listens to the whole voice take, reads the storyboard, and watches the stills, because that's where taste changes the result. Put your eyes where your judgment matters and let the rest run.
 
-And stepping in is more than yes or no. Add a line, stretch a beat that's rushing, and the one Jake uses most: delete stuff. A scene that doesn't teach anything, a paragraph where he's clearly just showing off, gone.
+And stepping in is more than yes or no. Add a line, stretch a beat that's rushing, and the one Jake uses most: delete stuff. A scene that doesn't teach anything, a paragraph that's clearly just showing off, gone.
 
 
 
@@ -72,7 +72,7 @@ Pencils and scissors and glue, then the keyboard and the word processor, then th
 
 **Step 1: Pick the job and name the stages.**
 - Ask: "Pick one job you do in steps. It can be from your routing table. What are the stages, and what's the single file each stage makes?"
-- For the practice folder, use the Monday bookings heads-up from 2.1: `01_gather` (reads the newest export in `exports/`, makes `table.md`), `02_draft` (reads the table, makes `heads-up.md`, two lines for the owner), `03_check` (you read it, makes nothing, or a one-line `approved.md`), then send is you.
+- Practice track: the weekly report from 2.1, in `weekly-report/` (copy it from `practice/` if it isn't at the root yet; `<ws>` is `weekly-report/`). Stages: `01_gather` (reads the newest export in `exports/`, makes `table.md`), `02_draft` (reads the table, makes `heads-up.md`, two lines for the owner on what's still pending), `03_check` (you read it, makes nothing, or a one-line `approved.md`), then send is you.
 - Take their answer stage by stage. Push back on any stage that makes more than one file, or none.
 
 **Step 2: Mark the judgment points.**

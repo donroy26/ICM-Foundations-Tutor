@@ -137,8 +137,11 @@
           d.player.workspaceName = "client-email";
           FC.vfs.mkdir("client-email");
           FC.vfs.writeFile("client-email/CLAUDE.md", "# client-email\n\nTest map.\n");
-          FC.vfs.writeFile("client-email/exports/bookings-2026-10-06.csv", "booking_id,client,session,date,status,attendees,price\nB-1044,Kettle & Co,Full day,2026-10-22,pending,6,2000\n");
-          FC.vfs.writeFile("client-email/outcome.md", "# Outcome\n\nTest outcome.\n");
+        }
+        if (!FC.vfs.exists("weekly-report/CLAUDE.md")) {
+          FC.vfs.writeFile("weekly-report/CLAUDE.md", "# Weekly report\n\nTest map.\n");
+          FC.vfs.writeFile("weekly-report/exports/2026-09-28-bookings.csv", "date,client,seats,price_per_seat,status\n2026-09-22,Maple Street Bakery,8,45,confirmed\n");
+          FC.vfs.writeFile("weekly-report/outcome.md", "# Outcome\n\nTest outcome.\n");
         }
         U.q("#title-screen").classList.remove("show");
         U.q("#level-screen").classList.remove("show");

@@ -48,7 +48,7 @@ Hand it on
 
 The map that tells the AI where everything is tells a new person the same thing. Somebody joins your team, you hand them the folder, they read CLAUDE.md, and they know what's where and what to do first. Same as the AI did.
 
-The test Jake gives people: if he turned off the AI tomorrow, could you still find your way around these files and do the work? If yes, that's a good structure.
+The test Jake gives people: if the AI got turned off tomorrow, could you still find your way around these files and do the work? If yes, that's a good structure.
 
 Hand over a copy: zip it or drop it in a shared drive. Great for templates. Or work in one shared place: a synced drive, or Git if you want every change tracked. That's more powerful, and you'll need to agree on who changes what. Who can open it at all is a permissions question. The folder doesn't decide that for you.
 
@@ -58,7 +58,7 @@ Why Jake bets on folders
 
 Files and folders have been around since the sixties. Unix made them the backbone of computing in the seventies, and they've made it through every big shift since: the PC, the internet, phones, the cloud.
 
-Next week some other company will have the better model. What stays yours is your files, your context, your data. Point the new model at the same folder, maybe rename the map file, maybe tweak a skill, and keep going. It's a bet, and it's one Jake's happy to make, because he wants to teach the stuff that lasts.
+Next week some other company will have the better model. What stays yours is your files, your context, your data. Point the new model at the same folder, maybe rename the map file, maybe tweak a skill, and keep going. It's a bet, and it's one Jake's happy to make, to teach the stuff that lasts.
 
 
 
@@ -80,13 +80,13 @@ Simple, then complex, then simple again, with all your work sitting right undern
 
 **Step 2: One home for every fact.**
 - Instruction: "In the work session, ask: `Find any fact that lives in more than one file here, like a price, a date or a name, and list where each copy is.` Tell me what it finds."
-- For the practice folder, prices live in `about-me.md` and in each client's notes. A fair answer: keep the standard prices in one place and have the notes point to it, or treat each client's agreed price as a separate fact (it's what that client agreed). Let the user decide which and have the work session make the change.
+- Practice track: this lesson runs on `client-email/` (`<ws>`). Jake's folder has a real one to find: "sign it Jake", "no 'I hope this email finds you well'" and "only promise what the notes confirm" each live in both `about-me.md` and the how-i-reply skill. Change one and they drift. A fair fix: the skill is the one home for how to reply, and about-me keeps who Jake is and points to the skill. Let the user decide and have the work session make the change.
 - If the skill repeats facts (a price, a name) that also live elsewhere, have them take the fact out of the skill. The skill is method; facts live in one home.
 
 **Step 3: Make the archive.**
 - Instruction: "Ask the work session to make an `_archive/` folder and add a line to the map describing it in five words: `retired work, never read it.` Tell me when it's in."
 - Instruction: "Now look around your folder. Old drafts, test outputs, earlier versions? Move anything retired into `_archive/`. Delete generated stuff nobody will use. Leave originals, sources, and anything that's someone else's alone. It'll ask before it changes anything."
-- Inspect: `<ws>/_archive/` exists, the map line is there, no source files were deleted (for the practice folder: `about-me.md`, `clients/`, `inbox/` and `exports/` are all intact).
+- Inspect: `<ws>/_archive/` exists, the map line is there, no source files were deleted (on the practice track: `about-me.md`, `clients/` and `inbox/` are all intact; old drafts and `_my-first-map.md` from 2.3 are fair game for the archive).
 
 **Step 4: The hand-on test.**
 - Ask: "Imagine the AI is turned off tomorrow. Open your CLAUDE.md yourself and read it like you've never seen this folder. Could you find your way around and do the work? What's the first thing that would trip someone up?"
@@ -123,7 +123,7 @@ Simple, then complex, then simple again, with all your work sitting right undern
 
 2. Congratulate them in one or two plain sentences. Name what they built, using their actual files: the corrections and skill (if they did 1.1 and 1.2), their workspace `<ws>` with its map, the stages, the script, the archive.
 
-3. Give Jake's homework, one line: "Go build something, then show him: post it in the community. He loves seeing what people make."
+3. Give Jake's homework, one line: "Go build something, then show Jake: post it in the community. Jake loves seeing what people make."
 
 4. Where to go next. Offer these routes from Jake's Where to Go Next page, briefly, and let them pick:
    - Redo any lesson on your own work: 1.3 for a new folder, 2.1 and 2.2 to build around a real job, 3.2 to automate a steady step.

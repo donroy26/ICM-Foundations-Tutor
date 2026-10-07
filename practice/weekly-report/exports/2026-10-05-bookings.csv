@@ -1,0 +1,7 @@
+date,client,seats,price_per_seat,status
+2026-09-29,Lumen Dental,5,45,pending
+2026-09-30,Northside Cycles,6,45,confirmed
+2026-10-01,Riverbend Library,10,30,confirmed
+2026-10-02,Maple Street Bakery,8,45,confirmed
+2026-10-03,Harper & Lane Accounting,12,40,pending
+2026-10-04,Riverbend Library,5,30,confirmed

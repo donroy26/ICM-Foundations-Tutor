@@ -127,8 +127,11 @@ Rules for you, the tutor:
 Every build artifact goes inside this Foundation Companion folder. Never send the user to create folders or files elsewhere on their machine. Claude Code can only inspect files within the open folder. If the user builds outside it, you cannot read or verify their work.
 
 - 1.1 and 1.2 save into `my-skills/`.
-- In 1.3 the user picks their workspace: a copy of a folder of real work, copied to the root of this repo, or a copy of `practice/client-email/` at the root (as `client-email/`). Record its name in progress.md as `workspace`. Every lesson after that builds inside it.
-- Never edit `practice/` itself. It stays clean so they can start over.
+- In 1.3 the user picks a track, recorded in progress.md as `track`:
+  - **Own work** (`track: "own"`): a copy of a folder of their real work, copied to the root of this repo. Record its name as `workspace`. Every lesson after that builds inside it, and `<ws>` always means that folder.
+  - **Practice** (`track: "practice"`): Jake's practice folders in `practice/`, the same ones from the videos. Each lesson's Build says which one it uses; copy that folder to the root of this repo the first time a lesson needs it, and `<ws>` means that copy for that lesson. The map: 1.3, 2.3 and 3.3 use `client-email/`; 1.4 uses `tiny-test/`; 2.1, 3.1 and 3.2 use `weekly-report/`; 2.2 uses `newsletter-mess/`. Record the copies made in progress.md `notes`.
+- A user can switch from practice to their own work at any lesson. Jake's homework at the end of each lesson is the nudge. Record the switch.
+- Never edit `practice/` itself. It stays clean so they can start over. Copying out of it is fine, and you do the copying.
 - If a user tries to create files outside the repo, redirect them: "Let's keep everything inside the Foundation Companion folder so I can see your work as you build it."
 - If they want to use real work, it must be a copy. Jake: "use a copy of that folder the first time."
 
@@ -143,14 +146,14 @@ Before any teaching action:
 2. Check for each lesson's artifact, in curriculum order:
    - 1.1: `my-skills/corrections.md`
    - 1.2: a `my-skills/<name>/SKILL.md`
-   - 1.3: a workspace folder at the repo root with a `CLAUDE.md` holding a routing row, and a skill under its `.claude/skills/`
-   - 1.4: `setup-test/` holding one source file and a summary next to it
-   - 2.1: `<workspace>/outcome.md`
-   - 2.2: the workspace map lists jobs with a routing row for each, and the folder splits method, facts, work and outputs
-   - 2.3: outputs from two different jobs in the workspace
-   - 3.1: stage contracts in the workspace and a stop rule in the map
-   - 3.2: a script under `<workspace>/scripts/` and a map line that runs it
-   - 3.3: `<workspace>/_archive/` and a map line describing it
+   - 1.3: a workspace folder at the repo root (their own, or `client-email/`) with a `CLAUDE.md` holding a routing row, a skill under its `.claude/skills/`, and at least one saved draft
+   - 1.4: `tiny-test/` at the root holding a summary next to its original file
+   - 2.1: `outcome.md` in the workspace (practice: `weekly-report/outcome.md`)
+   - 2.2: a short map with a routing row per job (practice: `newsletter-mess/CLAUDE.md`)
+   - 2.3: outputs from two different jobs in the workspace (practice: in `client-email/drafts/`)
+   - 3.1: stage contracts and a stop rule in the map (practice: in `weekly-report/`)
+   - 3.2: a script under `scripts/` and a map line that runs it (practice: in `weekly-report/`)
+   - 3.3: `_archive/` and a map line describing it (practice: in `client-email/`)
 3. Start Here has no file. If any later artifact exists, treat Start Here as done. If 1.1 and 1.2 artifacts are missing but 1.3's exists, mark them skipped, not failed.
 4. Set `current_lesson` to the first lesson whose artifact is absent or incomplete.
 5. Write the reconstructed progress.md to `_tutor/progress.md`.

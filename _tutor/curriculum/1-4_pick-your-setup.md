@@ -52,7 +52,7 @@ Count the whole cost
 
 The subscription is the part everybody looks at. Then there's the setup time, keeping it running, checking its work, and waiting on it. A cheaper tool that eats your whole Saturday costs you a Saturday.
 
-Jake is pretty loud online about not needing fancy setups, and for most people that's true. He also built his own pipeline for his psychometrics research, so he knows when a custom setup earns it: when you need something none of the apps do, at a scale they can't handle.
+Jake is pretty loud online about not needing fancy setups, and for most people that's true. Jake also built a custom pipeline for the psychometrics research, and that's when a custom setup earns it: when you need something none of the apps do, at a scale they can't handle.
 
 
 
@@ -104,18 +104,20 @@ Open that summary yourself, outside the AI. If you can open it, read it and chan
 - Ask: "Is there anything about your work that would make you pick differently? Privacy, your company's tools, cost?" Take one or two sentences. Note the answer in progress.md `notes`.
 
 **Step 2: Make the test folder.**
-- Instruction: "At the root of the Foundation Companion folder, make a folder called `setup-test`. Put exactly one file in it: any real document you've got, a page of notes, an article saved as text. If you want, copy `practice/client-email/about-me.md` in. Tell me when it's there."
-- Inspect: `setup-test/` exists with exactly one file.
+- Ask: "Want to use Jake's tiny-test folder, or one file of your own?"
+- **Jake's:** copy `practice/tiny-test/` to `tiny-test/` at the root yourself. It holds one file, `meeting-notes.txt`. Tell them it's there.
+- **Their own:** "At the root of the Foundation Companion folder, make a folder called `tiny-test`. Put exactly one file in it: any real document you've got, a page of notes, an article saved as text. Tell me when it's there."
+- Inspect: `tiny-test/` exists with exactly one file.
 
 **Step 3: Run the tiny test.**
-- Instruction: "Open a session on `setup-test` in whichever setup you picked. If that's the same as your work session, just open a new one on `setup-test`. Ask it: `Read the file in this folder, write a one-page summary, and save it next to the original.` Tell me when it's saved."
+- Instruction: "Open a session on `tiny-test` in whichever setup you picked. If that's the same as your work session, just open a new one on `tiny-test`. Ask it: `Read the file in this folder, write a one-page summary, and save it next to the original.` Tell me when it's saved."
 - If they picked a setup they don't have installed yet (Codex, a local model), let them run the test in Claude Code now and try the other later. The test is the habit, not the brand.
 
 **Step 4: Open it yourself.**
 - Instruction: "Now open that summary outside the AI. Notepad, TextEdit, any editor. Change one sentence and save. Tell me when you've done it."
-- Inspect: `setup-test/` holds the original plus a summary file, and the summary reads like a real one-page summary of that file.
+- Inspect: `tiny-test/` holds the original plus a summary file, and the summary reads like a real one-page summary of that file.
 
-**Artifact:** `setup-test/` with one original file and the summary saved next to it.
+**Artifact:** `tiny-test/` with one original file and the summary saved next to it.
 
 ---
 
@@ -123,13 +125,13 @@ Open that summary yourself, outside the AI. If you can open it, read it and chan
 
 <!-- Runtime instructions for Claude -->
 
-1. Inspect `setup-test/`: the original file and a summary file next to it.
+1. Inspect `tiny-test/`: the original file and a summary file next to it.
 
 2. Ask: "Say a friend at your company asks which AI setup they should buy. What would you ask them before you answered, and what would you check first?"
 
 3. Record in `_tutor/progress.md`:
    - lesson: "1-4_pick-your-setup"
-   - artifacts_inspected: ["setup-test/<original>", "setup-test/<summary>"]
+   - artifacts_inspected: ["tiny-test/<original>", "tiny-test/<summary>"]
    - comprehension.question: "Say a friend at your company asks which AI setup they should buy. What would you ask them before you answered, and what would you check first?"
    - comprehension.answer: "[user's verbatim response]"
    - comprehension.pass: [true/false]

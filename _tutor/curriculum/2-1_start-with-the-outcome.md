@@ -36,7 +36,7 @@ Rough on purpose
 
 The numbers are rough on purpose. It's a way to think about the work.
 
-If you've watched Jake's older videos, he used to split it more technically: code, routing and AI calls. Same instinct. He thinks the deeper fundamental is how he describes it now, because the sixty is where people actually get stuck.
+If you've watched Jake's older videos, the split used to be more technical: code, routing and AI calls. Same instinct. Jake thinks the deeper fundamental is how it's described now, because the sixty is where people actually get stuck.
 
 
 
@@ -92,7 +92,7 @@ Solve the problem first, then turn it into software after, if you can. Build the
 
 Add the next piece only when you hit a real need: the files keep changing, it's the same steps every week, or somebody else needs to use it.
 
-One of Jake's: when he posts videos, the outcome is people finding stuff that actually teaches them something, and maybe joining the community. The sixty is knowing what to post, which hooks actually worked and who it's for, and that comes from his numbers and a lot of questions. The thirty is Metricool, which schedules everything across YouTube, TikTok, Instagram and LinkedIn. The ten is AI helping with scripts and captions. He still picks every title himself.
+One of Jake's: when Jake posts videos, the outcome is people finding stuff that actually teaches them something, and maybe joining the community. The sixty is knowing what to post, which hooks actually worked and who it's for, and that comes from the channel's numbers and a lot of questions. The thirty is Metricool, which schedules everything across YouTube, TikTok, Instagram and LinkedIn. The ten is AI helping with scripts and captions. Jake still picks every title by hand.
 
 ---
 
@@ -103,8 +103,8 @@ One of Jake's: when he posts videos, the outcome is people finding stuff that ac
 No work session needed for this one. The user does the thinking and writes it down. You can type their answers into the file for them, but the answers must be theirs.
 
 **Step 1: Pick the job.**
-- Ask: "Pick one real job you'd like help with. It can be the one from your workspace, `<ws>`, or a different one. What is it, in one line?"
-- If they're on the practice folder and have no job of their own, use the Monday bookings table from the lesson: `<ws>/exports/` has two weeks of exports.
+- Ask: "Pick one real job you'd like help with. It can be one from your workspace or a different one. What is it, in one line?"
+- **Practice track** (or no job of their own): use the Monday bookings table from the lesson. Copy `practice/weekly-report/` to `weekly-report/` at the root yourself; for this lesson `<ws>` is `weekly-report/`. Show them `exports/2026-10-05-bookings.csv` and last week's hand-made table in `summaries/2026-09-28-summary.md`. That's the job: every Monday, the export becomes that table for the owner. It already has Jake's short map; leave it.
 
 **Step 2: The opening question.**
 - Ask: "What are you doing for people with this job right now, and what would you do if you did it by hand?"

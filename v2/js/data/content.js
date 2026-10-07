@@ -10,7 +10,7 @@ FC.content = {
       "section": 1,
       "spine": 1,
       "boundary": false,
-      "hash": "082cb2840103",
+      "hash": "1ad86e3d7b47",
       "hook": "Foundations gets AI working inside your own files, on your own work.",
       "chunks": [
         {
@@ -21,7 +21,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "Case in point: the Foundations videos themselves. The script, the animation, the little pixel Jake pointing at stuff. All of it came out of one folder on his computer. Later in the course he opens that folder up and shows how it's built, so you can build one around whatever you do, videos or not.",
+              "text": "Case in point: the Foundations videos themselves. The script, the animation, the little pixel Jake pointing at stuff. All of it came out of one folder on Jake's computer. Later in the course Jake opens that folder up and shows how it's built, so you can build one around whatever you do, videos or not.",
               "pre": false
             },
             {
@@ -80,7 +80,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "Two extra sections live in the Skool classroom: Live Lessons, longer recordings of Jake working through real stuff with people, and History and Concepts, where he digs into Engelbart, Unix and why any of this works in the first place. Dip into either one whenever you want to go deeper.",
+              "text": "Two extra sections live in the Skool classroom: Live Lessons, longer recordings of Jake working through real stuff with people, and History and Concepts, which digs into Engelbart, Unix and why any of this works in the first place. Dip into either one whenever you want to go deeper.",
               "pre": false
             }
           ]
@@ -93,7 +93,7 @@ FC.content = {
       "section": 1,
       "spine": 1,
       "boundary": false,
-      "hash": "1d913eea1a51",
+      "hash": "2d101c28fa9f",
       "hook": "A real piece of work out of a chat, corrected until it's actually right, and a list of the corrections worth keeping.",
       "chunks": [
         {
@@ -104,7 +104,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "Jake has been working with these models since the original BERT models, before ChatGPT existed. Back then he'd paste prompts in by hand, in a specific order, wait for the answer, check it, paste the next one. For his psychometrics research he wrote Python scripts that fired prompts at a bunch of models at once, over ten thousand responses. The stuff he built the hard way back then, he can now kick off with one short sentence, because all the complicated parts got written down into skills and folders underneath it.",
+              "text": "Jake has been working with these models since the original BERT models, before ChatGPT existed. Back then it meant pasting prompts in by hand, in a specific order, waiting for the answer, checking it, pasting the next one. The psychometrics research needed more, so Jake wrote Python scripts that fired prompts at a bunch of models at once, over ten thousand responses. The stuff built the hard way back then now kicks off with one short sentence, because all the complicated parts got written down into skills and folders underneath it.",
               "pre": false
             },
             {
@@ -185,11 +185,11 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "What comes back is fine, but weirdly formal. It opens with \"I hope this email finds you well,\" which nobody in history has ever meant. And it promises them the room, which isn't booked. So he corrects it in plain words: \"too formal, I'd never say that\", \"don't promise the room yet\", \"just sign it Jake\". Three corrections, and now it's something he'd send.",
+              "text": "What comes back is fine, but weirdly formal. It opens with \"I hope this email finds you well,\" which nobody in history has ever meant. And it promises them the room, which isn't booked. So Jake corrects it in plain words: \"too formal, I'd never say that\", \"don't promise the room yet\", \"just sign it Jake\". Three corrections, and now it's something Jake would send.",
               "pre": false
             },
             {
-              "text": "Every correction was a decision. Too formal is about his voice. The room is about what he actually knows, and that one's a big deal, because a wrong promise costs way more than a stiff sentence. The sign-off is about who he is to this person.",
+              "text": "Every correction was a decision. Too formal is about Jake's voice. The room is about what Jake actually knows, and that one's a big deal, because a wrong promise costs way more than a stiff sentence. The sign-off is about who Jake is to this person.",
               "pre": false
             }
           ]
@@ -198,7 +198,7 @@ FC.content = {
           "title": "Where layer one starts to hurt",
           "paras": [
             {
-              "text": "Next week another email comes in, and he's typing \"too formal\" again. \"Don't promise things we haven't booked\" again. \"Sign it Jake\" again.",
+              "text": "Next week another email comes in, and it's \"too formal\" again. \"Don't promise things we haven't booked\" again. \"Sign it Jake\" again.",
               "pre": false
             },
             {
@@ -223,7 +223,7 @@ FC.content = {
       "section": 1,
       "spine": 1,
       "boundary": true,
-      "hash": "e286a9c826b2",
+      "hash": "ac9a3c48d3a7",
       "hook": "Your first skill, made from your own corrections and working in a brand new chat without you retyping a thing, plus a Project set up for your files.",
       "chunks": [
         {
@@ -323,7 +323,7 @@ FC.content = {
               "pre": true
             },
             {
-              "text": "That's literally the list of corrections from 1.1, written down once, plus a couple of things it picked up when it interviewed him.",
+              "text": "That's literally the list of corrections from 1.1, written down once, plus a couple of things it picked up in the interview.",
               "pre": false
             }
           ]
@@ -387,7 +387,7 @@ FC.content = {
       "section": 2,
       "spine": 2,
       "boundary": false,
-      "hash": "3630014bed15",
+      "hash": "18b965e706af",
       "hook": "The AI working right inside your folder, reading your files and saving its work back where you can open it, one short sentence that reaches all of it, and a clear idea of what an agent actually is.",
       "chunks": [
         {
@@ -513,11 +513,11 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "One sneaky trick: put naming rules in the map. Say \"pull last week's draft for Harbor Bakery\" and it just knows where to look. Nine times out of ten, that's all you need. No database, nothing.",
+              "text": "One sneaky trick: put naming rules in the map. Say \"pull last week's draft for Maple Street\" and it just knows where to look. Nine times out of ten, that's all you need. No database, nothing.",
               "pre": false
             },
             {
-              "text": "It works for way more than email. The folder that made the Foundations videos is the same pattern: a map up top, a room for each stage, each video in its own folder. A sales team's folder might hold their data, how they check it, and this week's report. A developer's holds their code and the decisions behind it. This whole pattern is what Jake's paper on Interpretable Context Methodology is about. He calls it ICM. The skill that builds these folders, ICM Architect, comes up in 2.2.",
+              "text": "It works for way more than email. The folder that made the Foundations videos is the same pattern: a map up top, a room for each stage, each video in its own folder. A sales team's folder might hold their data, how they check it, and this week's report. A developer's holds their code and the decisions behind it. This whole pattern is what Jake's paper on Interpretable Context Methodology is about. Jake calls it ICM. The skill that builds these folders, ICM Architect, comes up in 2.2.",
               "pre": false
             }
           ]
@@ -547,7 +547,7 @@ FC.content = {
       "section": 2,
       "spine": 2,
       "boundary": true,
-      "hash": "ae09c750920f",
+      "hash": "5878392e3357",
       "hook": "The four pieces of any AI setup, what each option really costs you, and one tiny job that proves your setup works.",
       "chunks": [
         {
@@ -618,7 +618,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "Jake is pretty loud online about not needing fancy setups, and for most people that's true. He also built his own pipeline for his psychometrics research, so he knows when a custom setup earns it: when you need something none of the apps do, at a scale they can't handle.",
+              "text": "Jake is pretty loud online about not needing fancy setups, and for most people that's true. Jake also built a custom pipeline for the psychometrics research, and that's when a custom setup earns it: when you need something none of the apps do, at a scale they can't handle.",
               "pre": false
             }
           ]
@@ -698,7 +698,7 @@ FC.content = {
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "ef07101ce6ed",
+      "hash": "8b3e4bed31d1",
       "hook": "Who the job is really for, what they need to do next, and how to split the work sixty, thirty, ten before you touch any AI.",
       "chunks": [
         {
@@ -743,7 +743,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "If you've watched Jake's older videos, he used to split it more technically: code, routing and AI calls. Same instinct. He thinks the deeper fundamental is how he describes it now, because the sixty is where people actually get stuck.",
+              "text": "If you've watched Jake's older videos, the split used to be more technical: code, routing and AI calls. Same instinct. Jake thinks the deeper fundamental is how it's described now, because the sixty is where people actually get stuck.",
               "pre": false
             }
           ]
@@ -840,7 +840,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "One of Jake's: when he posts videos, the outcome is people finding stuff that actually teaches them something, and maybe joining the community. The sixty is knowing what to post, which hooks actually worked and who it's for, and that comes from his numbers and a lot of questions. The thirty is Metricool, which schedules everything across YouTube, TikTok, Instagram and LinkedIn. The ten is AI helping with scripts and captions. He still picks every title himself.",
+              "text": "One of Jake's: when Jake posts videos, the outcome is people finding stuff that actually teaches them something, and maybe joining the community. The sixty is knowing what to post, which hooks actually worked and who it's for, and that comes from the channel's numbers and a lot of questions. The thirty is Metricool, which schedules everything across YouTube, TikTok, Instagram and LinkedIn. The ten is AI helping with scripts and captions. Jake still picks every title by hand.",
               "pre": false
             }
           ]
@@ -853,7 +853,7 @@ FC.content = {
       "section": 3,
       "spine": 3,
       "boundary": false,
-      "hash": "a5cd6aea78ec",
+      "hash": "fab28ad7b6cf",
       "hook": "A workspace shaped around your own job, a short map that sends each job to what it needs, and one real request that proves it works.",
       "chunks": [
         {
@@ -885,7 +885,7 @@ FC.content = {
           "title": "ICM is the method",
           "paras": [
             {
-              "text": "They all come from the same method: ICM, interpretable context methodology, from the paper in 1.3. People started calling the folders themselves ICMs. When Jake says ICM he means the way of thinking that builds the folder, so your folder comes out shaped like your work, and it won't look like his.",
+              "text": "They all come from the same method: ICM, interpretable context methodology, from the paper in 1.3. People started calling the folders themselves ICMs. When Jake says ICM, it means the way of thinking that builds the folder, so your folder comes out shaped like your work, and it won't look like Jake's.",
               "pre": false
             }
           ]
@@ -992,7 +992,7 @@ FC.content = {
       "section": 3,
       "spine": 3,
       "boundary": true,
-      "hash": "8109ecce4fcf",
+      "hash": "d3f73d5a22fc",
       "hook": "How one model plays every role your work needs, where code and connections fit in, and the handful of times a team of separate agents actually earns its keep.",
       "chunks": [
         {
@@ -1034,7 +1034,7 @@ FC.content = {
           "title": "Not every job is the model's",
           "paras": [
             {
-              "text": "In Jake's folder the model lines up what he's picked to post, a connection to Metricool does the scheduling, and rendering is a command that does the exact same thing every time.",
+              "text": "In Jake's folder the model lines up what Jake's picked to post, a connection to Metricool does the scheduling, and rendering is a command that does the exact same thing every time.",
               "pre": false
             },
             {
@@ -1059,7 +1059,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "While Jake was writing this course, he had one helper pulling quotes out of his old talks and another checking the product facts, both at the same time, because neither job needed the other.",
+              "text": "While Jake was writing this course, one helper pulled quotes out of old talks and another checking the product facts, both at the same time, because neither job needed the other.",
               "pre": false
             }
           ]
@@ -1098,7 +1098,7 @@ FC.content = {
       "section": 4,
       "spine": 4,
       "boundary": false,
-      "hash": "d6dcadb097a6",
+      "hash": "e06adf4cae1d",
       "hook": "Work split into stages that each leave a file you can open, the spots where your judgment actually changes the result, and the AI waiting for you when it matters.",
       "chunks": [
         {
@@ -1169,11 +1169,11 @@ FC.content = {
           "title": "Put your eyes where it counts",
           "paras": [
             {
-              "text": "You don't need to watch every step. Jake doesn't watch it transcribe; that's a script doing the same thing every time. He listens to the whole voice take, reads the storyboard, and watches the stills, because that's where his taste changes the result. Put your eyes where your judgment matters and let the rest run.",
+              "text": "You don't need to watch every step. Jake doesn't watch it transcribe; that's a script doing the same thing every time. Jake listens to the whole voice take, reads the storyboard, and watches the stills, because that's where taste changes the result. Put your eyes where your judgment matters and let the rest run.",
               "pre": false
             },
             {
-              "text": "And stepping in is more than yes or no. Add a line, stretch a beat that's rushing, and the one Jake uses most: delete stuff. A scene that doesn't teach anything, a paragraph where he's clearly just showing off, gone.",
+              "text": "And stepping in is more than yes or no. Add a line, stretch a beat that's rushing, and the one Jake uses most: delete stuff. A scene that doesn't teach anything, a paragraph that's clearly just showing off, gone.",
               "pre": false
             }
           ]
@@ -1309,7 +1309,7 @@ FC.content = {
       "section": 4,
       "spine": 4,
       "boundary": false,
-      "hash": "2b684642f882",
+      "hash": "a3fe8e70866f",
       "hook": "A way to check if your workspace has gone stale, what to clear out, one home for every fact, and how to hand the whole thing to someone who can actually pick it up.",
       "chunks": [
         {
@@ -1372,7 +1372,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "The test Jake gives people: if he turned off the AI tomorrow, could you still find your way around these files and do the work? If yes, that's a good structure.",
+              "text": "The test Jake gives people: if the AI got turned off tomorrow, could you still find your way around these files and do the work? If yes, that's a good structure.",
               "pre": false
             },
             {
@@ -1389,7 +1389,7 @@ FC.content = {
               "pre": false
             },
             {
-              "text": "Next week some other company will have the better model. What stays yours is your files, your context, your data. Point the new model at the same folder, maybe rename the map file, maybe tweak a skill, and keep going. It's a bet, and it's one Jake's happy to make, because he wants to teach the stuff that lasts.",
+              "text": "Next week some other company will have the better model. What stays yours is your files, your context, your data. Point the new model at the same folder, maybe rename the map file, maybe tweak a skill, and keep going. It's a bet, and it's one Jake's happy to make, to teach the stuff that lasts.",
               "pre": false
             }
           ]

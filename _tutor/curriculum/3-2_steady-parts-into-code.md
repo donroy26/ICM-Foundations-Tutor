@@ -78,7 +78,7 @@ Pro tip: whenever you can get at the back end of something, an export or an API,
 
 **Step 1: Spot the step.**
 - Read `<ws>/outcome.md` under `## Tools, not the model` back to them. Ask: "Which of these have you done the same way three or four times, where the right answer doesn't depend on taste?"
-- For the practice folder: turning the newest bookings export into the weekly table (the `01_gather` stage from 3.1).
+- Practice track: in `weekly-report/` (`<ws>`), turning the newest bookings export into the weekly summary table. Jake's map already spells out the table: one row per client with confirmed seats, confirmed revenue (seats times price per seat) and pending seats, then a total row; only confirmed bookings count as revenue.
 - Ask: "What goes in, and what should come out? One input, one output."
 
 **Step 2: Ask for the script.**
@@ -88,7 +88,7 @@ Pro tip: whenever you can get at the back end of something, an export or an API,
 
 **Step 3: Test it against last time.**
 - Instruction: "Now test it on something you already did by hand. Run it on last week's input and compare it with what you made before. Do they match?"
-- For the practice folder: run it on `exports/bookings-2026-09-29.csv` and check it against the CSV by eye: 5 bookings, 2 pending (Fernhill Library, Kettle & Co), 1 cancelled. Then on `bookings-2026-10-06.csv`: 7 bookings, 3 pending (Kettle & Co, Oak Lane Dental, Riverside Makers). If the user made a table in 2.3, compare against that too.
+- Practice track: this is what Jake's folder is built for. `summaries/2026-09-28-summary.md` was made by hand. Run the script on `exports/2026-09-28-bookings.csv` and compare: it must match the hand-made table exactly (total 45 confirmed seats, $1,750 confirmed revenue, 10 pending seats; Maple Street 8 confirmed and 4 pending, Northside Cycles 0 confirmed and 6 pending). Then run it on `2026-10-05-bookings.csv`: total 29 confirmed seats, $1,080, 17 pending seats (Lumen Dental 5 pending, Harper & Lane 12 pending, Riverbend Library 15 confirmed across two rows).
 - If there's a mismatch, have them tell the work session exactly what's wrong and rerun. "A wrong script is wrong the same way every time, so check it properly once."
 - Instruction: "Ask it to walk you through the script, in plain English. Anything you don't follow, ask about that line."
 

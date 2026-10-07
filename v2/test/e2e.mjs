@@ -313,12 +313,14 @@ async function main() {
   const ws = await page.evaluate(() => ({
     name: FC.state.data.player.workspaceName,
     map: FC.vfs.readFile("client-email/CLAUDE.md"),
-    draft: FC.vfs.readFile("client-email/drafts/2026-10-06-harbor-bakery-1.md"),
+    draft: FC.vfs.readFile("client-email/drafts/2026-10-06-maple-street-bakery-01.md"),
+    jakesMap: FC.vfs.readFile("practice/client-email/CLAUDE.md"),
     skill: FC.vfs.readFile("client-email/.claude/skills/how-i-reply/SKILL.md")
   }));
   ok(ws.name === "client-email", "workspace is client-email");
   ok(!!ws.map && ws.map.includes("## Routing") && ws.map.includes("test value"), "map has the routing row with the filled blank");
-  ok(!!ws.draft && !/room will be ready/i.test(ws.draft), "check-my-email draft saved, no room promised");
+  ok(!!ws.draft && !/room will be ready/i.test(ws.draft) && /21st/.test(ws.draft), "check-my-email draft saved: offers the 21st, no room promised");
+  ok(!!ws.jakesMap && !/\| Job \| Read \|/.test(ws.map), "player wrote their own map; Jake's is kept aside to compare");
   ok(!!ws.skill && ws.skill.includes("name: how-i-reply"), "skill travelled into the workspace");
 
   // --- 3.2: terminal mode ---
@@ -326,7 +328,7 @@ async function main() {
   await page.evaluate(() => FC.debug.skipTo("3-2_steady-parts-into-code"));
   info = await playLesson(page, "3-2_steady-parts-into-code");
   ok(info.lesson === "3-3_keep-it-useful", "3.2 completed through the practice terminal");
-  const script = await page.evaluate(() => FC.vfs.readFile("client-email/scripts/make-table.py"));
+  const script = await page.evaluate(() => FC.vfs.readFile("weekly-report/scripts/make-table.py"));
   ok(!!script && script.includes("csv.DictReader"), "script written by the claude sim");
 
   // --- Zip download ---

@@ -16,7 +16,7 @@ What a chat can do right now
 
 People are building real stuff in a chat. Little working apps: a pricing calculator, a dashboard off a spreadsheet, a game for their kid. They drop in a messy spreadsheet and get the chart and the summary back. Slide decks, research write-ups with the sources linked, all from one box.
 
-Jake has been working with these models since the original BERT models, before ChatGPT existed. Back then he'd paste prompts in by hand, in a specific order, wait for the answer, check it, paste the next one. For his psychometrics research he wrote Python scripts that fired prompts at a bunch of models at once, over ten thousand responses. The stuff he built the hard way back then, he can now kick off with one short sentence, because all the complicated parts got written down into skills and folders underneath it.
+Jake has been working with these models since the original BERT models, before ChatGPT existed. Back then it meant pasting prompts in by hand, in a specific order, waiting for the answer, checking it, pasting the next one. The psychometrics research needed more, so Jake wrote Python scripts that fired prompts at a bunch of models at once, over ten thousand responses. The stuff built the hard way back then now kicks off with one short sentence, because all the complicated parts got written down into skills and folders underneath it.
 
 That's the shape of the whole course. You start simple in a chat, build up the complicated stuff, and it folds back into one simple sentence with all that work behind it.
 
@@ -64,15 +64,15 @@ The worked example
 
 In the video it's a client email asking to move a workshop. Jake pastes it in and types: "Write a reply. I can't do the 14th but the 21st works. Keep it short."
 
-What comes back is fine, but weirdly formal. It opens with "I hope this email finds you well," which nobody in history has ever meant. And it promises them the room, which isn't booked. So he corrects it in plain words: "too formal, I'd never say that", "don't promise the room yet", "just sign it Jake". Three corrections, and now it's something he'd send.
+What comes back is fine, but weirdly formal. It opens with "I hope this email finds you well," which nobody in history has ever meant. And it promises them the room, which isn't booked. So Jake corrects it in plain words: "too formal, I'd never say that", "don't promise the room yet", "just sign it Jake". Three corrections, and now it's something Jake would send.
 
-Every correction was a decision. Too formal is about his voice. The room is about what he actually knows, and that one's a big deal, because a wrong promise costs way more than a stiff sentence. The sign-off is about who he is to this person.
+Every correction was a decision. Too formal is about Jake's voice. The room is about what Jake actually knows, and that one's a big deal, because a wrong promise costs way more than a stiff sentence. The sign-off is about who Jake is to this person.
 
 
 
 Where layer one starts to hurt
 
-Next week another email comes in, and he's typing "too formal" again. "Don't promise things we haven't booked" again. "Sign it Jake" again.
+Next week another email comes in, and it's "too formal" again. "Don't promise things we haven't booked" again. "Sign it Jake" again.
 
 Both apps can remember a little about you now, which is nice. But the app decides what it keeps, and your way of doing this job still isn't written down step by step anywhere you could hand to somebody else.
 
@@ -90,7 +90,7 @@ This lesson happens in the Claude chat app (claude.ai, or the Chat tab in the de
 
 **Step 1: Pick a real job.**
 - Instruction: "Pick one real job you do, something small. A reply you owe someone, a summary of a document, a post you need to write. What's yours? If nothing comes to mind, use Jake's: a client asking to move a meeting."
-- If they choose Jake's example, they can use `practice/client-email/inbox/2026-10-06-harbor-bakery.md` as the email. Show them its contents so they can paste it.
+- If they choose Jake's example, it's the actual email from the video: `practice/client-email/inbox/01-maple-street-bakery.txt`. Show them its contents so they can paste it. (The client's notes say Jake is booked on the 14th and free on the 21st, which is why Jake's request says the 21st works.)
 
 **Step 2: Open a new chat.**
 - Instruction: "Open claude.ai (or the Chat tab in the desktop app) and start a new chat. New job, new chat. Tell me when it's open."

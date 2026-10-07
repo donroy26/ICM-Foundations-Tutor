@@ -1,6 +1,6 @@
 # Foundation Companion
 
-Foundation Companion walks you through Jake Van Clief's Foundations course from his Clief Notes Skool community by having you build each lesson in Claude Code as you go. Instead of reading, you do.
+Foundation Companion walks you through Jake Van Clief's Foundations course from the Clief Notes Skool community by having you build each lesson in Claude Code as you go. Instead of reading, you do.
 
 For Clief Notes members who've seen the Foundations lessons and want a hands-on walkthrough. Updated for the October 2026 Foundations course (Start Here plus lessons 1.1 to 3.3), which is also free as one video: [How I'd Learn AI From Zero in 2026](https://youtu.be/6AzLk2-kWyY).
 
@@ -32,7 +32,7 @@ From 1.3 on you'll have two Claude Code sessions open:
 
 Jake's tests only mean something in a fresh session that knows nothing but your folder, so the tutor never does them for you. It checks what the work session made.
 
-No folder of real work handy? `practice/client-email/` is a made-up client folder shaped like the one in the videos. The tutor copies it out for you, so the original stays clean.
+No folder of real work handy? `practice/` holds Jake's own practice folders, the exact ones from the lesson videos: a client-email folder, a tiny-test folder, a weekly bookings report, and a deliberately messy newsletter folder. The tutor copies out the one each lesson needs, so the originals stay clean.
 
 ---
 
@@ -101,7 +101,7 @@ There's also a browser version: a simulated desktop that walks you through the l
 
 ## Credit
 
-All lesson content is Jake Van Clief's, from the Foundations course in the [Clief Notes](https://www.skool.com/cliefnotes/about?ref=f4482ac988fb4a7b8da3efa95cfc1d00) community. This repo is a hands-on companion to it, not a replacement. The setup steps carry the date they were checked, because the apps change every couple of weeks.
+All lesson content is Jake Van Clief's, from the Foundations course in the [Clief Notes](https://www.skool.com/cliefnotes/about?ref=f4482ac988fb4a7b8da3efa95cfc1d00) community. This repo is a hands-on companion to it, not a replacement. The practice folders in `practice/` are Jake's too, from the course's Start Here page. The setup steps carry the date they were checked, because the apps change every couple of weeks.
 
 ## License
 

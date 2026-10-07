@@ -1,8 +1,0 @@
-booking_id,client,session,date,status,attendees,price
-B-1041,Harbor Bakery,Half day,2026-10-14,confirmed,8,1200
-B-1042,Northwind Studio,Full day,2026-10-30,confirmed,14,2000
-B-1043,Fernhill Library,Half day,2026-10-09,confirmed,10,1200
-B-1044,Kettle & Co,Full day,2026-10-22,pending,6,2000
-B-1045,Bright Path Tutoring,Half day,2026-10-16,cancelled,5,1200
-B-1046,Oak Lane Dental,Half day,2026-10-28,pending,9,1200
-B-1047,Riverside Makers,Full day,2026-11-04,pending,15,2000

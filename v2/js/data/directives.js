@@ -2,33 +2,71 @@
    file's Build/Check-in runtime instructions into playable beats. Voice follows
    _tutor/PERSONA.md: plain, direct, no filler, no banned phrases, no emoji.
    Every workspace path threads through ${ws}, the linter enforces it. The only
-   exceptions are the fixed folders that live outside the workspace, exactly as
-   in the CLI tutor: my-skills/, setup-test/ and practice/.
+   exceptions are folders that live outside the workspace, exactly as in the CLI
+   tutor: my-skills/, practice/, and the practice copies tiny-test/,
+   weekly-report/ and newsletter-mess/.
    Lint + regenerate content with: node v2/tools/build-content.mjs
 
-   The game plays every lesson on the practice folder (practice/client-email in
-   the repo), so the simulated Claude's replies can be scripted around it. */
+   The game plays the practice track: Jake's own practice folders (practice/ in
+   the repo), the same ones from the videos. The JAKE block below is generated
+   from those files, so the simulated Claude's replies are scripted around them. */
 
 (function () {
 
-  // ---- practice folder contents (mirror of practice/client-email/) ----------
-  var ABOUT_ME = "# About me\n\nI'm Sam Ortiz. I run hands-on workshops for small teams: half-day and full-day sessions, in person at a rented studio or at the client's office.\n\nHow I work:\n\n- I book the studio room separately, after a client confirms a date. Until the room is booked, I never promise it.\n- Prices: half day $1,200, full day $2,000. Travel outside the city is extra and quoted separately.\n- I answer email in the morning. Clients usually hear back within one working day.\n- I write short and plain. First names. I sign off \"Sam\".\n";
-  var HARBOR_NOTES = "# Harbor Bakery\n\nContact: Priya Nair, owner. Prefers first names, short emails.\n\nAgreed so far:\n\n- Half-day workshop for 8 staff, \"Getting your recipes and orders into one place\".\n- Originally booked for Wednesday 14 October, 9am to 1pm.\n- Price agreed: $1,200 (half day). Invoice goes out after the session.\n- Studio room: NOT booked yet. I hold off until the date is final.\n\nOpen questions:\n\n- Whether they want the session recorded.\n";
-  var NORTHWIND_NOTES = "# Northwind Studio\n\nContact: Marcus Lee, operations lead. A bit more formal than most, but still first names.\n\nAgreed so far:\n\n- Full-day workshop for 12 people, at their office (not the studio).\n- Date confirmed: Friday 30 October, 9am to 5pm.\n- Price agreed: $2,000 (full day). 50% deposit paid on 1 October.\n- They provide the room and the screen. I bring printed handouts.\n\nOpen questions:\n\n- Final headcount. They said \"12, maybe 14\". Handouts need the number by 27 October.\n";
-  var HARBOR_EMAIL = "From: Priya Nair <priya@harborbakery.example>\nSubject: Moving our workshop?\n\nHi Sam,\n\nSomething's come up with a supplier delivery on the 14th and half the team won't be in. Any chance we can move the workshop to later in the month? We're flexible on the day.\n\nAlso, will we still be in the same room as last time? The team liked it.\n\nThanks,\nPriya\n";
-  var NORTHWIND_EMAIL = "From: Marcus Lee <marcus@northwind.example>\nSubject: Headcount + parking\n\nHi Sam,\n\nQuick update: we're now at 14 for the 30th, not 12. Hope that's still fine.\n\nTwo questions. Is there anything people should bring? And do you need a parking spot? We can reserve one in the garage if you let me know by Friday.\n\nBest,\nMarcus\n";
-  var BOOKINGS_0929 = "booking_id,client,session,date,status,attendees,price\nB-1041,Harbor Bakery,Half day,2026-10-14,confirmed,8,1200\nB-1042,Northwind Studio,Full day,2026-10-30,confirmed,12,2000\nB-1043,Fernhill Library,Half day,2026-10-09,pending,10,1200\nB-1044,Kettle & Co,Full day,2026-10-22,pending,6,2000\nB-1045,Bright Path Tutoring,Half day,2026-10-16,cancelled,5,1200\n";
-  var BOOKINGS_1006 = "booking_id,client,session,date,status,attendees,price\nB-1041,Harbor Bakery,Half day,2026-10-14,confirmed,8,1200\nB-1042,Northwind Studio,Full day,2026-10-30,confirmed,14,2000\nB-1043,Fernhill Library,Half day,2026-10-09,confirmed,10,1200\nB-1044,Kettle & Co,Full day,2026-10-22,pending,6,2000\nB-1045,Bright Path Tutoring,Half day,2026-10-16,cancelled,5,1200\nB-1046,Oak Lane Dental,Half day,2026-10-28,pending,9,1200\nB-1047,Riverside Makers,Full day,2026-11-04,pending,15,2000\n";
+  // ---- Jake's practice folders, GENERATED from practice/ (do not hand-edit) ----
+  var JAKE = {
+    "client-email": {
+      "about-me.md": "# About me\n\nI'm Jake. I run hands-on AI workshops for small teams.\n\n- I sign emails \"Jake\".\n- I write short and casual, the way I talk. No \"I hope this email finds you well\".\n- I answer the question first, then anything else.\n- I only promise dates, rooms and prices that are written in the client's notes.\n",
+      "CLAUDE.md": "# Client email\n\nThis folder is where I answer client emails. Everything here is made up for a demo.\n\n## What's where\n| Folder | Holds |\n|---|---|\n| `about-me.md` | who I am and how I work |\n| `clients/<client>/notes.md` | what we've agreed with each client: dates, rooms, numbers |\n| `inbox/` | emails waiting for a reply, one text file each |\n| `drafts/` | replies ready for me to read and send myself |\n\n## Naming\nDrafts: `drafts/YYYY-MM-DD-<client>-<inbox number>.md`, for example `drafts/2026-10-06-maple-street-bakery-01.md` for `inbox/01-maple-street-bakery.txt`.\n\n## Routing\n| Job | Read | Skip | Use | Save to |\n|---|---|---|---|---|\n| reply to email (\"check my email\") | `about-me.md`, the client's `notes.md`, each email in `inbox/` | other clients' notes | the how-i-reply skill | `drafts/`, named as above |\n| client update | `about-me.md`, the client's `notes.md` | `inbox/` | | `drafts/` |\n| bookings table | every client's `notes.md` | `inbox/`, `about-me.md` | | `drafts/YYYY-MM-DD-bookings.md` |\n\n## Rules\n- Never send anything. Drafts only; I send them myself.\n- If an email asks for something the client's notes don't confirm, say so in the draft and leave it open.\n",
+      "clients/lumen-dental/notes.md": "# Lumen Dental (made up)\n\n- Contact: Priya Shah, office manager.\n- Workshop: Thursday the 23rd, 1 pm to 4 pm, 12 people.\n- Room: their staff room, which seats 12. Nothing bigger is booked.\n- Price: agreed for 12 people. More people means a new quote.\n",
+      "clients/maple-street-bakery/notes.md": "# Maple Street Bakery (made up)\n\n- Contact: Dana Ruiz, owner.\n- Workshop: Tuesday the 7th, 9 am to 12 pm, 8 people.\n- Room: the back room at the bakery, confirmed for the 7th only.\n- Other dates: I'm booked on the 14th. I'm free on the 21st. No room is booked for the 21st yet.\n- Price: agreed, invoice after the workshop.\n",
+      "inbox/01-maple-street-bakery.txt": "From: Dana Ruiz (Maple Street Bakery)\nSubject: Moving our workshop?\n\nHi Jake,\n\nAny chance we can move our workshop off the 7th? Our head baker is out that week. Would the 14th work? Same time, same room?\n\nThanks,\nDana\n",
+      "inbox/02-lumen-dental.txt": "From: Priya Shah (Lumen Dental)\nSubject: Five more people?\n\nHi Jake,\n\nGood news, five more of the team want in on the workshop on the 23rd. Can we just add them? I'm assuming the staff room is fine for everyone.\n\nPriya\n",
+      "inbox/03-maple-street-bakery.txt": "From: Dana Ruiz (Maple Street Bakery)\nSubject: Quick one\n\nHey Jake, do we need to bring laptops, or is a phone okay?\n\nDana\n",
+      ".claude/skills/how-i-reply/SKILL.md": "---\nname: how-i-reply\ndescription: Use when replying to client emails. Writes a short, casual reply in Jake's voice and never promises a date, room or price that the client's notes don't confirm.\n---\n\n# How I reply\n\n1. Match their length. A three-line email gets a three-line reply.\n2. Keep it short and casual. Never open with \"I hope this email finds you well\".\n3. Answer what they asked, first.\n4. Never promise a date, a room or a price unless the client's notes confirm it. If they don't, say we'll confirm it and by when.\n5. Sign it \"Jake\".\n"
+    },
+    "tiny-test": {
+      "meeting-notes.txt": "Team meeting, Monday (made up for a demo)\n\n- Spring menu launches on the 3rd. Photos due the week before.\n- Saturday hours move to 9 to 4 from next month.\n- Dana wants one person to own the newsletter. Nobody volunteered yet.\n- New oven arrives Thursday. Bakery closes early that day, at 2.\n- Next meeting in two weeks.\n"
+    },
+    "weekly-report": {
+      "CLAUDE.md": "# Weekly report\n\nEvery Monday the bookings export lands in `exports/`, and I turn it into a summary table. Everything here is made up for a demo.\n\n## What's where\n| Folder | Holds |\n|---|---|\n| `exports/` | one bookings export per week, `YYYY-MM-DD-bookings.csv` |\n| `summaries/` | one summary per week, `YYYY-MM-DD-summary.md` |\n\n## Routing\n| Job | Read | Save to |\n|---|---|---|\n| weekly table | the newest file in `exports/` | `summaries/`, same date as the export |\n\n## The table\nOne row per client: confirmed seats, confirmed revenue (seats \u00d7 price per seat), pending seats. Then a total row. Only confirmed bookings count as revenue.\n",
+      "exports/2026-09-28-bookings.csv": "date,client,seats,price_per_seat,status\n2026-09-22,Maple Street Bakery,8,45,confirmed\n2026-09-23,Lumen Dental,12,45,confirmed\n2026-09-24,Northside Cycles,6,45,pending\n2026-09-25,Harper & Lane Accounting,10,40,confirmed\n2026-09-26,Maple Street Bakery,4,45,pending\n2026-09-27,Riverbend Library,15,30,confirmed\n",
+      "exports/2026-10-05-bookings.csv": "date,client,seats,price_per_seat,status\n2026-09-29,Lumen Dental,5,45,pending\n2026-09-30,Northside Cycles,6,45,confirmed\n2026-10-01,Riverbend Library,10,30,confirmed\n2026-10-02,Maple Street Bakery,8,45,confirmed\n2026-10-03,Harper & Lane Accounting,12,40,pending\n2026-10-04,Riverbend Library,5,30,confirmed\n",
+      "summaries/2026-09-28-summary.md": "# Week of 2026-09-28 (made by hand)\n\n| Client | Confirmed seats | Confirmed revenue | Pending seats |\n|---|---|---|---|\n| Harper & Lane Accounting | 10 | $400 | 0 |\n| Lumen Dental | 12 | $540 | 0 |\n| Maple Street Bakery | 8 | $360 | 4 |\n| Northside Cycles | 0 | $0 | 6 |\n| Riverbend Library | 15 | $450 | 0 |\n| **Total** | **45** | **$1,750** | **10** |\n"
+    },
+    "newsletter-mess": {
+      "draft - october newsletter FINAL v2.md": "# October at the Bakery (made-up draft)\n\nHey friends! Big month. The pumpkin loaf is back on the 14th, and we're trying Saturday hours until 4.\n\n(need photo here)\n(check hours with Dana before sending!!)\n",
+      "draft - october newsletter.md": "# October newsletter (older draft, made up)\n\nPumpkin loaf returns on the 7th. Saturday hours until 3.\n",
+      "how we write these.md": "# How we write the newsletter (made up)\n- Short. Three sections max.\n- Sound like a person behind the counter, not a brand.\n- Always check dates and hours with Dana before it goes out.\n- One photo per section.\n",
+      "ideas.txt": "newsletter ideas (made up)\n- spring menu launch, photos from Tuesday\n- interview with our head baker??\n- the sourdough starter story, people loved it last year\n- holiday hours!!! don't forget\n",
+      "old stuff/notes from meeting.txt": "meeting notes (made up): newsletter goes out first monday of the month. dana approves hours + dates.\n",
+      "old stuff/september newsletter SENT.md": "# September (sent, made up)\nBack-to-school muffins, 20% off for teachers.\n",
+      "subscribers export.csv": "email,joined\nreader1@example.com,2026-01-04\nreader2@example.com,2026-03-19\nreader3@example.com,2026-08-02\n",
+      "Untitled 3.txt": "saturday hours: 9-4 starting oct 11 (confirmed w Dana)\n"
+    }
+  };
+  // Seed list for a practice folder copied to the root as `dest` (skip = files held back).
+  function practiceFiles(folder, dest, skip) {
+    return Object.keys(JAKE[folder]).filter(function (k) { return !(skip || []).includes(k); })
+      .map(function (k) { return { path: dest + "/" + k, content: JAKE[folder][k] }; });
+  }
 
-  var SKILL = "---\nname: how-i-reply\ndescription: Use when replying to client emails. Writes a short, casual reply in Sam's voice and never promises a date, room or price that the client's notes don't confirm.\n---\n# How I reply\n1. Match their length. A three-line email gets a three-line reply.\n2. Keep it short and casual. Never open with \"I hope this email finds you well\".\n3. Answer what they asked, first.\n4. Never promise a date, a room or a price unless the client's notes confirm it. If they don't, say we'll confirm it and by when.\n5. Sign it \"Sam\".\n";
+  var MAP_FIRST = "# client-email\n\nWhere I answer client emails. Everything here is made up for a demo.\n\n## What's here\n- about-me.md: who I am and how I work\n- clients/<client>/notes.md: what's agreed with each client\n- inbox/: emails waiting for a reply\n- drafts/: replies for me to read and send myself\n- .claude/skills/how-i-reply/: the reply skill\n\n## Naming\n- Drafts: drafts/YYYY-MM-DD-<client>-<inbox number>.md\n";
 
-  var MAP_FIRST = "# client-email\n\nSam Ortiz's client email folder. Workshops for small teams.\n\n## What's here\n- about-me.md: who Sam is and how Sam works\n- clients/<client>/notes.md: what's agreed with each client\n- inbox/: emails waiting for a reply\n- drafts/: replies for Sam to read and send\n- exports/: bookings exports from the booking system\n- .claude/skills/how-i-reply/: the reply skill\n\n## Naming\n- Drafts: drafts/YYYY-MM-DD-client-N.md\n";
+  var NEWSLETTER_MAP = "# Newsletter\n\nThe bakery's monthly newsletter. Goes out the first Monday of the month. Everything here is made up for a demo.\n\n## What's here\n- how we write these.md: method (how the newsletter sounds and looks)\n- facts/hours-and-dates.md: confirmed hours and dates, one home\n- ideas.txt: ideas for future issues\n- drafts/: work in progress, one draft per month\n- sent/: finished issues\n- subscribers export.csv: the list\n- _archive/: retired work, never read it\n\n## Routing\n| Job | Read | Skip | Save to |\n|---|---|---|---|\n| write the newsletter | how we write these.md, facts/, ideas.txt | _archive/, sent/ | drafts/YYYY-MM.md |\n| check dates and hours | the current draft, facts/ | everything else | checks/YYYY-MM.md |\n\n## Rules\n- Dana approves every date and hour before it goes out.\n- Anything not in facts/ is unconfirmed. Say so.\n";
 
-  var MAP_ROUTED = "# client-email\n\nSam Ortiz's client email folder. Workshops for small teams.\n\n## What's here\n- about-me.md: who Sam is (method + facts)\n- clients/<client>/notes.md: facts, one home per client\n- inbox/: work waiting\n- drafts/, heads-up/: outputs for Sam to read\n- exports/: facts from the booking system\n- .claude/skills/how-i-reply/: method\n\n## Naming\n- Drafts: drafts/YYYY-MM-DD-client-N.md\n- Heads-ups: heads-up/YYYY-MM-DD.md\n\n## Routing\nJob: reply to email (\"check my email\")\nRead: about-me.md, the client's notes.md, each email in inbox/\nSkip: other clients' notes, exports/\nUse: how-i-reply\nSave to: drafts/\n\nJob: weekly bookings heads-up (\"make the heads-up\")\nRead: the newest file in exports/\nSkip: clients/, inbox/, drafts/\nUse: nothing extra. Two lines for the owner: what's still pending\nSave to: heads-up/\n\n## Rules\n- Never send anything.\n- If the client's notes don't confirm something, say so in the draft.\n";
+  var MAKE_TABLE = "\"\"\"Turn a bookings export into the weekly summary table.\n\nUsage: python scripts/make-table.py exports/YYYY-MM-DD-bookings.csv\nOne input (the export), one output (summaries/YYYY-MM-DD-summary.md).\nOnly confirmed bookings count as revenue.\n\"\"\"\nimport csv, os, sys\nfrom collections import defaultdict\n\nsrc = sys.argv[1]\ndate = os.path.basename(src).replace(\"-bookings.csv\", \"\")\nseats, revenue, pending = defaultdict(int), defaultdict(int), defaultdict(int)\nwith open(src, newline=\"\") as f:\n    for r in csv.DictReader(f):\n        client, n = r[\"client\"], int(r[\"seats\"])\n        if r[\"status\"] == \"confirmed\":\n            seats[client] += n\n            revenue[client] += n * int(r[\"price_per_seat\"])\n        else:\n            pending[client] += n\n\nlines = [\"# Week of \" + date, \"\",\n         \"| Client | Confirmed seats | Confirmed revenue | Pending seats |\",\n         \"|---|---|---|---|\"]\nfor c in sorted(set(seats) | set(pending)):\n    lines.append(\"| %s | %d | $%s | %d |\" % (c, seats[c], format(revenue[c], \",\"), pending[c]))\nlines.append(\"| **Total** | **%d** | **$%s** | **%d** |\" % (\n    sum(seats.values()), format(sum(revenue.values()), \",\"), sum(pending.values())))\n\nos.makedirs(\"summaries\", exist_ok=True)\nout = os.path.join(\"summaries\", date + \"-summary.md\")\nwith open(out, \"w\") as f:\n    f.write(\"\\n\".join(lines) + \"\\n\")\nprint(\"wrote \" + out)\n";
 
-  var MAKE_TABLE = "\"\"\"Turn a bookings export into the weekly table.\n\nUsage: python scripts/make-table.py exports/bookings-YYYY-MM-DD.csv\nOne input (the export), one output (tables/YYYY-MM-DD.md).\n\"\"\"\nimport csv, os, sys\n\nsrc = sys.argv[1]\ndate = os.path.basename(src).replace(\"bookings-\", \"\").replace(\".csv\", \"\")\nwith open(src, newline=\"\") as f:\n    rows = list(csv.DictReader(f))\n\nlines = [\"# Bookings, week of \" + date, \"\",\n         \"| Client | Session | Date | Status |\", \"|---|---|---|---|\"]\nfor r in rows:\n    lines.append(\"| {client} | {session} | {date} | {status} |\".format(**r))\npending = [r[\"client\"] for r in rows if r[\"status\"] == \"pending\"]\nlines += [\"\", \"Pending: \" + str(len(pending)) + \" (\" + \", \".join(pending) + \")\"]\n\nos.makedirs(\"tables\", exist_ok=True)\nout = os.path.join(\"tables\", date + \".md\")\nwith open(out, \"w\") as f:\n    f.write(\"\\n\".join(lines) + \"\\n\")\nprint(\"wrote \" + out)\n";
+  var SUMMARY_1005 = "# Week of 2026-10-05\n\n| Client | Confirmed seats | Confirmed revenue | Pending seats |\n|---|---|---|---|\n| Harper & Lane Accounting | 0 | $0 | 12 |\n| Lumen Dental | 0 | $0 | 5 |\n| Maple Street Bakery | 8 | $360 | 0 |\n| Northside Cycles | 6 | $270 | 0 |\n| Riverbend Library | 15 | $450 | 0 |\n| **Total** | **29** | **$1,080** | **17** |\n";
 
-  var TABLE_1006 = "# Bookings, week of 2026-10-06\n\n| Client | Session | Date | Status |\n|---|---|---|---|\n| Harbor Bakery | Half day | 2026-10-14 | confirmed |\n| Northwind Studio | Full day | 2026-10-30 | confirmed |\n| Fernhill Library | Half day | 2026-10-09 | confirmed |\n| Kettle & Co | Full day | 2026-10-22 | pending |\n| Bright Path Tutoring | Half day | 2026-10-16 | cancelled |\n| Oak Lane Dental | Half day | 2026-10-28 | pending |\n| Riverside Makers | Full day | 2026-11-04 | pending |\n\nPending: 3 (Kettle & Co, Oak Lane Dental, Riverside Makers)\n";
+  var SKILL = JAKE["client-email"][".claude/skills/how-i-reply/SKILL.md"];
+
+  function openOn(folder, label) {
+    return { type: "claude-open", mode: "chat", expectFolder: folder,
+      guide: "Open the Claude window on " + label + ". In the real setup, that is your work session.",
+      folderPrompt: "Point it at " + label + " with the folder selector.",
+      xp: 5 };
+  }
 
   FC.directives = {
 
@@ -39,7 +77,7 @@
       { type: "note",
         learn: [1],
         guide: ["One thing before we start. The real tutor runs in Claude Code, a coding environment, so it starts most people at 1.3, where the AI works inside your files.",
-          "In here, everything is simulated, so we play all of it in order: the chat layers first, then the folders. You'll see why each layer exists by feeling the one before it."],
+          "In here, everything is simulated, so we play all of it in order, on Jake's own practice folders from the videos: the chat layers first, then the folders."],
         button: "Makes sense", xp: 5,
         check: {
           q: "What are the three layers really about?",
@@ -86,10 +124,10 @@
     intro: [0],
     build: [
       { type: "seed-files",
-        guide: "I put a practice email on the desktop: a client asking to move a workshop. Everything in the practice folder is made up. Open it in the explorer and read it before we start.",
+        guide: "Here's the email from the video: Maple Street Bakery asking to move their workshop. It's from Jake's practice folders, and everything in them is made up. Open it in the explorer and read it.",
         button: "Read it",
         files: [
-          { path: "practice/client-email/inbox/2026-10-06-harbor-bakery.md", content: HARBOR_EMAIL }
+          { path: "practice/client-email/inbox/01-maple-street-bakery.txt", content: JAKE["client-email"]["inbox/01-maple-street-bakery.txt"] }
         ],
         xp: 5 },
       { type: "claude-open", mode: "chat",
@@ -115,7 +153,7 @@
           rejectHint: "Ask it for the reply, and give it the one fact only you know: which date works.",
           reply: {
             thinkingLines: ["reading the email you pasted"],
-            text: "Dear Priya, I hope this email finds you well. Thank you for reaching out. Unfortunately the 14th is no longer possible, however I am pleased to confirm Wednesday the 21st, and yes, the same studio room will be ready for your team. Kind regards.",
+            text: "Dear Dana, I hope this email finds you well. Thank you for reaching out. Unfortunately the 14th is not possible, however I am pleased to offer the 21st, and yes, the same room will be ready for your team. Kind regards.",
             effects: []
           }
         }],
@@ -132,14 +170,14 @@
         } },
       { type: "claude-chat",
         learn: [5],
-        guide: "Read it like you're about to send it. It's stiff, and it promised the room, which isn't booked. Correct it in plain words, the way you'd tell a person.",
+        guide: "Read it like you're about to send it. It's stiff, and it promised the room, which isn't booked for the 21st. Correct it in plain words, the way you'd tell a person.",
         script: [{
-          suggestedPrompt: "Too formal, I'd never say that. Don't promise the room yet. Just sign it Sam.",
+          suggestedPrompt: "Too formal, I'd never say that. Don't promise the room yet. Just sign it Jake.",
           acceptIf: { mentionsAnyOf: ["formal", "room", "sign", "casual", "short"], mentionsAllOf: [] },
           rejectHint: "Tell it what's off: the tone, the promise about the room, how you sign off.",
           reply: {
             thinkingLines: ["rewriting"],
-            text: "Hi Priya, no problem. The 14th won't work now, but the 21st does. I'll confirm the room once the date's locked in and get back to you by Friday. Sam",
+            text: "Hi Dana, no problem. The 14th won't work, but the 21st does, same time. I'll confirm the room for the 21st and get back to you by Friday. Jake",
             effects: []
           }
         }],
@@ -157,7 +195,7 @@
       { type: "create-file", path: "my-skills/corrections.md",
         learn: [6],
         guide: "Write the corrections down. Next week the same job comes in and you'd type them all again. The list types itself in. Tag each one, then save.",
-        typedContent: "# Corrections\n\nJob: reply to client emails\n\n- Too formal, I'd never say that  ([VOICE, FACTS OR WHO])\n- Don't promise the room yet  ([VOICE, FACTS OR WHO])\n- Sign it Sam  ([VOICE, FACTS OR WHO])\n",
+        typedContent: "# Corrections\n\nJob: reply to client emails\n\n- Too formal, I'd never say that  ([VOICE, FACTS OR WHO])\n- Don't promise the room yet  ([VOICE, FACTS OR WHO])\n- Sign it Jake  ([VOICE, FACTS OR WHO])\n",
         fillFields: ["VOICE, FACTS OR WHO"],
         xp: 20, achievement: "first-corrections",
         check: {
@@ -213,7 +251,7 @@
         learn: [3, 4],
         guide: "New chat. Ask for a skill for this job and paste in your corrections. It will interview you.",
         script: [{
-          suggestedPrompt: "I want a skill for replying to client emails. My corrections: too formal, don't promise the room yet, sign it Sam.",
+          suggestedPrompt: "I want a skill for replying to client emails. My corrections: too formal, don't promise the room yet, sign it Jake.",
           acceptIf: { mentionsAnyOf: ["skill"], mentionsAllOf: [] },
           rejectHint: "Ask for a skill, by name: \"I want a skill for...\", then paste the corrections.",
           reply: {
@@ -225,8 +263,8 @@
         xp: 15 },
       { type: "create-file", path: "my-skills/how-i-reply/SKILL.md",
         learn: [5],
-        guide: "Save the skill it handed you. It types itself in. Read it as it goes: is there any rule you never actually said? Fill the one blank with a rule of your own, then save.",
-        typedContent: SKILL.replace("5. Sign it \"Sam\".\n", "5. Sign it \"Sam\".\n6. [ONE MORE RULE OF YOUR OWN]\n"),
+        guide: "Save the skill it handed you. It types itself in: this is Jake's, from the video. Read it as it goes. Is there any rule you never actually said? Fill the one blank with a rule of your own, then save.",
+        typedContent: SKILL.replace("5. Sign it \"Jake\".\n", "5. Sign it \"Jake\".\n6. [ONE MORE RULE OF YOUR OWN]\n"),
         fillFields: ["ONE MORE RULE OF YOUR OWN"],
         xp: 25, achievement: "first-skill",
         check: {
@@ -241,14 +279,14 @@
         } },
       { type: "claude-chat",
         learn: [6],
-        guide: "The test. Brand new chat, empty desk. Paste the next email and type only: reply to this.",
+        guide: "The test. Brand new chat, empty desk. Paste the next email (Lumen Dental, asking to add five people) and type only: reply to this.",
         script: [{
           suggestedPrompt: "reply to this",
           acceptIf: { mentionsAnyOf: ["reply"], mentionsAllOf: [] },
           rejectHint: "Keep it to the bare request. The skill is supposed to answer the rest.",
           reply: {
             thinkingLines: ["using skill: how-i-reply"],
-            text: "Hi Marcus, 14 is fine, thanks for the update. Nothing to bring, I'll have printed handouts for everyone. I'll check on parking and let you know by Friday. Sam",
+            text: "Hi Priya, great that more of the team want in. I can't confirm 17 yet: the room and the price were agreed for 12. I'll check what works and come back to you by Friday. Jake",
             effects: []
           }
         }],
@@ -261,7 +299,7 @@
             { t: "Nothing. The model just got lucky." },
             { t: "The client's facts, like the date and the price." }
           ],
-          explain: "The skill answers how you reply to anybody. The client's facts belong somewhere else: a project."
+          explain: "The skill answers how you reply to anybody. The client's facts belong somewhere else: a project, or a notes file."
         } },
       { type: "open-file", path: "my-skills/how-i-reply/SKILL.md",
         learn: [7, 8],
@@ -305,7 +343,7 @@
       { type: "create-folder", parent: "", name: "client-email", storeAs: "workspaceName",
         learn: [1],
         guide: ["Layer 3. The AI works right inside a folder, so we need a folder. Use a copy the first time.",
-          "Click New folder in the explorer and call it client-email. This is your copy of the practice folder."],
+          "Click New folder in the explorer and call it client-email. It becomes your copy of Jake's practice folder."],
         xp: 15, achievement: "workspace-named",
         check: {
           q: "What is an agent, in one line?",
@@ -319,18 +357,10 @@
         } },
       { type: "seed-files",
         learn: [3],
-        guide: "I copied the practice files in, plus your skill from 1.2 under .claude/skills, so it travels with the folder. Open a couple in the explorer. They're just text.",
+        guide: "I copied Jake's client-email folder in: two clients, three emails, and the reply skill under .claude/skills, so it travels with the folder. I held back Jake's map. Writing one is the lesson. Open a couple of files: they're just text.",
         button: "Had a look",
-        files: [
-          { path: "${ws}/about-me.md", content: ABOUT_ME },
-          { path: "${ws}/clients/harbor-bakery/notes.md", content: HARBOR_NOTES },
-          { path: "${ws}/clients/northwind-studio/notes.md", content: NORTHWIND_NOTES },
-          { path: "${ws}/inbox/2026-10-06-harbor-bakery.md", content: HARBOR_EMAIL },
-          { path: "${ws}/inbox/2026-10-06-northwind-studio.md", content: NORTHWIND_EMAIL },
-          { path: "${ws}/exports/bookings-2026-09-29.csv", content: BOOKINGS_0929 },
-          { path: "${ws}/exports/bookings-2026-10-06.csv", content: BOOKINGS_1006 },
-          { path: "${ws}/.claude/skills/how-i-reply/SKILL.md", content: SKILL }
-        ],
+        files: practiceFiles("client-email", "${ws}", ["CLAUDE.md"])
+          .concat([{ path: "practice/client-email/CLAUDE.md", content: JAKE["client-email"]["CLAUDE.md"] }]),
         xp: 10 },
       { type: "claude-open", mode: "chat", expectFolder: "${ws}",
         learn: [2],
@@ -374,13 +404,15 @@
           acceptIf: { mentionsAnyOf: ["email", "inbox", "mail"], mentionsAllOf: [] },
           rejectHint: "Keep it short. Three words: check my email.",
           reply: {
-            thinkingLines: ["reading CLAUDE.md: routing row 'reply to email'", "reading about-me.md", "reading inbox/ (2 emails)", "reading clients/harbor-bakery/notes.md", "reading clients/northwind-studio/notes.md", "using skill: how-i-reply", "skipping exports/", "writing drafts/2026-10-06-harbor-bakery-1.md", "writing drafts/2026-10-06-northwind-studio-1.md"],
-            text: "Two drafts in drafts/. Harbor Bakery: happy to move it, offered the 21st or 23rd, and said I'll confirm the room once the date's set, because their notes say it isn't booked. Northwind: 14 is fine, nothing to bring, parking question flagged for you. Nothing sent.",
+            thinkingLines: ["reading CLAUDE.md: routing row 'reply to email'", "reading about-me.md", "reading inbox/ (3 emails)", "reading clients/maple-street-bakery/notes.md", "reading clients/lumen-dental/notes.md", "using skill: how-i-reply", "writing drafts/2026-10-06-maple-street-bakery-01.md", "writing drafts/2026-10-06-lumen-dental-02.md", "writing drafts/2026-10-06-maple-street-bakery-03.md"],
+            text: "Three drafts in drafts/. Maple Street: the 14th is taken, offered the 21st, and said you'll confirm a room, because none is booked for the 21st. Lumen Dental: didn't just add five. Their staff room seats 12 and more people means a new quote, so the draft says so. Maple Street's laptop question isn't in the notes, so it's flagged for you. Nothing sent.",
             effects: [
-              { writeFile: "${ws}/drafts/2026-10-06-harbor-bakery-1.md",
-                content: "Hi Priya,\n\nNo problem at all. Would the 21st or the 23rd work for the team? Same time, 9 to 1.\n\nI'll confirm the room once we've locked the date in, and get back to you by Friday.\n\nSam\n" },
-              { writeFile: "${ws}/drafts/2026-10-06-northwind-studio-1.md",
-                content: "Hi Marcus,\n\n14 is fine, thanks for the heads-up. I'll bring printed handouts for everyone, so nothing to bring.\n\nOn parking: [SAM, DO YOU WANT THE GARAGE SPOT? ANSWER BY FRIDAY.]\n\nSam\n" }
+              { writeFile: "${ws}/drafts/2026-10-06-maple-street-bakery-01.md",
+                content: "Hi Dana,\n\nThe 14th's taken, sorry. I'm free on the 21st, same time, 9 to 12.\n\nNo room is booked for the 21st yet, so I'll confirm one and get back to you by Friday.\n\nJake\n" },
+              { writeFile: "${ws}/drafts/2026-10-06-lumen-dental-02.md",
+                content: "Hi Priya,\n\nGreat that more of the team want in. The staff room seats 12, and the price was agreed for 12, so I can't just add five. Let me work out a room and a new quote, and I'll come back to you by Friday.\n\nJake\n" },
+              { writeFile: "${ws}/drafts/2026-10-06-maple-street-bakery-03.md",
+                content: "[JAKE: THE NOTES DON'T SAY. LAPTOPS OR PHONES?]\n\nHey Dana, good question. I'll confirm and let you know before the day.\n\nJake\n" }
             ]
           }
         }],
@@ -395,23 +427,26 @@
           ],
           explain: "Every word in a prompt is a question. In layer 1 you answered them. Now files you wrote answer them."
         } },
-      { type: "open-file", path: "${ws}/drafts/2026-10-06-harbor-bakery-1.md",
+      { type: "open-file", path: "${ws}/drafts/2026-10-06-maple-street-bakery-01.md",
         learn: [6, 7, 8],
-        guide: "Open the Harbor Bakery draft. It's just a file. You can change a word, delete it, or paste it into your email and send it yourself.",
+        guide: "Open the Maple Street draft. It's just a file. You can change a word, delete it, or paste it into your email and send it yourself.",
         xp: 10,
         check: {
-          q: "Your video scripts were sitting in this same folder. Why didn't they get in the way of the email job?",
+          q: "Video scripts were sitting in this same folder. Why wouldn't they get in the way of the email job?",
           options: [
-            { t: "The map put only what this job needs on the desk. Everything else stayed in the drawers.", correct: true },
+            { t: "The map puts only what this job needs on the desk. Everything else stays in the drawers.", correct: true },
             { t: "Claude can't read video scripts." },
-            { t: "They would have. Never mix work in one folder." },
-            { t: "It read them but ignored them, which costs nothing." }
+            { t: "They would. Never mix work in one folder." },
+            { t: "It reads them but ignores them, which costs nothing." }
           ],
           explain: "It's the desk again. Routing loads what this job needs and leaves the rest in the drawers."
-        } }
+        } },
+      { type: "open-file", path: "practice/client-email/CLAUDE.md",
+        guide: "Now compare: open Jake's own map, in practice/client-email. The routing there is a table with three jobs, and the naming ties each draft to its inbox number. Yours doesn't have to match. It has to work.",
+        xp: 10 }
     ],
     checkin: {
-      artifacts: ["${ws}/CLAUDE.md", "${ws}/drafts/2026-10-06-harbor-bakery-1.md"],
+      artifacts: ["${ws}/CLAUDE.md", "${ws}/drafts/2026-10-06-maple-street-bakery-01.md"],
       quiz: {
         q: "Your request reads the wrong files. Where do you look first?",
         options: [
@@ -458,21 +493,16 @@
           ],
           explain: "Working on files locally and running the model locally are different choices. A local model trades some quality for privacy."
         } },
-      { type: "create-folder", parent: "", name: "setup-test",
+      { type: "create-folder", parent: "", name: "tiny-test",
         learn: [6],
-        guide: "Now prove a setup works with one tiny job. Make a folder at the top level called setup-test.",
+        guide: "Now prove a setup works with one tiny job. Make a folder at the top level called tiny-test, same as Jake's.",
         xp: 5 },
       { type: "seed-files",
-        guide: "I dropped one file in it: a page of notes. One file, that's the whole test.",
+        guide: "I copied in the one file from Jake's tiny-test folder: notes from a team meeting. One file, that's the whole test.",
         button: "Next",
-        files: [
-          { path: "setup-test/notes.md", content: "# Notes from the Oct 2 team call\n\n- Workshop sign-ups are up, mostly half days.\n- Two clients asked about recording sessions. Decide a policy before the 14th.\n- The studio raised its rate from November. Check before quoting anything after Oct.\n- Handouts: switch to one page per module, people lose the long packets.\n- Next call: Oct 16.\n" }
-        ],
+        files: practiceFiles("tiny-test", "tiny-test"),
         xp: 5 },
-      { type: "claude-open", mode: "chat", expectFolder: "setup-test",
-        guide: "Point the Claude window at setup-test.",
-        folderPrompt: "Switch the folder selector to setup-test.",
-        xp: 5 },
+      openOn("tiny-test", "tiny-test"),
       { type: "claude-chat",
         learn: [7],
         guide: "Ask it to read the file, write a one-page summary, and save it next to the original.",
@@ -481,18 +511,18 @@
           acceptIf: { mentionsAnyOf: ["summary", "summarize", "summarise"], mentionsAllOf: [] },
           rejectHint: "Ask for a summary, saved next to the original.",
           reply: {
-            thinkingLines: ["reading notes.md", "writing summary.md"],
-            text: "Saved summary.md next to notes.md. Open it yourself and check it.",
-            effects: [{ writeFile: "setup-test/summary.md", content: "# Summary: Oct 2 team call\n\nSign-ups are up, mostly half days. Two things need a decision soon: a recording policy (two clients asked, decide before the 14th), and quotes for November onward, since the studio rate goes up. Handouts move to one page per module. Next call is Oct 16.\n" }]
+            thinkingLines: ["reading meeting-notes.txt", "writing summary.md"],
+            text: "Saved summary.md next to meeting-notes.txt. Open it yourself and check it.",
+            effects: [{ writeFile: "tiny-test/summary.md", content: "# Summary: team meeting\n\nThe spring menu launches on the 3rd, with photos due the week before. Saturday hours move to 9 to 4 from next month. The new oven arrives Thursday, so the bakery closes early that day, at 2. Still open: Dana wants one person to own the newsletter, and nobody has volunteered. Next meeting in two weeks.\n" }]
           }
         }],
         xp: 15 },
-      { type: "open-file", path: "setup-test/summary.md",
+      { type: "open-file", path: "tiny-test/summary.md",
         guide: "Open the summary yourself. If you can open it, read it and change it, your setup works.",
         xp: 10, achievement: "tiny-test" }
     ],
     checkin: {
-      artifacts: ["setup-test/summary.md"],
+      artifacts: ["tiny-test/summary.md"],
       quiz: {
         q: "A friend asks which AI setup to buy. What do you ask first?",
         options: [
@@ -505,7 +535,7 @@
       },
       reflect: {
         prompt: "Which setup will you run the tiny test on, on your real machine?",
-        saveTo: "setup-test/.notes/1-4-reflection.md"
+        saveTo: "tiny-test/.notes/1-4-reflection.md"
       }
     },
     xpLessonComplete: 40
@@ -515,9 +545,17 @@
   "2-1_start-with-the-outcome": {
     intro: [0],
     build: [
-      { type: "open-file", path: "${ws}/exports/bookings-2026-10-06.csv",
+      { type: "create-folder", parent: "", name: "weekly-report",
+        guide: "Module 2: build around a real job. Here's the one from the video. Make a folder called weekly-report, for your copy of Jake's.",
+        xp: 5 },
+      { type: "seed-files",
+        guide: "Jake's weekly-report folder is in: two weeks of bookings exports, a short map, and last week's summary table, made by hand.",
+        button: "Next",
+        files: practiceFiles("weekly-report", "weekly-report"),
+        xp: 5 },
+      { type: "open-file", path: "weekly-report/summaries/2026-09-28-summary.md",
         learn: [1, 2],
-        guide: "Module 2: build around a real job. Here's one. Every Monday, a bookings export gets turned into a table for the owner. Open this week's export.",
+        guide: "Open last week's summary. Every Monday the export becomes this table for the owner.",
         xp: 5,
         check: {
           q: "Sixty, thirty, ten. Which part is the AI?",
@@ -529,10 +567,10 @@
           ],
           explain: "Most people start with the ten, then wonder why it keeps promising rooms."
         } },
-      { type: "create-file", path: "${ws}/outcome.md",
+      { type: "create-file", path: "weekly-report/outcome.md",
         learn: [3, 4, 5],
         guide: "Before any AI: the four questions. The outline types in. Fill every blank for this job, in your own words, then save.",
-        typedContent: "# Outcome: weekly bookings heads-up\n\nFor: [WHO IS THIS ACTUALLY FOR]\nNext step they take: [WHAT THEY NEED TO DO NEXT]\nInformation comes from: [WHERE IT COMES FROM NOW]\nWhat breaks, and who feels it: [WHAT BREAKS]\n\n60 (data, questions, thinking): [THE SIXTY]\n30 (tools that already exist): [THE THIRTY]\n10 (the AI): [THE TEN]\n",
+        typedContent: "# Outcome: weekly bookings summary\n\nFor: [WHO IS THIS ACTUALLY FOR]\nNext step they take: [WHAT THEY NEED TO DO NEXT]\nInformation comes from: [WHERE IT COMES FROM NOW]\nWhat breaks, and who feels it: [WHAT BREAKS]\n\n60 (data, questions, thinking): [THE SIXTY]\n30 (tools that already exist): [THE THIRTY]\n10 (the AI): [THE TEN]\n",
         fillFields: ["WHO IS THIS ACTUALLY FOR", "WHAT THEY NEED TO DO NEXT", "WHERE IT COMES FROM NOW", "WHAT BREAKS", "THE SIXTY", "THE THIRTY", "THE TEN"],
         xp: 30, achievement: "outcome-first",
         check: {
@@ -545,7 +583,7 @@
           ],
           explain: "If your boss needs to decide on a hire, they need the three numbers that matter, on one page, before Friday."
         } },
-      { type: "open-file", path: "${ws}/outcome.md",
+      { type: "open-file", path: "weekly-report/outcome.md",
         learn: [6, 7],
         guide: "Read your outcome back. Is there anything the app already does here, without you building anything?",
         xp: 5,
@@ -561,7 +599,7 @@
         } }
     ],
     checkin: {
-      artifacts: ["${ws}/outcome.md"],
+      artifacts: ["weekly-report/outcome.md"],
       quiz: {
         q: "You skip the sixty and go straight to the AI. What goes wrong first?",
         options: [
@@ -574,7 +612,7 @@
       },
       reflect: {
         prompt: "Pick one real job of yours. Who is it actually for, and what do they need to do next?",
-        saveTo: "${ws}/.notes/2-1-reflection.md"
+        saveTo: "weekly-report/.notes/2-1-reflection.md"
       }
     },
     xpLessonComplete: 50
@@ -584,26 +622,31 @@
   "2-2_design-your-folder": {
     intro: [0],
     build: [
-      { type: "edit-file", path: "${ws}/outcome.md", mode: "append", button: "Open outcome.md",
+      { type: "create-folder", parent: "", name: "newsletter-mess",
+        guide: "This is the folder Jake points ICM Architect at in the video: a messy newsletter folder. Make a folder called newsletter-mess for your copy.",
+        xp: 5 },
+      { type: "seed-files",
+        guide: "It's in. Have a look around: two drafts of the same newsletter, an Untitled 3, a folder of old stuff. Sound familiar?",
+        button: "Had a look",
+        files: practiceFiles("newsletter-mess", "newsletter-mess"),
+        xp: 5 },
+      { type: "create-file", path: "newsletter-mess/jobs.md",
         learn: [1, 2],
-        guide: "List the jobs that get you to the outcome. For each one: what it reads, what it makes. That list is basically your folder already. Fill the blanks and save.",
-        typedContent: "\n## Jobs\n- Reply to client emails. Reads: about-me, the client's notes, the inbox. Makes: drafts.\n- Weekly bookings heads-up. Reads: [WHAT IT READS]. Makes: [WHAT IT MAKES].\n",
-        fillFields: ["WHAT IT READS", "WHAT IT MAKES"],
+        guide: "List the jobs this folder exists for. For each: what it reads, what it makes. That list is basically your folder already. Fill the blanks and save.",
+        typedContent: "# Jobs\n\n- Write the monthly newsletter. Reads: how we write these, ideas, confirmed dates and hours. Makes: [WHAT IT MAKES].\n- Check dates and hours with Dana. Reads: [WHAT IT READS]. Makes: a list of what needs confirming.\n",
+        fillFields: ["WHAT IT MAKES", "WHAT IT READS"],
         xp: 15,
         check: {
-          q: "When Jake says ICM, what does he mean?",
+          q: "When Jake says ICM, what does that mean?",
           options: [
             { t: "The method, the way of thinking that builds the folder, so it comes out shaped like your work.", correct: true },
             { t: "A specific folder layout everyone should copy." },
             { t: "A paid tool you install." },
             { t: "A type of AI model." }
           ],
-          explain: "Stages, records, a wiki: three shapes, one way of thinking. Your folder won't look like his."
+          explain: "Stages, records, a wiki: three shapes, one way of thinking. Your folder won't look like Jake's."
         } },
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Open the Claude window on client-email. In the real setup, that is your work session.",
-        folderPrompt: "Point it at client-email with the folder selector.",
-        xp: 5 },
+      openOn("newsletter-mess", "newsletter-mess"),
       { type: "claude-chat",
         learn: [3, 4],
         guide: "Now the split. Ask the work session to label every file as instructions, state, or both.",
@@ -612,33 +655,36 @@
           acceptIf: { mentionsAnyOf: ["label", "instructions", "state"], mentionsAllOf: [] },
           rejectHint: "Ask it to label each file: instructions, state, or both.",
           reply: {
-            thinkingLines: ["listing client-email/"],
-            text: "Instructions: CLAUDE.md, the how-i-reply skill. State: clients/*/notes.md, inbox/, exports/, drafts/. Both: about-me.md, since it's how Sam works and facts like prices. outcome.md is your notes for designing the folder. Every file is one or the other, so nothing to question yet.",
+            thinkingLines: ["listing newsletter-mess/ (9 files)"],
+            text: "Instructions: how we write these.md. State: ideas.txt, subscribers export.csv, both October drafts, Untitled 3.txt, old stuff/. Two problems. The drafts disagree: one says pumpkin loaf on the 7th and hours until 3, the other the 14th and hours until 4. And the only confirmed fact, Saturday hours 9 to 4 from Oct 11, is hiding in a file called Untitled 3. If I read both drafts, I'd have to guess which hours are right.",
             effects: []
           }
         }],
         xp: 15,
         check: {
-          q: "A file in your folder is neither instructions nor state. What's that telling you?",
+          q: "The AI finds two drafts with different hours. What's the real fix?",
           options: [
-            { t: "It's the first file to question. Does it need to be here?", correct: true },
-            { t: "It's the most important file." },
-            { t: "The model will figure out what it's for." },
-            { t: "Nothing. Every folder has a few." }
+            { t: "Give the confirmed hours one home under facts, keep one current draft, and move the old one out of the way.", correct: true },
+            { t: "Tell the AI to always pick the newest file." },
+            { t: "Delete both drafts and start over." },
+            { t: "Nothing. The AI will figure it out." }
           ],
-          explain: "In your folder the model runs things. The instructions and the state are yours to write. Anything else is clutter on the way to the desk."
+          explain: "A file that's neither instructions nor state, or two copies of the same fact, is the first thing to question."
         } },
       { type: "claude-chat",
         learn: [5, 6],
-        guide: "Rewrite the map as a short routing file: what's here, where things go, naming, and one row per job. One screen.",
+        guide: "Make it an ICM: a short map that routes each job, with method, facts, work and outputs each in their own place. One screen.",
         script: [{
-          suggestedPrompt: "Rewrite CLAUDE.md as a short routing map: what's here, where things go, naming rules, and one routing row per job in outcome.md. Keep it to one screen.",
-          acceptIf: { mentionsAnyOf: ["claude.md", "map", "routing"], mentionsAllOf: [] },
-          rejectHint: "Ask for the map rewrite: short, one routing row per job.",
+          suggestedPrompt: "Make this an ICM: split method, facts, work and outputs, and write a short CLAUDE.md with one routing row per job in jobs.md. Keep it to one screen.",
+          acceptIf: { mentionsAnyOf: ["icm", "claude.md", "map", "routing"], mentionsAllOf: [] },
+          rejectHint: "Ask it to make this an ICM: a short map with a routing row per job.",
           reply: {
-            thinkingLines: ["reading outcome.md: 2 jobs", "rewriting CLAUDE.md"],
-            text: "Rewrote CLAUDE.md. Two routing rows, reply to email and the weekly heads-up, plus naming and the two rules. It fits on one screen.",
-            effects: [{ writeFile: "${ws}/CLAUDE.md", content: MAP_ROUTED }]
+            thinkingLines: ["reading jobs.md: 2 jobs", "writing facts/hours-and-dates.md (from Untitled 3.txt)", "proposing: drafts/, sent/, _archive/ (older October draft, old stuff/)", "writing CLAUDE.md"],
+            text: "Wrote CLAUDE.md: two routing rows, method in how we write these, confirmed facts in facts/hours-and-dates.md, drafts and sent issues apart, and an _archive the map says never to read. The older October draft goes in the archive. It fits on one screen. Read it before you trust it.",
+            effects: [
+              { writeFile: "newsletter-mess/CLAUDE.md", content: NEWSLETTER_MAP },
+              { writeFile: "newsletter-mess/facts/hours-and-dates.md", content: "# Confirmed hours and dates\n\n- Saturday hours: 9 to 4, starting Oct 11. Confirmed with Dana.\n\nAnything not listed here is unconfirmed. Check with Dana.\n" }
+            ]
           }
         }],
         xp: 20, achievement: "routed",
@@ -656,18 +702,18 @@
         learn: [7],
         guide: "Test it. One real job, one short sentence. Watch what it opens and what it skips.",
         script: [{
-          suggestedPrompt: "make the heads-up",
-          acceptIf: { mentionsAnyOf: ["heads-up", "heads up", "bookings", "owner"], mentionsAllOf: [] },
-          rejectHint: "Ask for the weekly heads-up in a few words.",
+          suggestedPrompt: "check the october draft's dates and hours",
+          acceptIf: { mentionsAnyOf: ["check", "dates", "hours", "october"], mentionsAllOf: [] },
+          rejectHint: "Ask it to check the October draft's dates and hours.",
           reply: {
-            thinkingLines: ["reading CLAUDE.md: routing row 'weekly bookings heads-up'", "reading exports/bookings-2026-10-06.csv (newest)", "skipping clients/, inbox/, drafts/", "writing heads-up/2026-10-06.md"],
-            text: "Saved heads-up/2026-10-06.md. Three bookings still pending: Kettle & Co, Oak Lane Dental, Riverside Makers.",
-            effects: [{ writeFile: "${ws}/heads-up/2026-10-06.md", content: "Three bookings still pending this week: Kettle & Co (22 Oct), Oak Lane Dental (28 Oct), Riverside Makers (4 Nov).\nWorth chasing Kettle & Co first, it's the soonest.\n" }]
+            thinkingLines: ["reading CLAUDE.md: routing row 'check dates and hours'", "reading draft - october newsletter FINAL v2.md", "reading facts/hours-and-dates.md", "skipping the older draft, old stuff/, sent/", "writing checks/2026-10.md"],
+            text: "Saved checks/2026-10.md. Saturday hours until 4 matches what's confirmed, but the draft should say 9 to 4 from Oct 11. Pumpkin loaf on the 14th isn't in facts, so it's flagged for Dana.",
+            effects: [{ writeFile: "newsletter-mess/checks/2026-10.md", content: "# October draft: dates and hours\n\n- Saturday hours \"until 4\": matches facts. Say \"9 to 4 from Oct 11\".\n- Pumpkin loaf back on the 14th: NOT in facts. Check with Dana.\n- Photo placeholder still in the draft.\n" }]
           }
         }],
         xp: 20,
         check: {
-          q: "It opened the right file and skipped the rest. What would it mean if it had wandered through everything?",
+          q: "It opened the right few files and skipped the rest. What would it mean if it had wandered through everything?",
           options: [
             { t: "The map is too vague. Tighten that one row and try again.", correct: true },
             { t: "The model is broken." },
@@ -678,20 +724,20 @@
         } }
     ],
     checkin: {
-      artifacts: ["${ws}/CLAUDE.md", "${ws}/heads-up/2026-10-06.md"],
+      artifacts: ["newsletter-mess/CLAUDE.md", "newsletter-mess/checks/2026-10.md"],
       quiz: {
-        q: "A new client signs on, and you change how you write replies. What changes for each?",
+        q: "Next month's newsletter, and Dana changes how she wants it written. What changes for each?",
         options: [
-          { t: "New client: a new notes file (facts). New reply style: the skill (method). Neither touches the other.", correct: true },
-          { t: "Both go into the skill." },
-          { t: "Rewrite the whole map both times." },
-          { t: "Start a new folder for each change." }
+          { t: "Next month: a new draft (work), maybe new confirmed hours (facts). New style: how we write these (method).", correct: true },
+          { t: "Both go into the map." },
+          { t: "Rewrite the whole folder both times." },
+          { t: "Start a new folder for each month." }
         ],
-        explain: "Method carries to the next client. Facts stay with this one. That's the skill and project split from 1.2, as a folder."
+        explain: "Method carries to the next issue. Facts get one home. That's the skill and project split from 1.2, as a folder."
       },
       reflect: {
         prompt: "List the jobs in one area of your real work. What does each one read, and what does it make?",
-        saveTo: "${ws}/.notes/2-2-reflection.md"
+        saveTo: "newsletter-mess/.notes/2-2-reflection.md"
       }
     },
     xpLessonComplete: 60
@@ -701,24 +747,13 @@
   "2-3_one-model-different-jobs": {
     intro: [0],
     build: [
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Open the Claude window on client-email. In the real setup, that is your work session.",
-        folderPrompt: "Point it at client-email with the folder selector.",
-        xp: 5 },
-      { type: "claude-chat",
+      openOn("${ws}", "client-email"),
+      { type: "edit-file", path: "${ws}/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
         learn: [1, 2],
-        guide: "Two different jobs, back to back, same model. First job: reply to the Northwind email.",
-        script: [{
-          suggestedPrompt: "reply to the Northwind email",
-          acceptIf: { mentionsAnyOf: ["northwind", "reply", "marcus"], mentionsAllOf: [] },
-          rejectHint: "Ask for the Northwind reply.",
-          reply: {
-            thinkingLines: ["routing row: reply to email", "reading about-me.md", "reading clients/northwind-studio/notes.md", "reading inbox/2026-10-06-northwind-studio.md", "using skill: how-i-reply", "writing drafts/2026-10-06-northwind-studio-2.md"],
-            text: "Draft saved. 14 confirmed, handouts covered, parking left for you to answer.",
-            effects: [{ writeFile: "${ws}/drafts/2026-10-06-northwind-studio-2.md", content: "Hi Marcus,\n\n14 works. I'll bring printed handouts for all 14, so people don't need to bring anything.\n\nParking: [SAM TO ANSWER BY FRIDAY]\n\nSam\n" }]
-          }
-        }],
-        xp: 15,
+        guide: "Back in client-email. Jake's map has a second row this lesson needs, for the bookings table. Add it to yours. It types in. Save it.",
+        typedContent: "\nJob: bookings table (\"make me a table of every booking\")\nRead: every client's notes.md\nSkip: inbox/, about-me.md\nSave to: drafts/YYYY-MM-DD-bookings.md\n",
+        fillFields: [],
+        xp: 10,
         check: {
           q: "Someone says they need a writing agent. What do they usually need?",
           options: [
@@ -730,6 +765,19 @@
           explain: "The role comes from what it reads. A name on the door adds zero instructions and zero access."
         } },
       { type: "claude-chat",
+        guide: "Two different jobs, back to back, same model. First job: reply to the Lumen Dental email.",
+        script: [{
+          suggestedPrompt: "reply to the Lumen Dental email",
+          acceptIf: { mentionsAnyOf: ["lumen", "reply", "priya"], mentionsAllOf: [] },
+          rejectHint: "Ask for the Lumen Dental reply.",
+          reply: {
+            thinkingLines: ["routing row: reply to email", "reading about-me.md", "reading clients/lumen-dental/notes.md", "skipping clients/maple-street-bakery/", "reading inbox/02-lumen-dental.txt", "using skill: how-i-reply", "writing drafts/2026-10-07-lumen-dental-02.md"],
+            text: "Draft saved. It doesn't add the five: the staff room seats 12 and the price was for 12, so it offers a new quote.",
+            effects: [{ writeFile: "${ws}/drafts/2026-10-07-lumen-dental-02.md", content: "Hi Priya,\n\nLove that more of the team want in. The staff room seats 12 and we agreed the price for 12, so for 17 I'll need to sort a bigger room and a new quote. I'll send both by Friday.\n\nJake\n" }]
+          }
+        }],
+        xp: 15 },
+      { type: "claude-chat",
         learn: [3],
         guide: "Second job, same session: make me a table of every booking this month. Watch what it opens this time.",
         script: [{
@@ -737,9 +785,9 @@
           acceptIf: { mentionsAnyOf: ["table", "booking"], mentionsAllOf: [] },
           rejectHint: "Ask for the bookings table.",
           reply: {
-            thinkingLines: ["no routing row for tables yet, closest: weekly bookings heads-up", "reading exports/bookings-2026-10-06.csv", "skipping clients/, inbox/, drafts/", "writing tables/2026-10.md"],
-            text: "Saved tables/2026-10.md: six October bookings. Riverside Makers is November, so it's left out. Different row, different files, same model.",
-            effects: [{ writeFile: "${ws}/tables/2026-10.md", content: "# October bookings\n\n| Client | Date | Status |\n|---|---|---|\n| Fernhill Library | 2026-10-09 | confirmed |\n| Harbor Bakery | 2026-10-14 | confirmed |\n| Bright Path Tutoring | 2026-10-16 | cancelled |\n| Kettle & Co | 2026-10-22 | pending |\n| Oak Lane Dental | 2026-10-28 | pending |\n| Northwind Studio | 2026-10-30 | confirmed |\n" }]
+            thinkingLines: ["routing row: bookings table", "reading clients/maple-street-bakery/notes.md", "reading clients/lumen-dental/notes.md", "skipping inbox/, about-me.md", "writing drafts/2026-10-07-bookings.md"],
+            text: "Saved drafts/2026-10-07-bookings.md. Different row, different files, same model.",
+            effects: [{ writeFile: "${ws}/drafts/2026-10-07-bookings.md", content: "# Bookings\n\n| Client | Date | Time | People | Room |\n|---|---|---|---|---|\n| Maple Street Bakery | the 7th | 9 am to 12 pm | 8 | back room, confirmed for the 7th only |\n| Lumen Dental | the 23rd | 1 pm to 4 pm | 12 | their staff room (seats 12) |\n\nOpen: Maple Street asked to move off the 7th. Lumen Dental asked to add five.\n" }]
           }
         }],
         xp: 15,
@@ -770,7 +818,7 @@
         } }
     ],
     checkin: {
-      artifacts: ["${ws}/drafts/2026-10-06-northwind-studio-2.md", "${ws}/tables/2026-10.md"],
+      artifacts: ["${ws}/drafts/2026-10-07-lumen-dental-02.md", "${ws}/drafts/2026-10-07-bookings.md"],
       quiz: {
         q: "Your team wants a research agent, a writing agent and a scheduling agent. What do you suggest?",
         options: [
@@ -789,24 +837,21 @@
   "3-1_stages": {
     intro: [0],
     build: [
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Open the Claude window on client-email. In the real setup, that is your work session.",
-        folderPrompt: "Point it at client-email with the folder selector.",
-        xp: 5 },
+      openOn("weekly-report", "weekly-report"),
       { type: "claude-chat",
         learn: [1, 2],
-        guide: "Module 3. Split the weekly heads-up into stages, each leaving one file, each with a short contract.",
+        guide: "Module 3. Back in weekly-report. Split the weekly job into stages, each leaving one file, each with a short contract.",
         script: [{
-          suggestedPrompt: "Make a stages folder for the weekly heads-up: 01_gather, 02_draft, 03_check. In each, a short CONTRACT.md: what it reads, what it makes, who checks it.",
+          suggestedPrompt: "Make a stages folder for the weekly report: 01_gather, 02_draft, 03_check. In each, a short CONTRACT.md: what it reads, what it makes, who checks it.",
           acceptIf: { mentionsAnyOf: ["stage", "contract"], mentionsAllOf: [] },
           rejectHint: "Ask for the stages folder, with a contract per stage.",
           reply: {
             thinkingLines: ["writing stages/01_gather/CONTRACT.md", "writing stages/02_draft/CONTRACT.md", "writing stages/03_check/CONTRACT.md"],
             text: "Three stages, three contracts. Each one makes a single file. 03_check is you.",
             effects: [
-              { writeFile: "${ws}/stages/01_gather/CONTRACT.md", content: "# 01 gather\n\nReads: the newest file in exports/\nMakes: table.md (every booking, with status)\nChecked by: nobody, it comes out the same every time\n" },
-              { writeFile: "${ws}/stages/02_draft/CONTRACT.md", content: "# 02 draft\n\nReads: ../01_gather/table.md\nMakes: heads-up.md (two lines for the owner: what's still pending)\nChecked by: Sam, in 03\n" },
-              { writeFile: "${ws}/stages/03_check/CONTRACT.md", content: "# 03 check\n\nReads: ../02_draft/heads-up.md\nMakes: nothing. Sam reads it, edits it, and sends it.\nChecked by: Sam\n" }
+              { writeFile: "weekly-report/stages/01_gather/CONTRACT.md", content: "# 01 gather\n\nReads: the newest file in exports/\nMakes: table.md (the summary table, per the map)\nChecked by: nobody, it comes out the same every time\n" },
+              { writeFile: "weekly-report/stages/02_draft/CONTRACT.md", content: "# 02 draft\n\nReads: ../01_gather/table.md\nMakes: heads-up.md (two lines for the owner: what's still pending)\nChecked by: me, in 03\n" },
+              { writeFile: "weekly-report/stages/03_check/CONTRACT.md", content: "# 03 check\n\nReads: ../02_draft/heads-up.md\nMakes: nothing. I read it, edit it, and send it myself.\nChecked by: me\n" }
             ]
           }
         }],
@@ -821,10 +866,10 @@
           ],
           explain: "Two years versus four, caught in the script: a ten-second fix. Caught after the render: a new voice take, new timings, new frames."
         } },
-      { type: "edit-file", path: "${ws}/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
+      { type: "edit-file", path: "weekly-report/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
         learn: [3],
-        guide: "Tell it where to stop. This line goes in the map. Fill your name in as the checker, then save.",
-        typedContent: "\n## Weekly heads-up stages\nRun stages/ in order. Stop after each stage and wait for me.\nChecker for 03_check: [YOUR NAME]\n",
+        guide: "Tell it where to stop. This goes in Jake's map. Fill your name in as the checker, then save.",
+        typedContent: "\n## Stages\nRun stages/ in order. Stop after each stage and wait for me.\nChecker for 03_check: [YOUR NAME]\n",
         fillFields: ["YOUR NAME"],
         xp: 15,
         check: {
@@ -840,31 +885,31 @@
       { type: "claude-chat",
         guide: "Run it. One short sentence. It should stop after the first stage.",
         script: [{
-          suggestedPrompt: "make the weekly heads-up",
-          acceptIf: { mentionsAnyOf: ["heads-up", "heads up", "weekly"], mentionsAllOf: [] },
-          rejectHint: "Ask for the weekly heads-up.",
+          suggestedPrompt: "do this week's report",
+          acceptIf: { mentionsAnyOf: ["report", "week", "table"], mentionsAllOf: [] },
+          rejectHint: "Ask for this week's report.",
           reply: {
-            thinkingLines: ["reading CLAUDE.md: weekly heads-up stages", "stage 01_gather: reading exports/bookings-2026-10-06.csv", "writing stages/01_gather/table.md"],
+            thinkingLines: ["reading CLAUDE.md: stages", "stage 01_gather: reading exports/2026-10-05-bookings.csv", "writing stages/01_gather/table.md"],
             text: "Stage 01 done: stages/01_gather/table.md. Stopping here, as the map says. Look it over and tell me to go on.",
-            effects: [{ writeFile: "${ws}/stages/01_gather/table.md", content: TABLE_1006 }]
+            effects: [{ writeFile: "weekly-report/stages/01_gather/table.md", content: SUMMARY_1005 }]
           }
         }],
         xp: 15 },
-      { type: "edit-file", path: "${ws}/stages/01_gather/table.md", mode: "append", button: "Open table.md",
+      { type: "edit-file", path: "weekly-report/stages/01_gather/table.md", mode: "append", button: "Open table.md",
         learn: [4],
         guide: "Step in. Stepping in is more than yes or no. Add a line the export can't know, then save.",
         typedContent: "\nNote: [SOMETHING YOU KNOW THAT THE EXPORT DOESN'T]\n",
         fillFields: ["SOMETHING YOU KNOW THAT THE EXPORT DOESN'T"],
         xp: 15, achievement: "stepped-in",
         check: {
-          q: "Jake doesn't watch it transcribe, but he reads every storyboard. Why?",
+          q: "Jake doesn't watch it transcribe, but reads every storyboard. Why?",
           options: [
             { t: "Put your eyes where your judgment changes the result, and let the steady parts run.", correct: true },
             { t: "Transcription is never wrong." },
             { t: "Storyboards are longer." },
-            { t: "He watches everything equally." }
+            { t: "Jake watches everything equally." }
           ],
-          explain: "Add a line, stretch a beat, and the one he uses most: delete stuff."
+          explain: "Add a line, stretch a beat, and the one Jake uses most: delete stuff."
         } },
       { type: "claude-chat",
         learn: [5],
@@ -876,13 +921,13 @@
           reply: {
             thinkingLines: ["stage 02_draft: reading stages/01_gather/table.md (including your note)", "writing stages/02_draft/heads-up.md"],
             text: "Stage 02 done: stages/02_draft/heads-up.md, and it uses your note. Stopping again. 03 is yours.",
-            effects: [{ writeFile: "${ws}/stages/02_draft/heads-up.md", content: "Three bookings still pending: Kettle & Co (22 Oct), Oak Lane Dental (28 Oct), Riverside Makers (4 Nov).\nSee the note in the table before chasing.\n" }]
+            effects: [{ writeFile: "weekly-report/stages/02_draft/heads-up.md", content: "17 seats still pending this week: Harper & Lane Accounting (12) and Lumen Dental (5). Confirmed revenue so far: $1,080.\nSee the note in the table before chasing.\n" }]
           }
         }],
         xp: 15 }
     ],
     checkin: {
-      artifacts: ["${ws}/stages/02_draft/heads-up.md"],
+      artifacts: ["weekly-report/stages/02_draft/heads-up.md"],
       quiz: {
         q: "Where do you want to catch the most expensive mistake in a job?",
         options: [
@@ -895,7 +940,7 @@
       },
       reflect: {
         prompt: "Take one job of yours. What are its stages, and which one is where your judgment changes the result?",
-        saveTo: "${ws}/.notes/3-1-reflection.md"
+        saveTo: "weekly-report/.notes/3-1-reflection.md"
       }
     },
     xpLessonComplete: 60
@@ -905,21 +950,18 @@
   "3-2_steady-parts-into-code": {
     intro: [0],
     build: [
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Open the Claude window on client-email. In the real setup, that is your work session.",
-        folderPrompt: "Point it at client-email with the folder selector.",
-        xp: 5 },
+      openOn("weekly-report", "weekly-report"),
       { type: "claude-chat",
         learn: [1, 2],
         guide: "Stage 01 comes out the same every week. That's a job for code. Ask for a script.",
         script: [{
-          suggestedPrompt: "Write me a script that turns the newest export into the weekly table, and put it in a scripts folder. Use whatever's already installed.",
+          suggestedPrompt: "Write me a script that turns this export into the weekly table, and put it in a scripts folder. Use whatever's already installed.",
           acceptIf: { mentionsAnyOf: ["script"], mentionsAllOf: [] },
           rejectHint: "Ask for a script that turns the export into the table.",
           reply: {
-            thinkingLines: ["checking what's installed: python found", "writing scripts/make-table.py"],
-            text: "Wrote scripts/make-table.py. One input, the export. One output, tables/<date>.md. Let's test it on last week's export first.",
-            effects: [{ writeFile: "${ws}/scripts/make-table.py", content: MAKE_TABLE }]
+            thinkingLines: ["reading CLAUDE.md: the table rules", "checking what's installed: python found", "writing scripts/make-table.py"],
+            text: "Wrote scripts/make-table.py, following the table rules in your map. One input, the export. One output, summaries/<date>-summary.md. Test it on last week's export first: you made that one by hand.",
+            effects: [{ writeFile: "weekly-report/scripts/make-table.py", content: MAKE_TABLE }]
           }
         }],
         xp: 20,
@@ -935,14 +977,14 @@
         } },
       { type: "claude-open", mode: "terminal",
         learn: [3],
-        guide: "Test it on something you already did by hand: last week's export. Switch the Claude window to its terminal.",
+        guide: "Test it on something you already did by hand: last week. Switch the Claude window to its terminal.",
         xp: 5 },
-      { type: "claude-term", command: "python scripts/make-table.py exports/bookings-2026-09-29.csv",
-        guide: "Run it on last week's export, exactly: python scripts/make-table.py exports/bookings-2026-09-29.csv",
-        output: ["wrote tables/2026-09-29.md", "Pending: 2 (Fernhill Library, Kettle & Co)", "(simulated. On your machine it runs for real.)"],
+      { type: "claude-term", command: "python scripts/make-table.py exports/2026-09-28-bookings.csv",
+        guide: "Run it on last week's export, exactly: python scripts/make-table.py exports/2026-09-28-bookings.csv",
+        output: ["wrote summaries/2026-09-28-summary.md", "Total: 45 confirmed seats, $1,750, 10 pending. Same as the table made by hand.", "(simulated. On your machine it runs for real.)"],
         xp: 15,
         check: {
-          q: "Last week by hand, you counted two pending. The script says two. Why check this carefully once?",
+          q: "The script's table matches the one made by hand. Why check this carefully once?",
           options: [
             { t: "A wrong script is wrong the same way every time. Check it properly once.", correct: true },
             { t: "Scripts are usually wrong." },
@@ -951,7 +993,7 @@
           ],
           explain: "Once it matches what you did by hand, you can trust it on the hundredth run."
         } },
-      { type: "edit-file", path: "${ws}/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
+      { type: "edit-file", path: "weekly-report/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
         learn: [4],
         guide: "Now the map line, so the AI uses the script instead of thinking. It types in. Save it.",
         typedContent: "\n## Scripts\nFor the weekly table, run python scripts/make-table.py on the newest export in exports/.\n",
@@ -967,9 +1009,7 @@
           ],
           explain: "The old Unix rule from the 70s: make each program do one thing well."
         } },
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Back to chat mode, on client-email.",
-        xp: 5 },
+      openOn("weekly-report", "weekly-report"),
       { type: "claude-chat",
         learn: [5, 6],
         guide: "Next week you just say it. Try it.",
@@ -978,9 +1018,9 @@
           acceptIf: { mentionsAnyOf: ["table"], mentionsAllOf: [] },
           rejectHint: "Ask for this week's table.",
           reply: {
-            thinkingLines: ["map says: run python scripts/make-table.py on the newest export", "running scripts/make-table.py exports/bookings-2026-10-06.csv"],
-            text: "Ran your script. tables/2026-10-06.md: 7 bookings, 3 pending. Same way, every time.",
-            effects: [{ writeFile: "${ws}/tables/2026-10-06.md", content: TABLE_1006 }]
+            thinkingLines: ["map says: run python scripts/make-table.py on the newest export", "running scripts/make-table.py exports/2026-10-05-bookings.csv"],
+            text: "Ran your script. summaries/2026-10-05-summary.md: 29 confirmed seats, $1,080, 17 pending. Same way, every time.",
+            effects: [{ writeFile: "weekly-report/summaries/2026-10-05-summary.md", content: SUMMARY_1005 }]
           }
         }],
         xp: 15,
@@ -996,12 +1036,12 @@
         } }
     ],
     checkin: {
-      artifacts: ["${ws}/scripts/make-table.py", "${ws}/tables/2026-10-06.md"],
+      artifacts: ["weekly-report/scripts/make-table.py", "weekly-report/summaries/2026-10-05-summary.md"],
       quiz: {
-        q: "Which step of the heads-up would you never hand to a script?",
+        q: "Which step of the weekly report would you never hand to a script?",
         options: [
           { t: "Deciding what the owner needs to hear, and how to say it. That's reading between the lines.", correct: true },
-          { t: "Counting the pending bookings." },
+          { t: "Adding up the confirmed seats." },
           { t: "Reading the CSV." },
           { t: "Writing the table." }
         ],
@@ -1009,7 +1049,7 @@
       },
       reflect: {
         prompt: "What's a step in your real work you've done the same way three times?",
-        saveTo: "${ws}/.notes/3-2-reflection.md"
+        saveTo: "weekly-report/.notes/3-2-reflection.md"
       }
     },
     xpLessonComplete: 60
@@ -1019,20 +1059,17 @@
   "3-3_keep-it-useful": {
     intro: [0],
     build: [
-      { type: "claude-open", mode: "chat", expectFolder: "${ws}",
-        guide: "Open the Claude window on client-email. In the real setup, that is your work session.",
-        folderPrompt: "Point it at client-email with the folder selector.",
-        xp: 5 },
+      openOn("${ws}", "client-email"),
       { type: "claude-chat",
         learn: [1],
-        guide: "The fresh-session test. A brand new session, one question.",
+        guide: "The fresh-session test, back in client-email. A brand new session, one question.",
         script: [{
           suggestedPrompt: "What is this folder, what's in progress, and what's next?",
           acceptIf: { mentionsAnyOf: ["what is this", "in progress", "next"], mentionsAllOf: [] },
           rejectHint: "Ask the three questions: what is this folder, what's in progress, what's next.",
           reply: {
-            thinkingLines: ["reading CLAUDE.md", "listing drafts/, stages/, tables/"],
-            text: "It's Sam's client email folder: replies, a weekly bookings heads-up in three stages, and a script for the table. In progress: two drafts waiting in drafts/, and this week's heads-up stopped at stage 03 for Sam. Next: Sam checks the heads-up and answers the Northwind parking question.",
+            thinkingLines: ["reading CLAUDE.md", "listing drafts/"],
+            text: "It's where Jake answers client emails, with routing for replies and a bookings table. In progress: five drafts waiting in drafts/, two of them older replies to Lumen Dental. Next: Jake reads the replies and sends them, and answers Maple Street's laptop question.",
             effects: []
           }
         }],
@@ -1049,14 +1086,14 @@
         } },
       { type: "claude-chat",
         learn: [2],
-        guide: "One home for every fact. Ask it to find any fact that lives in more than one place.",
+        guide: "One home for every fact. Ask it to find any fact or rule that lives in more than one place.",
         script: [{
-          suggestedPrompt: "Find any fact that lives in more than one file here, like a price or a date, and list where each copy is.",
-          acceptIf: { mentionsAnyOf: ["fact", "more than one", "duplicate", "copy", "copies"], mentionsAllOf: [] },
-          rejectHint: "Ask it to find facts that live in more than one file.",
+          suggestedPrompt: "Find any fact or rule that lives in more than one file here, and list where each copy is.",
+          acceptIf: { mentionsAnyOf: ["fact", "rule", "more than one", "duplicate", "copy", "copies"], mentionsAllOf: [] },
+          rejectHint: "Ask it to find facts or rules that live in more than one file.",
           reply: {
-            thinkingLines: ["scanning for repeated prices, dates, names"],
-            text: "Prices: $1,200 and $2,000 are in about-me.md and repeated in both clients' notes. The clients' copies are what each one agreed, so they're their own facts. The standard rate lives once, in about-me.md. Your skill has no prices in it, which is right: it's method.",
+            thinkingLines: ["comparing about-me.md with .claude/skills/how-i-reply/SKILL.md"],
+            text: "Three rules live twice: sign it Jake, never open with 'I hope this email finds you well', and only promise what the notes confirm. They're in about-me.md and in the how-i-reply skill. Change one and they drift. Suggest: the skill is the one home for how to reply, and about-me points to it.",
             effects: []
           }
         }],
@@ -1073,7 +1110,7 @@
         } },
       { type: "create-folder", parent: "${ws}", name: "_archive",
         learn: [0, 3],
-        guide: "Make a folder called _archive in client-email. Retired work goes there, out of the way.",
+        guide: "Make a folder called _archive in client-email. Retired work goes there, out of the way: the older Lumen Dental draft, for one.",
         xp: 10 },
       { type: "edit-file", path: "${ws}/CLAUDE.md", mode: "append", button: "Open CLAUDE.md",
         guide: "Five words in the map, so the AI never wastes a second on it. Save it.",
@@ -1107,8 +1144,8 @@
         } },
       { type: "note",
         learn: [6],
-        guide: ["That's Foundations. Your workspace is real files: download it from the menu, drop it on your real machine, and point the real Claude Code at it.",
-          "Then go build something, and post it in the Clief Notes community. Jake loves seeing what people make."],
+        guide: ["That's Foundations. Your folders are real files: download them from the menu, drop them on your real machine, and point the real Claude Code at them.",
+          "Then go build something of your own, and post it in the Clief Notes community. Jake loves seeing what people make."],
         button: "Finish", xp: 10 }
     ],
     checkin: {

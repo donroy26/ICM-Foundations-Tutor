@@ -29,7 +29,7 @@ function readRoutingTable() {
 const SECTION_OF = (i) => (i < 3 ? 1 : i < 5 ? 2 : i < 8 ? 3 : 4);
 const BOUNDARIES = new Set(["1-2_skills", "1-4_pick-your-setup", "2-3_one-model-different-jobs"]);
 // Folders that live outside the workspace, exactly as in the CLI tutor.
-const OUTSIDE_WS = /^(my-skills|setup-test|practice)(\/|$)/;
+const OUTSIDE_WS = /^(my-skills|practice|tiny-test|weekly-report|newsletter-mess)(\/|$)/;
 
 function extractBrief(md) {
   const start = md.indexOf("## Brief");

@@ -6,10 +6,12 @@ A simulated desktop (file explorer, text editor, and a scripted "Claude Code
 teaches, tutorial-NPC style: guide popups prompt each click, files type themselves
 in, self-checks follow each step, and levels unlock at the section boundaries.
 
-The game plays every lesson on the practice folder (`practice/client-email` in the
-repo): you correct a chat, turn the corrections into a skill, give the skill a
-folder and one agent, then build the folder around the weekly bookings job,
-split it into stages, script the steady part, and keep it from going stale.
+The game plays the practice track, on Jake's own practice folders from the videos
+(`practice/` in the repo; the game's copy is generated from those files): you
+correct a chat, turn the corrections into a skill, give the skill a folder and one
+agent (`client-email`), run the tiny test, design the messy `newsletter-mess`
+folder, then split `weekly-report` into stages, script the steady part, and keep
+it all from going stale.
 
 Everything you build in the game maps 1:1 to real files. Download your workspace
 as a zip at any time, drop it on your actual machine, and point the real Claude

@@ -77,7 +77,7 @@ description: Use when replying to client emails. Writes a short, casual reply in
 4. Never promise a date, a room or a price unless the client's notes confirm it. If they don't, say we'll confirm it and by when.
 5. Sign it "Jake".
 
-That's literally the list of corrections from 1.1, written down once, plus a couple of things it picked up when it interviewed him.
+That's literally the list of corrections from 1.1, written down once, plus a couple of things it picked up in the interview.
 
 
 

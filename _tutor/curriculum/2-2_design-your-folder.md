@@ -28,7 +28,7 @@ Three totally different shapes, because they're three totally different jobs.
 
 ICM is the method
 
-They all come from the same method: ICM, interpretable context methodology, from the paper in 1.3. People started calling the folders themselves ICMs. When Jake says ICM he means the way of thinking that builds the folder, so your folder comes out shaped like your work, and it won't look like his.
+They all come from the same method: ICM, interpretable context methodology, from the paper in 1.3. People started calling the folders themselves ICMs. When Jake says ICM, it means the way of thinking that builds the folder, so your folder comes out shaped like your work, and it won't look like Jake's.
 
 
 
@@ -92,19 +92,22 @@ This stuff is worth real money. Somebody in the community runs a cafe. They buil
 
 <!-- Runtime instructions for Claude, not prose delivered to the user -->
 
-The user redesigns `<ws>` around the job in `<ws>/outcome.md`. The work session does the edits; you inspect.
+The user redesigns a folder around their work. The work session does the edits; you inspect.
+
+**Which folder.** Own-work track: their workspace, designed around the job in their `outcome.md`. Practice track: Jake's messy folder. Copy `practice/newsletter-mess/` to `newsletter-mess/` at the root yourself; `<ws>` is `newsletter-mess/` for this lesson. Tell them: "This is the messy folder Jake points ICM Architect at in the video: two drafts of the same newsletter, an Untitled 3, a folder of old stuff. The job here is the monthly newsletter." Their 2.1 outcome was a different job, and that's fine: the method is the same.
 
 **Step 1: List the jobs.**
-- Read `<ws>/outcome.md` back to them in two lines.
+- Own-work track: read their `outcome.md` back to them in two lines. Practice track: have them open `how we write these.md` and `old stuff/notes from meeting.txt`; between them they say what the newsletter is and how it gets made.
 - Ask: "List the jobs that get you to that outcome. For each one: what does it read, and what does it make?" Take them one at a time.
-- For the practice folder, expect at least: reply to client emails (reads about-me, client notes, inbox; makes drafts) and the weekly bookings heads-up (reads the newest export; makes a short note for the owner). Sending clients updates is a fair third.
-- Write the list into `<ws>/outcome.md` under a `## Jobs` heading so it's on file.
+- On the practice track, expect something like: write the monthly newsletter (reads the how-we-write guide, ideas, confirmed dates and hours; makes a draft) and check dates and hours with Dana (reads the draft; makes a list of what needs confirming). Keeping the subscriber list is a fair third.
+- Write the list into `<ws>/jobs.md` (or under a `## Jobs` heading in their `outcome.md` on the own-work track) so it's on file.
 
 **Step 2: Split by what things are.**
 - Ask: "Go through what's in your folder. Which files are method (how you do the job), which are facts (clients, prices, sources), which are work in progress, and which are finished outputs?"
 - Ask: "Does your folder keep those apart? If not, what would you move?"
 - Instruction: "Ask the work session to move things so method, facts, work and outputs each have a clear home. Keep it small: move only what needs moving. It'll ask before it changes anything. Tell me when it's done."
 - Inspect the new layout. Make sure no original source files were deleted.
+- On the practice track there are real traps to catch: two October drafts that disagree (pumpkin loaf on the 7th vs the 14th, Saturday hours until 3 vs 4), and the confirmed answer hiding in `Untitled 3.txt` (9 to 4 from Oct 11, confirmed with Dana). A good split keeps one current draft in work, moves the older one out of the way, and gives the confirmed hours a single home under facts. If they miss it, ask: "If the AI read both drafts, which hours would it use?"
 
 **Step 3: Label instructions and state.**
 - Instruction: "Ask the work session: `List every file in this folder and label it instructions, state, or both.` Read what it says. Is there any file that's neither? Tell me."
@@ -115,13 +118,13 @@ The user redesigns `<ws>` around the job in `<ws>/outcome.md`. The work session 
 - Inspect `<ws>/CLAUDE.md`: a row for every job in the list (Job / Read / Skip / Use / Save to), every path named exists, naming rules present, and it fits on about one screen (roughly 40 lines or fewer). If it's bloated, have them cut it.
 
 **Optional: ICM Architect.**
-- If the user wants to try it, it's free at https://github.com/RinDig/icm-architect. They'd install it into the work session as a skill and say "make this an ICM". Remind them to read what it proposes and keep the smallest version that does today's job. This is optional; the lesson works without it.
+- If the user wants to try it, it's free at https://github.com/RinDig/icm-architect. They'd install it into the work session as a skill and say "make this an ICM". The practice track's `newsletter-mess/` is exactly the folder Jake demos it on. Remind them to read what it proposes and keep the smallest version that does today's job. This is optional; the lesson works without it.
 
 **Step 5: Test it.**
 - Instruction: "Open a fresh work session on `<ws>` so the desk is clean. Ask for one real job from your list in one short sentence. Watch what it opens. Tell me which files it read."
 - Ask: "Did it open the right few files and skip the rest?" If it wandered, have them tighten that one row and test again. One retest is plenty.
 
-**Artifacts:** `<ws>/CLAUDE.md` with one routing row per job; `<ws>/outcome.md` with the jobs list; the folder split into method, facts, work and outputs.
+**Artifacts:** `<ws>/CLAUDE.md` with one routing row per job; the jobs list on file; the folder split into method, facts, work and outputs.
 
 ---
 
@@ -135,11 +138,11 @@ The user redesigns `<ws>` around the job in `<ws>/outcome.md`. The work session 
 
 3. Record in `_tutor/progress.md`:
    - lesson: "2-2_design-your-folder"
-   - artifacts_inspected: ["<ws>/CLAUDE.md", "<ws>/outcome.md"]
+   - artifacts_inspected: ["<ws>/CLAUDE.md", "<jobs list file>"]
    - comprehension.question: "Your business adds a new client next month, and you change how you write replies. Which files change for each of those, and which stay exactly as they are?"
    - comprehension.answer: "[user's verbatim response]"
    - comprehension.pass: [true/false]
 
-4. A good answer keeps the two changes apart: a new client adds a facts file (a new client folder and notes) and touches nothing in the method; a new way of replying changes the skill (the method) and touches no client facts. The map probably doesn't change for either, or gains at most a line. Translate to their own folder's terms if it isn't the practice one. A bad answer edits everything for both, or puts the new client's details into the skill.
+4. A good answer keeps the two changes apart: a new client adds a facts file (a new client folder and notes) and touches nothing in the method; a new way of replying changes the skill (the method) and touches no client facts. The map probably doesn't change for either, or gains at most a line. On the practice track, the newsletter version: a new month adds a new draft (work) and maybe new confirmed hours (facts); a new way of writing changes `how we write these.md` (method). Translate to their own folder's terms if they're on their own work. A bad answer edits everything for both, or puts the new client's details into the skill.
 
 5. Homework (optional): "List your jobs, split method, facts, work and outputs, write a short map with a routing table, and test it with one real request."
