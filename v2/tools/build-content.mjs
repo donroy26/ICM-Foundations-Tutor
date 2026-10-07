@@ -24,8 +24,12 @@ function readRoutingTable() {
   return rows.map((r) => ({ slug: r[1], name: r[2].replace(/\s*⚑\s*$/, "").trim(), file: r[3] }));
 }
 
-const SECTION_OF = (i) => (i < 2 ? 1 : i < 5 ? 2 : i < 10 ? 3 : 4);
-const BOUNDARIES = new Set(["02_prompt-structure", "05_common-mistakes", "10_where-this-goes"]);
+// Sections follow the course modules: Start Here + 1.1 + 1.2 (the chat layers),
+// 1.3 + 1.4 (folders), module 2, module 3. Boundaries match _tutor/PERSONA.md.
+const SECTION_OF = (i) => (i < 3 ? 1 : i < 5 ? 2 : i < 8 ? 3 : 4);
+const BOUNDARIES = new Set(["1-2_skills", "1-4_pick-your-setup", "2-3_one-model-different-jobs"]);
+// Folders that live outside the workspace, exactly as in the CLI tutor.
+const OUTSIDE_WS = /^(my-skills|setup-test|practice)(\/|$)/;
 
 function extractBrief(md) {
   const start = md.indexOf("## Brief");
@@ -158,7 +162,7 @@ function lintDirectives(lessons) {
       const key = s.path.split(".").pop().replace(/\[\d+\]$/, "");
       if (["path", "pathParent", "saveTo", "writeFile", "expectFolder"].includes(key) ||
           /artifacts\[\d+\]$/.test(s.path)) {
-        if (!s.value.includes("${ws}")) {
+        if (!s.value.includes("${ws}") && !OUTSIDE_WS.test(s.value)) {
           errors.push(`${s.path}: path "${s.value}" is missing \${ws} — hardcoded workspace names break user-chosen folders`);
         }
       }

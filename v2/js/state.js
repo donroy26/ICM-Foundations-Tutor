@@ -19,7 +19,7 @@ FC.state = (function () {
         chosenNames: {}
       },
       progress: {
-        current_lesson: "01_first-folder",
+        current_lesson: "0-0_start-here",
         phase: "A",
         beat: 0,
         lessons_completed: []

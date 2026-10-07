@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /* End-to-end smoke test: drives the game in headless Chromium like a player.
    Run:  NODE_PATH=$(npm root -g) PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node v2/test/e2e.mjs
-   Covers: file:// load with zero console errors, Lesson 1 played fully,
-   reload-resume mid-lesson-2, skip-to lesson 7 (claude sim) played fully,
-   zip download integrity. */
+   Covers: file:// load with zero console errors, Start Here + 1.1 played fully,
+   reload-resume at 1.2, 1.2 and 1.3 (claude sim in a folder) played fully,
+   skip-to 3.2 (practice terminal), zip download integrity, then a full
+   playthrough of every lesson over http://. */
 
 import { createRequire } from "node:module";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join, extname, normalize } from "node:path";
 import { mkdtempSync, readFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -18,7 +19,7 @@ const { chromium } = require("playwright");
 
 const here = dirname(fileURLToPath(import.meta.url));
 const indexPath = join(here, "..", "index.html");
-const fileUrl = "file://" + indexPath + "?debug=1";
+const fileUrl = pathToFileURL(indexPath).href + "?debug=1";
 
 let failures = 0;
 function ok(cond, label) {
@@ -257,7 +258,8 @@ async function playLesson(page, expectSlug) {
 }
 
 async function main() {
-  const browser = await chromium.launch();
+  // PW_CHANNEL=chrome uses an installed Chrome instead of a downloaded Chromium.
+  const browser = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});
   const context = await browser.newContext({ acceptDownloads: true });
   const page = await context.newPage();
   const consoleErrors = [];
@@ -271,22 +273,22 @@ async function main() {
 
   await page.locator("#title-actions button.btn-primary").click();
 
-  // --- Lesson 1, played fully ---
-  console.log("\nplaying lesson 1…");
-  let info = await playLesson(page, "01_first-folder");
-  ok(info.lesson === "02_prompt-structure", "advanced to lesson 2 after close");
+  // --- Start Here and 1.1, played fully ---
+  console.log("\nplaying Start Here and 1.1…");
+  let info = await playLesson(page, "0-0_start-here");
+  ok(info.lesson === "1-1_chat", "advanced to 1.1 after Start Here");
+  info = await playLesson(page, "1-1_chat");
+  ok(info.lesson === "1-2_skills", "advanced to 1.2 after close");
 
   const check = await page.evaluate(() => ({
     xp: FC.state.data.xp.total,
     done: FC.state.data.progress.lessons_completed.length,
-    ws: FC.state.data.player.workspaceName,
-    claudeMd: FC.vfs.readFile("my-blog/CLAUDE.md"),
+    corrections: FC.vfs.readFile("my-skills/corrections.md"),
     saved: localStorage.getItem("fc-v2-save") !== null
   }));
   ok(check.xp > 50, `xp accumulated (${check.xp})`);
-  ok(check.done === 1, "lessons_completed has 1 entry");
-  ok(check.ws === "my-blog", "workspace name stored");
-  ok(!!check.claudeMd && check.claudeMd.includes("test value"), "CLAUDE.md saved with filled fields");
+  ok(check.done === 2, "lessons_completed has 2 entries");
+  ok(!!check.corrections && check.corrections.includes("test value"), "corrections.md saved with filled fields");
   ok(check.saved, "autosave written to localStorage");
 
   // --- Reload mid-lesson: resume ---
@@ -298,23 +300,34 @@ async function main() {
   ok(/Continue/.test(label), `continue button offered ("${label.trim()}")`);
   await continueBtn.click();
   const resumed = await beatInfo(page);
-  ok(resumed.lesson === "02_prompt-structure", "resumed at lesson 2");
-  const treeVisible = await page.locator('.tree-row[data-path="my-blog"]').count();
+  ok(resumed.lesson === "1-2_skills", "resumed at 1.2");
+  const treeVisible = await page.locator('.tree-row[data-path="my-skills"]').count();
   ok(treeVisible > 0, "vfs tree restored from save");
 
-  // --- Skip to lesson 7: claude sim flow, played fully ---
-  console.log("\nskipping to lesson 7 (claude sim)…");
-  await page.evaluate(() => FC.debug.skipTo("07_in-practice"));
-  info = await playLesson(page, "07_in-practice");
-  ok(info.lesson === "08_thinking-partner", "lesson 7 completed through the claude sim");
-  const summary = await page.evaluate(() => FC.vfs.readFile("my-blog/summary.md"));
-  ok(!!summary && summary.includes("Q2 budget"), "iteration rewrote summary.md with budget section");
+  // --- 1.2, then 1.3: the claude sim working inside a folder ---
+  console.log("\nplaying 1.2 and 1.3 (claude sim in a folder)…");
+  info = await playLesson(page, "1-2_skills");
+  ok(info.lesson === "1-3_folders-one-agent", "advanced to 1.3 after the section boundary");
+  info = await playLesson(page, "1-3_folders-one-agent");
+  ok(info.lesson === "1-4_pick-your-setup", "1.3 completed through the claude sim");
+  const ws = await page.evaluate(() => ({
+    name: FC.state.data.player.workspaceName,
+    map: FC.vfs.readFile("client-email/CLAUDE.md"),
+    draft: FC.vfs.readFile("client-email/drafts/2026-10-06-harbor-bakery-1.md"),
+    skill: FC.vfs.readFile("client-email/.claude/skills/how-i-reply/SKILL.md")
+  }));
+  ok(ws.name === "client-email", "workspace is client-email");
+  ok(!!ws.map && ws.map.includes("## Routing") && ws.map.includes("test value"), "map has the routing row with the filled blank");
+  ok(!!ws.draft && !/room will be ready/i.test(ws.draft), "check-my-email draft saved, no room promised");
+  ok(!!ws.skill && ws.skill.includes("name: how-i-reply"), "skill travelled into the workspace");
 
-  // --- Lesson 6: terminal mode ---
-  console.log("\nskipping to lesson 6 (terminal)…");
-  await page.evaluate(() => FC.debug.skipTo("06_install-first-use"));
-  info = await playLesson(page, "06_install-first-use");
-  ok(info.lesson === "07_in-practice", "lesson 6 completed through the practice terminal");
+  // --- 3.2: terminal mode ---
+  console.log("\nskipping to 3.2 (terminal)…");
+  await page.evaluate(() => FC.debug.skipTo("3-2_steady-parts-into-code"));
+  info = await playLesson(page, "3-2_steady-parts-into-code");
+  ok(info.lesson === "3-3_keep-it-useful", "3.2 completed through the practice terminal");
+  const script = await page.evaluate(() => FC.vfs.readFile("client-email/scripts/make-table.py"));
+  ok(!!script && script.includes("csv.DictReader"), "script written by the claude sim");
 
   // --- Zip download ---
   console.log("\nzip export…");
@@ -334,7 +347,7 @@ async function main() {
   }
   ok(unzipOk, "zip passes unzip -t");
   ok(listing.includes("CLAUDE.md"), "zip contains CLAUDE.md");
-  ok(listing.includes("summary.md"), "zip contains files written by the claude sim");
+  ok(listing.includes("make-table.py"), "zip contains files written by the claude sim");
 
   // --- Console errors (catches module/fetch mistakes under file://) ---
   const realErrors = consoleErrors.filter((e) => !/AudioContext|autoplay|fonts.googleapis|net::ERR/i.test(e));
@@ -352,6 +365,7 @@ async function main() {
   const errors2 = [];
   page2.on("console", (m) => { if (m.type() === "error") errors2.push(m.text()); });
   page2.on("pageerror", (e) => errors2.push(String(e)));
+  page2.on("response", (r) => { if (r.status() === 404) errors2.push("404: " + r.url()); });
 
   await page2.goto(`http://127.0.0.1:${server.port}/index.html?debug=1`);
   await page2.waitForSelector("#title-screen.show", { timeout: 8000 });
@@ -365,7 +379,7 @@ async function main() {
     cursor = await playLesson(page2, slug);
     console.log("done");
   }
-  ok(cursor.lesson === "complete", "all 11 lessons completed");
+  ok(cursor.lesson === "complete", "every lesson completed");
 
   const finale = await page2.evaluate(() => ({
     level: FC.state.data.xp.level,

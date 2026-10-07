@@ -118,12 +118,9 @@ FC.engine = (function () {
     handler(beat);
   }
 
-  function lessonNumber() {
-    return FC.content.lessons.indexOf(lesson) + 1;
-  }
-
   function progressLabel(word) {
-    return lesson ? "Lesson " + lessonNumber() + " of 11 · " + word : "";
+    // Lessons carry their course number in the name (1.3, 2.2), so use it.
+    return lesson ? lesson.name + " · " + word : "";
   }
 
   function renderHeader() {
@@ -178,7 +175,7 @@ FC.engine = (function () {
   handlers["open"] = function () {
     var done = progress().lessons_completed.length;
     var greeting = done === 0
-      ? "Welcome in. I'm the teaching assistant for Jake's Foundation curriculum — I'll walk you through all 11 lessons right here on this desktop."
+      ? "Welcome in. I'm the teaching assistant for Jake's Foundations course. I'll walk you through every lesson right here on this desktop: the three layers, building around your work, and automating it."
       : "Back at it. " + lesson.name + ".";
     FC.guide.show({
       progress: progressLabel("open"),
@@ -621,14 +618,15 @@ FC.engine = (function () {
   };
 
   // ---- Phase E: Close ----
-  var LEVEL_AFTER = { "02_prompt-structure": 2, "05_common-mistakes": 3, "10_where-this-goes": 4, "11_path-from-here": 5 };
+  var LEVEL_AFTER = { "1-2_skills": 2, "1-4_pick-your-setup": 3, "2-3_one-model-different-jobs": 4, "3-3_keep-it-useful": 5 };
+  var FINAL_LESSON = "3-3_keep-it-useful";
 
   handlers["close"] = function () {
     var slug = lesson.slug;
     var idx = FC.content.lessons.indexOf(lesson);
     var next = FC.content.lessons[idx + 1];
 
-    if (slug === "11_path-from-here") { finishGame(); return; }
+    if (slug === FINAL_LESSON) { finishGame(); return; }
 
     if (lesson.boundary) {
       if (data().quizStats.sectionClean) FC.xp.award("clean-sweep");
@@ -640,7 +638,7 @@ FC.engine = (function () {
       FC.guide.show({
         progress: progressLabel("done"),
         parts: [
-          { t: "p", text: lesson.name.replace(/ —.*/, "") + " is done and your work checked out." },
+          { t: "p", text: lesson.name + " is done and your work checked out." },
           { t: "p", text: "Next up is " + next.name + ". Whenever you're ready, say go." }
         ],
         buttons: [
@@ -670,10 +668,10 @@ FC.engine = (function () {
 
     card.appendChild(books);
     card.appendChild(U.el("h1", { text: "Level " + FC.xp.levelInfo().level + " — " + FC.xp.levelInfo().name }));
-    card.appendChild(U.el("div", { class: "sub", text: lesson.name + " closes this section. In the real Claude Code you'd open a fresh session here — clean context, no leftovers. In the game: take a breath. Your desktop reloads clean when you come back." }));
+    card.appendChild(U.el("div", { class: "sub", text: lesson.name + " closes this section. In the real Claude Code you'd open a fresh session here: a clean desk, no leftovers. In the game: take a breath. Your desktop reloads clean when you come back." }));
     card.appendChild(U.el("div", { class: "actions" }, [
       U.el("button", { onclick: function () { FC.zip.downloadWorkspace(); } }, [U.icon("download", "icon-sm"), U.el("span", { text: " Download workspace so far" })]),
-      U.el("button", { class: "btn-primary", text: "On to " + next.name.split(" — ")[0], onclick: function () {
+      U.el("button", { class: "btn-primary", text: "On to " + next.name, onclick: function () {
         screen.classList.remove("show");
         startLesson(next.slug);
       } })
@@ -697,8 +695,8 @@ FC.engine = (function () {
       books.appendChild(U.el("span", { class: "earned", style: "background: var(--spine-" + i + ")" }));
     }
     card.appendChild(books);
-    card.appendChild(U.el("h1", { text: "The Foundation is yours" }));
-    card.appendChild(U.el("div", { class: "sub", text: "All 11 lessons. " + data().xp.total + " xp. A workspace built with your own hands — download it, drop it on your real machine, and point the real Claude Code at it. That's the actual next step." }));
+    card.appendChild(U.el("h1", { text: "Foundations is yours" }));
+    card.appendChild(U.el("div", { class: "sub", text: "Every lesson. " + data().xp.total + " xp. A workspace built with your own hands. Download it, drop it on your real machine, and point the real Claude Code at it. That's the actual next step." }));
     card.appendChild(U.el("div", { class: "actions" }, [
       U.el("button", { class: "btn-primary", onclick: function () { FC.zip.downloadWorkspace(); } }, [U.icon("download", "icon-sm"), U.el("span", { text: " Download my workspace" })]),
       U.el("button", { text: "Start over", onclick: function () {

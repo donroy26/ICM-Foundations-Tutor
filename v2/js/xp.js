@@ -6,25 +6,28 @@ FC.xp = (function () {
 
   var LEVELS = [
     { level: 1, name: "Getting started" },
-    { level: 2, name: "Prompt builder" },   // after lesson 02
-    { level: 3, name: "Architect" },        // after lesson 05
-    { level: 4, name: "Operator" },         // after lesson 10
-    { level: 5, name: "Foundation complete" } // after lesson 11
+    { level: 2, name: "Skill writer" },        // after 1.2, the chat layers
+    { level: 3, name: "Folder builder" },      // after 1.4, end of module 1
+    { level: 4, name: "Architect" },           // after 2.3, end of module 2
+    { level: 5, name: "Foundations complete" } // after 3.3
   ];
 
   var ACHIEVEMENTS = {
-    "workspace-named": { title: "First folder", sub: "You named your workspace." },
-    "first-file": { title: "On the record", sub: "Your first CLAUDE.md is saved." },
-    "five-parts": { title: "Prompt architect", sub: "A full five-part prompt, assembled." },
-    "three-layers": { title: "Map, rooms, tools", sub: "The three-layer system is standing." },
-    "honest-audit": { title: "Honest audit", sub: "Seven mistakes, checked against your own setup." },
-    "left-the-driveway": { title: "Left the driveway", sub: "First real exchange with Claude Code." },
-    "iterator": { title: "Iterator", sub: "You fixed the output instead of starting over." },
-    "thinking-partner": { title: "Thinking partner", sub: "You prompted for thinking, not content." },
-    "second-room": { title: "Second room", sub: "Two scoped contexts, two different Claudes." },
+    "first-corrections": { title: "Every correction is a decision", sub: "Your corrections from a real chat, written down." },
+    "first-skill": { title: "First skill", sub: "Your corrections, written down once as a SKILL.md." },
+    "workspace-named": { title: "First folder", sub: "A workspace for one agent to work in." },
+    "first-route": { title: "On the map", sub: "Your first routing row: read, skip, use, save." },
+    "check-my-email": { title: "Three words", sub: "One short sentence reached the whole folder." },
+    "tiny-test": { title: "Setup works", sub: "You opened, read and could change the result yourself." },
+    "outcome-first": { title: "Sixty, thirty, ten", sub: "The outcome before the AI." },
+    "routed": { title: "Routed", sub: "A short map with a row for every job." },
+    "staged": { title: "Stages", sub: "Every stage leaves one file you can open." },
+    "stepped-in": { title: "Stepped in", sub: "Your judgment, landed early, carried through." },
+    "scripted": { title: "Steady parts", sub: "A step that comes out the same, turned into code." },
+    "archived": { title: "Out of the swamp", sub: "Retired work, never read it." },
     "clean-sweep": { title: "Clean sweep", sub: "Every quiz in a section, first try." },
     "packed-up": { title: "Packed up", sub: "You downloaded your workspace as real files." },
-    "foundation-complete": { title: "The Foundation", sub: "All 11 lessons. The system is yours." }
+    "foundation-complete": { title: "Foundations", sub: "Every lesson. The system is yours." }
   };
 
   function data() { return FC.state.data; }
@@ -108,9 +111,10 @@ FC.xp = (function () {
     if (!num) return;
     num.textContent = data().xp.total;
     lvl.textContent = "Level " + data().xp.level + " — " + levelInfo().name;
-    // Bar shows progress through the 11 lessons.
+    // Bar shows progress through every lesson.
     var done = data().progress.lessons_completed.length;
-    fill.style.width = Math.round((done / 11) * 100) + "%";
+    var total = (FC.content && FC.content.lessons.length) || 11;
+    fill.style.width = Math.round((done / total) * 100) + "%";
   }
 
   U.on("xp:changed", renderHeader);

@@ -2,6 +2,30 @@
 
 <!-- Source: 2026-10 Foundations/01_Start_Here.md + full-course video transcript 1:09-4:22 -->
 
+## Opening
+
+<!-- Runtime instructions for Claude, delivered in Phase A. This replaces the plain hook-and-ready opening for Start Here only. -->
+
+**1. The opening message.** Right after you greet them, before the hook, say this in these words or very close to them:
+
+> "Since you're working in Claude Code, a coding environment, 1.3 Folders and One Agent is the natural place to start. That's where the AI starts working right inside your files, and it's what this setup is built for. But 1.3 builds on two things from the first lessons: a list of corrections you made in a chat (1.1) and a skill you made from them (1.2). If you haven't done 1.1 and 1.2 yet, I'll walk you through them first. They happen in the Claude chat app, and I'll keep track of everything here."
+
+**2. Ask where they are.** Ask one question with three answers:
+
+> "So which one fits you?
+> 1. I've only really asked AI questions so far.
+> 2. I've done 1.1 (or I already correct AI in chats a lot), but I haven't made a skill.
+> 3. I've done 1.1 and 1.2, or I already have a skill, saved prompts or a Project I use."
+
+Route:
+- **Answer 1** → `entry_point: "1-1_chat"`. Tell them: "Then we start at 1.1. Even if you think you know chat, there are a couple of things in there most people miss."
+- **Answer 2** → `entry_point: "1-2_skills"`. Ask: "Do you have a chat where you corrected the AI a couple of times, or a written list of corrections?" If they don't, route to 1.1 instead and say why in one sentence: 1.2 is built on that list. Otherwise add 1.1 to `lessons_skipped[]`.
+- **Answer 3** → `entry_point: "1-3_folders-one-agent"`. Add 1.1 and 1.2 to `lessons_skipped[]`. Ask: "Have you got a skill you can bring along? A SKILL.md file, or a saved prompt you use for one job?" Note the answer in progress.md `notes`. If they have none, that's fine: 1.3 has a short step to make one.
+
+If the user says they already work in folders with Claude Code and asks to skip to module 2, Jake allows that in the classroom. Here, hold at 1.3: "1.3 is short, and it sets up the workspace every later lesson builds in. Let's do it together and you'll fly through it."
+
+**3. Then the hook.** Once they've answered, deliver the Brief's hook and ask "Ready to start?" as usual. Everyone gets the Start Here map, whatever their entry point: it's short, and every later lesson refers back to the three layers.
+
 ## Brief
 
 What You'll Get From This
@@ -56,27 +80,9 @@ Two extra sections live in the Skool classroom: Live Lessons, longer recordings 
 
 <!-- Runtime instructions for Claude, not prose delivered to the user -->
 
-Start Here has no file to build. The build is choosing where to start.
+Start Here has no file to build. The entry point was chosen in the Opening.
 
-**Step 1: Deliver the opening routing message.** Say this, in these words or very close to them:
-
-> "Since you're working in Claude Code, a coding environment, 1.3 Folders and One Agent is the natural place to start. That's where the AI starts working right inside your files, and it's what this setup is built for. But 1.3 builds on two things from the first lessons: a list of corrections you made in a chat (1.1) and a skill you made from them (1.2). If you haven't done 1.1 and 1.2 yet, I'll walk you through them first. They happen in the Claude chat app, and I'll keep track of everything here."
-
-**Step 2: Ask where they are.** Ask one question with three answers:
-
-> "So which one fits you?
-> 1. I've only really asked AI questions so far.
-> 2. I've done 1.1 (or I already correct AI in chats a lot), but I haven't made a skill.
-> 3. I've done 1.1 and 1.2, or I already have a skill, saved prompts or a Project I use."
-
-Route:
-- **Answer 1** → `entry_point: "1-1_chat"`. Tell them: "Then we start at 1.1. Even if you think you know chat, there are a couple of things in there most people miss."
-- **Answer 2** → `entry_point: "1-2_skills"`. Ask: "Do you have a chat where you corrected the AI a couple of times, or a written list of corrections?" If they don't, route to 1.1 instead and say why in one sentence: 1.2 is built on that list. Otherwise add 1.1 to `lessons_skipped[]`.
-- **Answer 3** → `entry_point: "1-3_folders-one-agent"`. Add 1.1 and 1.2 to `lessons_skipped[]`. Ask: "Have you got a skill you can bring along? A SKILL.md file, or a saved prompt you use for one job?" Note the answer in progress.md `notes`. If they have none, that's fine: 1.3 has a short step to make one.
-
-If the user says they already work in folders with Claude Code and asks to skip to module 2, Jake allows that in the classroom. Here, hold at 1.3: "1.3 is short, and it sets up the workspace every later lesson builds in. Let's do it together and you'll fly through it."
-
-**Step 3: Confirm.** Read back their starting lesson by its full name (e.g., "So we start at 1.3 Folders and One Agent.").
+**Step 1: Confirm.** Read back their starting lesson by its full name (e.g., "So we start at 1.3 Folders and One Agent.").
 
 ---
 

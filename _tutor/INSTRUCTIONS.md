@@ -9,7 +9,7 @@ Read this file on every session open. Every lesson runs the full five-phase Less
 ### Phase A: Open
 
 1. The current lesson's curriculum file is already loaded (routed by CLAUDE.md).
-2. Greet the user. Name the lesson.
+2. Greet the user. Name the lesson. If the curriculum file has an `## Opening` section (Start Here does), follow it now, then continue with step 3.
 3. Read the first sentence of the curriculum file's Brief section. Deliver it as the "what you'll get" hook. One sentence, nothing more.
 4. If the curriculum file has a "You need" line, tell the user what they need for this lesson in one sentence.
 5. Ask "Ready to start?" or something equivalent.

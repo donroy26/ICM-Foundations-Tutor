@@ -220,9 +220,9 @@ FC.content = {
     {
       "slug": "1-2_skills",
       "name": "1.2 Skills (and Projects)",
-      "section": 2,
-      "spine": 2,
-      "boundary": false,
+      "section": 1,
+      "spine": 1,
+      "boundary": true,
       "hash": "e286a9c826b2",
       "hook": "Your first skill, made from your own corrections and working in a brand new chat without you retyping a thing, plus a Project set up for your files.",
       "chunks": [
@@ -546,7 +546,7 @@ FC.content = {
       "name": "1.4 Pick Your Setup",
       "section": 2,
       "spine": 2,
-      "boundary": false,
+      "boundary": true,
       "hash": "ae09c750920f",
       "hook": "The four pieces of any AI setup, what each option really costs you, and one tiny job that proves your setup works.",
       "chunks": [
@@ -991,7 +991,7 @@ FC.content = {
       "name": "2.3 One Model, Different Jobs",
       "section": 3,
       "spine": 3,
-      "boundary": false,
+      "boundary": true,
       "hash": "8109ecce4fcf",
       "hook": "How one model plays every role your work needs, where code and connections fit in, and the handful of times a team of separate agents actually earns its keep.",
       "chunks": [
@@ -1095,8 +1095,8 @@ FC.content = {
     {
       "slug": "3-1_stages",
       "name": "3.1 Stages You Can Step Into",
-      "section": 3,
-      "spine": 3,
+      "section": 4,
+      "spine": 4,
       "boundary": false,
       "hash": "d6dcadb097a6",
       "hook": "Work split into stages that each leave a file you can open, the spots where your judgment actually changes the result, and the AI waiting for you when it matters.",
@@ -1196,8 +1196,8 @@ FC.content = {
     {
       "slug": "3-2_steady-parts-into-code",
       "name": "3.2 Turn the Steady Parts Into Code",
-      "section": 3,
-      "spine": 3,
+      "section": 4,
+      "spine": 4,
       "boundary": false,
       "hash": "10514f6a6e14",
       "hook": "One step you've done the same way three or four times running as a script, written into your map so the AI uses it, and a clear sense of which steps should stay with the AI.",

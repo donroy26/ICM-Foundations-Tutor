@@ -47,7 +47,7 @@
       FC.state.save();
     }));
     menu.appendChild(item("rotate-ccw", "Restart from scratch", function () {
-      if (confirm("Wipe this save and start over from Lesson 1?")) {
+      if (confirm("Wipe this save and start over from the beginning?")) {
         FC.state.reset();
         location.reload();
       }
@@ -114,7 +114,7 @@
         }
       } }));
     } else {
-      actions.appendChild(U.el("button", { class: "btn-primary", text: "Start Lesson 1", onclick: function () {
+      actions.appendChild(U.el("button", { class: "btn-primary", text: "Start", onclick: function () {
         begin(false);
       } }));
     }
@@ -128,18 +128,17 @@
     FC.debug = {
       skipTo: function (slug) {
         var d = FC.state.data;
+        // Seed the minimum earlier lessons would have left behind.
+        if (!FC.vfs.exists("my-skills/corrections.md")) {
+          FC.vfs.writeFile("my-skills/corrections.md", "# Corrections\n\nJob: reply to client emails\n\n- Too formal  (voice)\n");
+          FC.vfs.writeFile("my-skills/how-i-reply/SKILL.md", "---\nname: how-i-reply\ndescription: Use when replying to client emails.\n---\n# How I reply\n1. Keep it short.\n");
+        }
         if (!d.player.workspaceName) {
-          d.player.workspaceName = "my-blog";
-          FC.vfs.mkdir("my-blog");
-          FC.vfs.writeFile("my-blog/CLAUDE.md", "# Identity\n\nYou are helping Test Player with testing.\n\n## Rules\n- Keep it plain\n");
-        }
-        if (!d.player.chosenNames["03-room"]) {
-          d.player.chosenNames["03-room"] = "writing-room";
-          FC.vfs.writeFile("my-blog/writing-room/CONTEXT.md", "# Writing room\n\nTest context.\n");
-        }
-        if (!d.player.chosenNames["02-prompt-file"]) {
-          d.player.chosenNames["02-prompt-file"] = "my-first-prompt.md";
-          FC.vfs.writeFile("my-blog/prompts/my-first-prompt.md", "# Test prompt\n");
+          d.player.workspaceName = "client-email";
+          FC.vfs.mkdir("client-email");
+          FC.vfs.writeFile("client-email/CLAUDE.md", "# client-email\n\nTest map.\n");
+          FC.vfs.writeFile("client-email/exports/bookings-2026-10-06.csv", "booking_id,client,session,date,status,attendees,price\nB-1044,Kettle & Co,Full day,2026-10-22,pending,6,2000\n");
+          FC.vfs.writeFile("client-email/outcome.md", "# Outcome\n\nTest outcome.\n");
         }
         U.q("#title-screen").classList.remove("show");
         U.q("#level-screen").classList.remove("show");

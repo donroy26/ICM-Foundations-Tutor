@@ -1,10 +1,15 @@
 # Foundation Companion: Desktop (v2 addon)
 
-The 11 Foundation lessons as a browser game. A simulated desktop — file explorer,
-text editor, and a scripted "Claude Code (simulated)" window — walks you through
-the same curriculum the Claude Code tutor teaches, tutorial-NPC style: guide
-popups prompt each click, files type themselves in, comprehension quizzes gate
-each lesson, and levels unlock at the section boundaries.
+Jake's Foundations course (Start Here plus lessons 1.1 to 3.3) as a browser game.
+A simulated desktop (file explorer, text editor, and a scripted "Claude Code
+(simulated)" window) walks you through the same curriculum the Claude Code tutor
+teaches, tutorial-NPC style: guide popups prompt each click, files type themselves
+in, self-checks follow each step, and levels unlock at the section boundaries.
+
+The game plays every lesson on the practice folder (`practice/client-email` in the
+repo): you correct a chat, turn the corrections into a skill, give the skill a
+folder and one agent, then build the folder around the weekly bookings job,
+split it into stages, script the steady part, and keep it from going stale.
 
 Everything you build in the game maps 1:1 to real files. Download your workspace
 as a zip at any time, drop it on your actual machine, and point the real Claude
@@ -29,7 +34,13 @@ single source of truth. Lesson slugs and the progress vocabulary mirror
 `_tutor/progress.md`, and the game mirrors the five-phase Lesson Loop from
 `_tutor/INSTRUCTIONS.md`: Open, Teach (with comprehension checks), Build
 (one step at a time, inspected), Check-in (gating quiz), Close (section
-boundaries after lessons 2, 5, 10). Nothing in `_tutor/` changed.
+boundaries after 1.2, 1.4 and 2.3, the same places the CLI tutor asks for a
+fresh session).
+
+One difference: the CLI tutor starts most people at 1.3 and uses two Claude Code
+sessions (a tutor and a work session). The game has no real terminal, so it plays
+every lesson in order, and the simulated Claude window stands in for the work
+session.
 
 ## Editing content
 
@@ -41,7 +52,9 @@ boundaries after lessons 2, 5, 10). Nothing in `_tutor/` changed.
 
   This rewrites `v2/js/data/content.js` and lints the game script — it fails
   loudly if a lesson's chunking shifted under existing references, if any copy
-  uses a banned persona phrase or emoji, or if a path is missing `${ws}`.
+  uses a banned persona phrase or emoji, or if a path is missing `${ws}`
+  (`my-skills/`, `setup-test/` and `practice/` live outside the workspace, as in
+  the CLI tutor, and are allowed).
 
 - **The game script** (build steps, quizzes, Claude-sim scripts, XP) is
   hand-authored in `v2/js/data/directives.js`, one entry per lesson.
@@ -82,13 +95,14 @@ v2/
 
 ## Tests
 
-The e2e bot plays Lesson 1 fully under `file://`, checks reload-resume, drives
-the Claude-sim lessons, verifies the zip with real `unzip`, then plays **all 11
-lessons end to end** over `http://` and asserts the finale:
+The e2e bot plays Start Here and 1.1 fully under `file://`, checks reload-resume,
+plays 1.2 and 1.3 (the Claude sim working in a folder), drives the practice
+terminal in 3.2, verifies the zip with real `unzip`, then plays **every lesson end
+to end** over `http://` and asserts the finale:
 
 ```
 NODE_PATH=$(npm root -g) PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node v2/test/e2e.mjs
 ```
 
-(Any environment with Playwright + Chromium works; adjust the two env vars to
-your install.)
+Any environment with Playwright works. To use an installed Chrome instead of a
+downloaded Chromium (handy on Windows), set `PW_CHANNEL=chrome`.

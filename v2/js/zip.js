@@ -94,7 +94,7 @@ FC.zip = (function () {
     if (!entries.length) {
       entries.push({
         name: "README.txt",
-        content: "Your workspace is empty so far. Play through Lesson 1 to build your first files.\n"
+        content: "Your workspace is empty so far. Play through the first lessons to build your first files.\n"
       });
     }
     var name = (FC.state.data.player.workspaceName || "foundation-workspace") + ".zip";
