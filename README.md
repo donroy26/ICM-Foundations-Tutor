@@ -1,6 +1,6 @@
 # Foundation Companion
 
-Foundation Companion walks you through Jake Van Clief's Foundations course from the Clief Notes Skool community by having you build each lesson in Claude Code as you go. Instead of reading, you do.
+Foundation Companion walks you through Jake Van Clief's Foundations course from the [Clief Notes Skool community](https://www.skool.com/cliefnotes/about?ref=f4482ac988fb4a7b8da3efa95cfc1d00) by having you build each lesson in Claude Code as you go. Instead of reading, you do.
 
 For Clief Notes members who've seen the Foundations lessons and want a hands-on walkthrough. Updated for the October 2026 Foundations course (Start Here plus lessons 1.1 to 3.3), which is also free as one video: [How I'd Learn AI From Zero in 2026](https://youtu.be/6AzLk2-kWyY).
 
