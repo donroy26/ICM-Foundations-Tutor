@@ -60,7 +60,7 @@ No Node needed. Check it worked with `claude --version`. If `claude` isn't found
 
 ## How to open this repo
 
-First, get the repo. Either clone it with git (`git clone https://github.com/donroy26/Clief-Notes-Foundations-Tutor.git`) or download the ZIP from GitHub and unzip it somewhere you can find it.
+First, get the repo. Either clone it with git (`git clone https://github.com/donroy26/ICM-Foundations-Tutor.git`) or download the ZIP from GitHub and unzip it somewhere you can find it.
 
 Then open it, whichever way you work:
 
